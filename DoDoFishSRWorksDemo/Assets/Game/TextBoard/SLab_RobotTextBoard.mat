@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SLab_RobotTextBoard
+  m_Shader: {fileID: 4800000, guid: 9ed21783dbd5da2499afc87d38345b0b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaMask:
+        m_Texture: {fileID: 2800000, guid: bd8f508c5b931ca4195a4150c2fe8540, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 082f7caede1ea314abf267e96ddaff2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScanBox:
+        m_Texture: {fileID: 2800000, guid: 403632f5bd195774f8295643a01c8155, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScanLight:
+        m_Texture: {fileID: 2800000, guid: 50b8861b012009a4f85cfa33cf2ef805, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScanLine:
+        m_Texture: {fileID: 2800000, guid: de8cf87c49d216645b58197b0a22a0ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BoxSpeed: 0.313
+    - _BoxStrength: 0.104
+    - _LightSpeed: 0.271
+    - _LightStrength: 0.271
+    - _LineSpeed: 0.266
+    - _LineStrength: 0.228
+    - __dirty: 0
+    m_Colors:
+    - _EmissionColor: {r: 0, g: 0.35927984, b: 0.47794116, a: 0}

@@ -1,0 +1,261 @@
+fileFormatVersion: 2
+guid: 3176aff1ce8dea14481eea08a164d427
+timeCreated: 1514859494
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Box003
+    100002: carAccessories
+    100004: carBody
+    100006: carBodyInside
+    100008: carChassis
+    100010: carDoor
+    100012: carDoor 1
+    100014: carDoor001
+    100016: carDoor_Left
+    100018: carDoor_Right
+    100020: carGlass
+    100022: carIinterior
+    100024: carInterior
+    100026: chair
+    100028: chair002
+    100030: mirror_front
+    100032: mirror_left
+    100034: mirror_left001
+    100036: Object049
+    100038: Object050
+    100040: Object051
+    100042: Object053
+    100044: Object067
+    100046: Object068
+    100048: Object069
+    100050: //RootNode
+    100052: Shape003
+    100054: Wheel
+    100056: Wheel 1
+    100058: Wheel 2
+    100060: Wheel 3
+    400000: Box003
+    400002: carAccessories
+    400004: carBody
+    400006: carBodyInside
+    400008: carChassis
+    400010: carDoor
+    400012: carDoor 1
+    400014: carDoor001
+    400016: carDoor_Left
+    400018: carDoor_Right
+    400020: carGlass
+    400022: carIinterior
+    400024: carInterior
+    400026: chair
+    400028: chair002
+    400030: mirror_front
+    400032: mirror_left
+    400034: mirror_left001
+    400036: Object049
+    400038: Object050
+    400040: Object051
+    400042: Object053
+    400044: Object067
+    400046: Object068
+    400048: Object069
+    400050: //RootNode
+    400052: Shape003
+    400054: Wheel
+    400056: Wheel 1
+    400058: Wheel 2
+    400060: Wheel 3
+    2300000: Box003
+    2300002: carAccessories
+    2300004: carBody
+    2300006: carBodyInside
+    2300008: carChassis
+    2300010: carDoor
+    2300012: carDoor001
+    2300014: carGlass
+    2300016: carIinterior
+    2300018: chair
+    2300020: chair002
+    2300022: mirror_front
+    2300024: mirror_left
+    2300026: mirror_left001
+    2300028: Object050
+    2300030: Object051
+    2300032: Object053
+    2300034: Object067
+    2300036: Object068
+    2300038: Object069
+    2300040: Wheel
+    2300042: Wheel 1
+    2300044: Wheel 2
+    2300046: Wheel 3
+    3300000: Box003
+    3300002: carAccessories
+    3300004: carBody
+    3300006: carBodyInside
+    3300008: carChassis
+    3300010: carDoor
+    3300012: carDoor001
+    3300014: carGlass
+    3300016: carIinterior
+    3300018: chair
+    3300020: chair002
+    3300022: mirror_front
+    3300024: mirror_left
+    3300026: mirror_left001
+    3300028: Object050
+    3300030: Object051
+    3300032: Object053
+    3300034: Object067
+    3300036: Object068
+    3300038: Object069
+    3300040: Wheel
+    3300042: Wheel 1
+    3300044: Wheel 2
+    3300046: Wheel 3
+    4300000: Object069
+    4300002: carDoor001
+    4300004: mirror_left001
+    4300006: carAccessories
+    4300008: carGlass
+    4300010: carChassis
+    4300012: Wheel
+    4300014: Wheel
+    4300016: Wheel
+    4300018: Wheel
+    4300020: Object053
+    4300022: mirror_left
+    4300024: carDoor
+    4300026: carBody
+    4300028: mirror_front
+    4300030: carIinterior
+    4300032: Object050
+    4300034: Object051
+    4300036: Object067
+    4300038: Object068
+    4300040: chair002
+    4300042: chair
+    4300044: carBodyInside
+    4300046: Box003
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carAccessories
+    second: {fileID: 2100000, guid: 611644d094dd3994e8573722cbfd6191, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carBody
+    second: {fileID: 2100000, guid: 9c10fa04dc5bffe4db3367f48f148140, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carChassis
+    second: {fileID: 2100000, guid: 8493fdadd5ca6f84780fb2712ee28c6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carDoor
+    second: {fileID: 2100000, guid: 299c535f2f97f2849babedfb8d3beb0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carGlass
+    second: {fileID: 2100000, guid: 5d7a9231c6935314d8b7d2c2d3c963c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carInterior
+    second: {fileID: 2100000, guid: e78c7d28a27aff54c81e343fd7dba00e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mirror
+    second: {fileID: 2100000, guid: 890a800fab708a04da6252297a888975, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheel
+    second: {fileID: 2100000, guid: a8c26c6623ee8d34abfddad4f6c3cf15, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

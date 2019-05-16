@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1371780786223324}
+  m_IsPrefabParent: 1
+--- !u!1 &1000254757563532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4360686016529100}
+  - component: {fileID: 114966194761226956}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1371780786223324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4200799424926114}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1968107785206448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4542360227987264}
+  - component: {fileID: 114194977932218798}
+  m_Layer: 0
+  m_Name: ARRender
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1973195472959170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4440610437933466}
+  - component: {fileID: 114508523275322098}
+  - component: {fileID: 114384565846585918}
+  m_Layer: 0
+  m_Name: ReconstructManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4200799424926114
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371780786223324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3515306, y: -2.018519, z: 3.3980618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4360686016529100}
+  - {fileID: 4542360227987264}
+  - {fileID: 4440610437933466}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4360686016529100
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000254757563532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4200799424926114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4440610437933466
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973195472959170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4200799424926114}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4542360227987264
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968107785206448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4200799424926114}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114194977932218798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968107785206448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5984d8e528c03b4face6fdc2baefb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFPS: 0
+  VRCamera: {fileID: 0}
+  DualCameraL: {fileID: 0}
+  DualCameraR: {fileID: 0}
+  dilateMaskShader: {fileID: 4800000, guid: 8145ad2d2c5cb3a4097a93706ad1bbec, type: 3}
+  genBinaryMaskShader: {fileID: 4800000, guid: 600115c8ce130f843913339a595581c7, type: 3}
+  refineGBufferShader: {fileID: 4800000, guid: 94415dcb5459b9342a20c39c5cf6168e, type: 3}
+  ScanLiveMeshShaderDepthNormal: {fileID: 4800000, guid: c0300fecc7a76d24c86810d8360c9f76,
+    type: 3}
+  CopyCameraDepthColorMaterial: {fileID: 2100000, guid: 54833425c608ce94fa43682f17d3a8fc,
+    type: 2}
+  RenderWithARDepthMaterial: {fileID: 2100000, guid: 6e8bc8f32177f0941ab40b2d99f7f211,
+    type: 2}
+  MergeDepthMat: {fileID: 2100000, guid: cac9140893860c040ba6d394f36910cd, type: 2}
+  CopyCameraDepthMat: {fileID: 2100000, guid: cf33be9bcbf63b940922a1b710cad068, type: 2}
+  shadowCastDirLight: {fileID: 0}
+  shadowRecieveShader: {fileID: 4800000, guid: 1dc04a4583d5bf248b7d91c4e37ed704, type: 3}
+  screenShadowBlit: {fileID: 2100000, guid: 287232553d5fd814a887fff440009423, type: 2}
+  blurHMaterial: {fileID: 2100000, guid: d8f831a1a8a05b347a22cce7c53334b5, type: 2}
+  blurVMaterial: {fileID: 2100000, guid: 8e91db0230325d346bb8c589fe89ac1f, type: 2}
+  shadowCastCameraPrefab: {fileID: 1660542983537974, guid: e43e5dc02dcabaa4b8d88129cdd52271,
+    type: 2}
+  shadowCastMask:
+    serializedVersion: 2
+    m_Bits: 3145985
+  BlitLightMapMaterial: {fileID: 2100000, guid: 0ab889712274902429d07628ee2359e3,
+    type: 2}
+  DeferredPointLightMapMaterial: {fileID: 2100000, guid: f3b254c349640e441b612acaaf017822,
+    type: 2}
+  DeferredSpotLightMapMaterial: {fileID: 2100000, guid: 4e9a8f95903b7ea41970d2253d334a92,
+    type: 2}
+  PointLightObjList:
+  - {fileID: 0}
+  SpotLightObjList:
+  - {fileID: 0}
+  - {fileID: 0}
+  writeDepthCameraPrefab: {fileID: 1392538371767862, guid: 6ed8e56d1b0f25d46ac2faa3441d1577,
+    type: 2}
+  unityrenderWithDepthObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unityrenderWithDepthNoShadowObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  softEdgeWeightMaterial: {fileID: 2100000, guid: 6d2d6731e00cfa743869f4511279ecc6,
+    type: 2}
+--- !u!114 &114384565846585918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973195472959170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4104750a39391a48afa96c86197f557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viveSR: {fileID: 0}
+  eye: {fileID: 0}
+  Near: 0
+  Far: 0.63
+  DebugShow: 0
+  viveSR_Experience_StaticMesh: {fileID: 0}
+  dynamicHandDisDivided: 0.2
+--- !u!114 &114508523275322098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973195472959170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7307a1681e129f418876e2582ca5599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectWallMaterial: {fileID: 2100000, guid: 71c749c87cd9da042876731a92568530, type: 2}
+  selectWallPointer: {fileID: 0}
+  selectedWallRoot: {fileID: 0}
+  recontructFloor: {fileID: 0}
+--- !u!114 &114966194761226956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000254757563532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a856e0e67857b4b9cfdece4110d89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeInfoText: {fileID: 0}
+  hidingDoor: {fileID: 0}
+  measureSizeQuad: {fileID: 0}
+  PaintBallWallGameObj: {fileID: 0}
+  fishAI: {fileID: 0}
+  PaintBallWallGameLocation: {fileID: 0}
+  PaintBallWallGameSizePlane: {fileID: 0}
+  PBSPaintBallGun: {fileID: 0}
+  PaintBallWallGame_LiftReflectTex: {fileID: 2100000, guid: f03c79d81098bc849adf4bc63471365e,
+    type: 2}
+  PaintBallWallGame_FixedReflectTex: {fileID: 2100000, guid: 6530c29895b86744182a0f4b54487023,
+    type: 2}
+  generator: {fileID: 0}
+  LiftMachine: {fileID: 0}
+  garageController: {fileID: 0}
+  Robot: {fileID: 0}
+  FairyStick: {fileID: 0}
+  handStart: {fileID: 0}
+  handEnd: {fileID: 0}

@@ -1,0 +1,13 @@
+bin/
+bin.meta
+obj/
+obj.meta
+Debug/
+Library/
+Temp/
+.vs/
+*.suo
+.suo
+//*.csproj
+*.cache
+//*.sln

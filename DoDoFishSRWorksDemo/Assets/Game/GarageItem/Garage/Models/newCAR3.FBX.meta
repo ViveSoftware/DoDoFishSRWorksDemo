@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: d98dd05501c659a48ae7a594216d1ba5
+timeCreated: 1511321320
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: backlight2
+    100002: frlight-dir
+    100004: //RootNode
+    100006: Nissan_350Z_HN
+    100008: Nissan_bottom
+    100010: Nissan_inside_case
+    100012: Object005
+    100014: Object009
+    100016: Object011
+    100018: Object014
+    100020: Object022
+    100022: Object025
+    100024: Object026
+    100026: Object027
+    100028: Object028
+    100030: Object029
+    100032: Object030
+    100034: Object031
+    100036: Rad_HL
+    100038: Rad_HR
+    100040: Rad_VR
+    100042: tyl
+    100044: whiteOmi
+    400000: backlight2
+    400002: frlight-dir
+    400004: //RootNode
+    400006: Nissan_350Z_HN
+    400008: Nissan_bottom
+    400010: Nissan_inside_case
+    400012: Object005
+    400014: Object009
+    400016: Object011
+    400018: Object014
+    400020: Object022
+    400022: Object025
+    400024: Object026
+    400026: Object027
+    400028: Object028
+    400030: Object029
+    400032: Object030
+    400034: Object031
+    400036: Rad_HL
+    400038: Rad_HR
+    400040: Rad_VR
+    400042: tyl
+    400044: whiteOmi
+    2300000: backlight2
+    2300002: frlight-dir
+    2300004: Nissan_bottom
+    2300006: Nissan_inside_case
+    2300008: Object005
+    2300010: Object009
+    2300012: Object011
+    2300014: Object014
+    2300016: Object022
+    2300018: Object025
+    2300020: Object026
+    2300022: Object027
+    2300024: Object028
+    2300026: Object029
+    2300028: Object030
+    2300030: Object031
+    2300032: tyl
+    2300034: whiteOmi
+    3300000: backlight2
+    3300002: frlight-dir
+    3300004: Nissan_bottom
+    3300006: Nissan_inside_case
+    3300008: Object005
+    3300010: Object009
+    3300012: Object011
+    3300014: Object014
+    3300016: Object022
+    3300018: Object025
+    3300020: Object026
+    3300022: Object027
+    3300024: Object028
+    3300026: Object029
+    3300028: Object030
+    3300030: Object031
+    3300032: tyl
+    3300034: whiteOmi
+    4300000: frlight-dir
+    4300002: tyl
+    4300004: Nissan_inside_case
+    4300006: Nissan_bottom
+    4300008: Object027
+    4300010: Object028
+    4300012: Object029
+    4300014: Object030
+    4300016: Object005
+    4300018: Object009
+    4300020: Object011
+    4300022: Object014
+    4300024: Object022
+    4300026: Object025
+    4300028: Object026
+    4300030: Object031
+    4300032: whiteOmi
+    4300034: backlight2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 06 - Default
+    second: {fileID: 2100000, guid: 9712dd114887ccf479c3daddc7d48483, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 350_inside
+    second: {fileID: 2100000, guid: a43abafc245e74942a4a6b84beeddaf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 350_mirror
+    second: {fileID: 2100000, guid: cca8955cc5abcc84b97139e25e0c0def, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_18
+    second: {fileID: 2100000, guid: dc929ccc863f4cc4baf436ddb76f6973, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_22
+    second: {fileID: 2100000, guid: 58807aa7c764cf94f8df44be48aefd11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_24
+    second: {fileID: 2100000, guid: 9f5bbfdcdfbe39143b40fa050f13b801, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: backlight
+    second: {fileID: 2100000, guid: 5e5daad2611478844ae3b3e1fcb77b00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carbody
+    second: {fileID: 2100000, guid: 6ed0ce9c0c4d6eb43bf5f083fcb4af85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frontlight
+    second: {fileID: 2100000, guid: 15f30267d4db5fc44a2dbb79f3ce7eed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light2
+    second: {fileID: 2100000, guid: bebacb2f89b30624bbe423d86fee2d1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 4da263abc8252ec4683dd0ac53fbdf21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orglight
+    second: {fileID: 2100000, guid: 9c3571b74f9fda54faa53e3b8343a1d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheelA
+    second: {fileID: 2100000, guid: 192aa04206f49bf4088728648f54eca9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheelB
+    second: {fileID: 2100000, guid: a4406082e5a1c5f40acb8530d725a848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheelC
+    second: {fileID: 2100000, guid: 1165117c00b7d504494cc6789b988db2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: whiteligtht
+    second: {fileID: 2100000, guid: c8a9edb716042c244a8d7f7a478c5f7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellowlight
+    second: {fileID: 2100000, guid: 93a60ea2043d5df40b375fe15339e7ec, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

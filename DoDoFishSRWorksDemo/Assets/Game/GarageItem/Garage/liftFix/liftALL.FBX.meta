@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 0e51678567cddab42be621493a866751
+timeCreated: 1513223142
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Box9720
+    100002: Box9729
+    100004: Box9735
+    100006: Cylinder031
+    100008: Cylinder032
+    100010: Cylinder041
+    100012: Cylinder047
+    100014: LeftButton
+    100016: LeftPillar
+    100018: //RootNode
+    100020: liftcontrol
+    100022: liftSystem
+    100024: Object058
+    100026: Object064
+    100028: Object065
+    100030: Object079
+    100032: Object115
+    100034: Object116
+    100036: Object121
+    100038: Object122
+    100040: Pillars
+    100042: platform
+    100044: platformALL
+    100046: RightButton
+    100048: RightPillar
+    400000: Box9720
+    400002: Box9729
+    400004: Box9735
+    400006: Cylinder031
+    400008: Cylinder032
+    400010: Cylinder041
+    400012: Cylinder047
+    400014: LeftButton
+    400016: LeftPillar
+    400018: //RootNode
+    400020: liftcontrol
+    400022: liftSystem
+    400024: Object058
+    400026: Object064
+    400028: Object065
+    400030: Object079
+    400032: Object115
+    400034: Object116
+    400036: Object121
+    400038: Object122
+    400040: Pillars
+    400042: platform
+    400044: platformALL
+    400046: RightButton
+    400048: RightPillar
+    2300000: Box9720
+    2300002: Box9729
+    2300004: Box9735
+    2300006: Cylinder031
+    2300008: Cylinder032
+    2300010: Cylinder041
+    2300012: Cylinder047
+    2300014: Object058
+    2300016: Object064
+    2300018: Object065
+    2300020: Object079
+    2300022: Object115
+    2300024: Object116
+    2300026: Object121
+    2300028: Object122
+    2300030: platform
+    3300000: Box9720
+    3300002: Box9729
+    3300004: Box9735
+    3300006: Cylinder031
+    3300008: Cylinder032
+    3300010: Cylinder041
+    3300012: Cylinder047
+    3300014: Object058
+    3300016: Object064
+    3300018: Object065
+    3300020: Object079
+    3300022: Object115
+    3300024: Object116
+    3300026: Object121
+    3300028: Object122
+    3300030: platform
+    4300000: Box9720
+    4300002: Cylinder031
+    4300004: Object058
+    4300006: Cylinder032
+    4300008: Object116
+    4300010: Box9735
+    4300012: Cylinder047
+    4300014: Object121
+    4300016: Object122
+    4300018: Box9729
+    4300020: Cylinder041
+    4300022: Object115
+    4300024: Object079
+    4300026: platform
+    4300028: Object065
+    4300030: Object064
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Platform
+    second: {fileID: 2100000, guid: edd8f2721e4fe3d4b975528c4e281b53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: liftDoor
+    second: {fileID: 2100000, guid: 0acddb4f3690ebd4584b98a951ec3ac6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: liftSystem
+    second: {fileID: 2100000, guid: a99df334ea3ab0b4490e9f419161e7d0, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

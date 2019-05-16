@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: 4f51bf37b89f8594b8424bbdd81655ef
+timeCreated: 1512441614
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back_fan
+    100002: back_ring
+    100004: //RootNode
+    100006: ball_robot
+    100008: body_door
+    100010: body_door_L
+    100012: body_door_R
+    100014: body_inside
+    100016: body_inside_ring
+    100018: body_inside_VFX
+    100020: body_outside
+    100022: body_outside_VFX
+    100024: ear
+    100026: ear 1
+    100028: ear_bottom
+    100030: ear_bottom 1
+    100032: ear_hold
+    100034: ear_hold 1
+    100036: ear_link_L
+    100038: ear_link_R
+    100040: ear_VFX_L
+    100042: ear_VFX_R
+    100044: eye_display
+    100046: foot_L
+    100048: foot_link_L
+    100050: foot_link_R
+    100052: foot_R
+    100054: front_ring
+    100056: glass_A
+    100058: glass_B
+    100060: power_center
+    400000: back_fan
+    400002: back_ring
+    400004: //RootNode
+    400006: ball_robot
+    400008: body_door
+    400010: body_door_L
+    400012: body_door_R
+    400014: body_inside
+    400016: body_inside_ring
+    400018: body_inside_VFX
+    400020: body_outside
+    400022: body_outside_VFX
+    400024: ear
+    400026: ear 1
+    400028: ear_bottom
+    400030: ear_bottom 1
+    400032: ear_hold
+    400034: ear_hold 1
+    400036: ear_link_L
+    400038: ear_link_R
+    400040: ear_VFX_L
+    400042: ear_VFX_R
+    400044: eye_display
+    400046: foot_L
+    400048: foot_link_L
+    400050: foot_link_R
+    400052: foot_R
+    400054: front_ring
+    400056: glass_A
+    400058: glass_B
+    400060: power_center
+    2300000: back_fan
+    2300002: back_ring
+    2300004: body_door_L
+    2300006: body_door_R
+    2300008: body_inside
+    2300010: body_inside_ring
+    2300012: body_inside_VFX
+    2300014: body_outside
+    2300016: body_outside_VFX
+    2300018: ear
+    2300020: ear 1
+    2300022: ear_bottom
+    2300024: ear_bottom 1
+    2300026: ear_hold
+    2300028: ear_hold 1
+    2300030: ear_link_L
+    2300032: ear_link_R
+    2300034: ear_VFX_L
+    2300036: ear_VFX_R
+    2300038: eye_display
+    2300040: foot_L
+    2300042: foot_link_L
+    2300044: foot_link_R
+    2300046: foot_R
+    2300048: front_ring
+    2300050: glass_A
+    2300052: glass_B
+    2300054: power_center
+    3300000: back_fan
+    3300002: back_ring
+    3300004: body_door_L
+    3300006: body_door_R
+    3300008: body_inside
+    3300010: body_inside_ring
+    3300012: body_inside_VFX
+    3300014: body_outside
+    3300016: body_outside_VFX
+    3300018: ear
+    3300020: ear 1
+    3300022: ear_bottom
+    3300024: ear_bottom 1
+    3300026: ear_hold
+    3300028: ear_hold 1
+    3300030: ear_link_L
+    3300032: ear_link_R
+    3300034: ear_VFX_L
+    3300036: ear_VFX_R
+    3300038: eye_display
+    3300040: foot_L
+    3300042: foot_link_L
+    3300044: foot_link_R
+    3300046: foot_R
+    3300048: front_ring
+    3300050: glass_A
+    3300052: glass_B
+    3300054: power_center
+    4300000: body_outside
+    4300002: body_inside
+    4300004: body_inside_ring
+    4300006: power_center
+    4300008: front_ring
+    4300010: back_ring
+    4300012: back_fan
+    4300014: body_door_R
+    4300016: body_door_L
+    4300018: ear_link_L
+    4300020: ear_bottom
+    4300022: ear_hold
+    4300024: ear
+    4300026: ear_VFX_L
+    4300028: ear_link_R
+    4300030: ear_bottom
+    4300032: ear_hold
+    4300034: ear
+    4300036: ear_VFX_R
+    4300038: foot_link_L
+    4300040: foot_L
+    4300042: foot_link_R
+    4300044: foot_R
+    4300046: glass_A
+    4300048: glass_B
+    4300050: eye_display
+    4300052: body_inside_VFX
+    4300054: body_outside_VFX
+    7400000: RaiseUp
+    7400002: FloatInAir
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: RaiseUp
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ball_robot
+        weight: 1
+      - path: ball_robot/back_fan
+        weight: 1
+      - path: ball_robot/back_ring
+        weight: 1
+      - path: ball_robot/body_door
+        weight: 1
+      - path: ball_robot/body_door/body_door_L
+        weight: 1
+      - path: ball_robot/body_door/body_door_R
+        weight: 1
+      - path: ball_robot/body_inside
+        weight: 1
+      - path: ball_robot/body_inside_ring
+        weight: 1
+      - path: ball_robot/body_inside_VFX
+        weight: 1
+      - path: ball_robot/body_outside
+        weight: 1
+      - path: ball_robot/body_outside_VFX
+        weight: 1
+      - path: ball_robot/ear_link_L
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold/ear
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold/ear/ear_VFX_L
+        weight: 1
+      - path: ball_robot/ear_link_R
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1/ear 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1/ear 1/ear_VFX_R
+        weight: 1
+      - path: ball_robot/eye_display
+        weight: 1
+      - path: ball_robot/foot_link_L
+        weight: 1
+      - path: ball_robot/foot_link_L/foot_L
+        weight: 1
+      - path: ball_robot/foot_link_R
+        weight: 1
+      - path: ball_robot/foot_link_R/foot_R
+        weight: 1
+      - path: ball_robot/front_ring
+        weight: 1
+      - path: ball_robot/glass_A
+        weight: 1
+      - path: ball_robot/glass_B
+        weight: 1
+      - path: ball_robot/power_center
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: FloatInAir
+      takeName: Take 001
+      firstFrame: 55
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ball_robot
+        weight: 1
+      - path: ball_robot/back_fan
+        weight: 1
+      - path: ball_robot/back_ring
+        weight: 1
+      - path: ball_robot/body_door
+        weight: 1
+      - path: ball_robot/body_door/body_door_L
+        weight: 1
+      - path: ball_robot/body_door/body_door_R
+        weight: 1
+      - path: ball_robot/body_inside
+        weight: 1
+      - path: ball_robot/body_inside_ring
+        weight: 1
+      - path: ball_robot/body_inside_VFX
+        weight: 1
+      - path: ball_robot/body_outside
+        weight: 1
+      - path: ball_robot/body_outside_VFX
+        weight: 1
+      - path: ball_robot/ear_link_L
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold/ear
+        weight: 1
+      - path: ball_robot/ear_link_L/ear_bottom/ear_hold/ear/ear_VFX_L
+        weight: 1
+      - path: ball_robot/ear_link_R
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1/ear 1
+        weight: 1
+      - path: ball_robot/ear_link_R/ear_bottom 1/ear_hold 1/ear 1/ear_VFX_R
+        weight: 1
+      - path: ball_robot/eye_display
+        weight: 1
+      - path: ball_robot/foot_link_L
+        weight: 1
+      - path: ball_robot/foot_link_L/foot_L
+        weight: 1
+      - path: ball_robot/foot_link_R
+        weight: 1
+      - path: ball_robot/foot_link_R/foot_R
+        weight: 1
+      - path: ball_robot/front_ring
+        weight: 1
+      - path: ball_robot/glass_A
+        weight: 1
+      - path: ball_robot/glass_B
+        weight: 1
+      - path: ball_robot/power_center
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 30
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

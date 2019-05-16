@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e10a6c8bc50f348a3bcd045dce48c3, type: 3}
+  m_Name: VIUSettings
+  m_EditorClassIdentifier: 
+  m_autoLoadBindingConfigOnStart: 0
+  m_bindingConfigFilePath: vive_role_bindings.cfg
+  m_enableBindingInterfaceSwitch: 0
+  m_bindingInterfaceSwitchKey: 98
+  m_bindingInterfaceSwitchKeyModifier: 303
+  m_bindingInterfaceObjectSource: {fileID: 101448, guid: 26a034c83db7bcb4f99de4ddf57cbcfc,
+    type: 2}
+  m_autoLoadExternalCameraConfigOnStart: 1
+  m_externalCameraConfigFilePath: externalcamera.cfg
+  m_enableExternalCameraSwitch: 1
+  m_externalCameraSwitchKey: 109
+  m_externalCameraSwitchKeyModifier: 303
+  m_simulatorAutoTrackMainCamera: 1
+  m_simulateTrackpadTouch: 1
+  m_enableSimulatorKeyboardMouseControl: 1
+  m_simulatorKeyMoveSpeed: 1.5
+  m_simulatorMouseRotateSpeed: 90
+  m_simulatorKeyRotateSpeed: 90
+  m_activateGoogleVRModule: 1
+  m_daydreamSyncPadPressToTrigger: 1
+  m_activateSimulatorModule: 0
+  m_activateUnityNativeVRModule: 1
+  m_activateSteamVRModule: 1
+  m_activateOculusVRModule: 0
+  m_activateWaveVRModule: 1
