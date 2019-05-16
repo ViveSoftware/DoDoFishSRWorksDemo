@@ -3,6 +3,7 @@ This project use SRWorks SDK to demonstrate 3 AR games, developer can save time 
 
 # Requirements :
 Geforce 10 series GPU
+
 Unity 2017
 
 # Initial steps :
