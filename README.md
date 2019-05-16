@@ -1,6 +1,10 @@
 # DoDoFishSRWorksDemo
 This project use SRWorks SDK to demonstrate 3 AR games, developer can save time by learning from this demo to make AR illusion and interaction.
 
+# Requirements :
+Geforce 10 series GPU
+Unity 2017
+
 # Initial steps :
 1. Get unity 2017
 https://unity3d.com/get-unity/download/archive
