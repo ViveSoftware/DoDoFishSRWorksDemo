@@ -17,3 +17,7 @@ https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
 5. Open Assets\Game\XRDemo.unity
 
 6. Restart unity
+
+[SRWorks SDK](https://developer.vive.com/resources/knowledgebase/intro-vive-srworks-sdk/)
+
+[![Demo video](https://img.youtube.com/vi/0RVWz03MOHI/0.jpg)](https://www.youtube.com/watch?v=0RVWz03MOHI)
