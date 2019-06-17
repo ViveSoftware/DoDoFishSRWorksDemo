@@ -10,7 +10,7 @@ using System.Threading;
 
 public class OBJLoader : MonoBehaviour
 {
-    public delegate void LoadOBJCompleteCallback(GameObject go, bool updateIsReady);
+    public delegate void LoadOBJCompleteCallback(GameObject go, string semanticFileName, bool updateIsReady);
 
     private static GameObject loaderOBJ = null;
     //private string inputPath = "";
@@ -23,7 +23,7 @@ public class OBJLoader : MonoBehaviour
         public int[] indices;
     }
 
-    public static GameObject LoadOBJFile(string fn, LoadOBJCompleteCallback cb = null, bool updataIsReady = true)
+    public static GameObject LoadOBJFile(string fn, LoadOBJCompleteCallback cb = null, string semanticFileName = null, bool updataIsReady = true)
     {
         if (loaderOBJ == null)
         {
@@ -32,17 +32,17 @@ public class OBJLoader : MonoBehaviour
         }
 
         OBJLoader loader = loaderOBJ.AddComponent<OBJLoader>();
-        loader._Load( fn, cb, updataIsReady );
+        loader._Load( fn, cb, semanticFileName, updataIsReady );
         return loader.returnObject;
     }
 
-    private void _Load(string fn, LoadOBJCompleteCallback cb, bool updataIsReady)
+    private void _Load(string fn, LoadOBJCompleteCallback cb, string semanticFileName, bool updataIsReady)
     {
         string name = Path.GetFileNameWithoutExtension(fn);
         //loadCompelete = false;
         returnObject = new GameObject(name);
         returnObject.SetActive(false);
-        StartCoroutine(_LoadOBJFile(fn, cb, updataIsReady));
+        StartCoroutine(_LoadOBJFile(fn, cb, semanticFileName, updataIsReady));
     }
 
     private static Vector2 _ReadVector2(string[] tokens)
@@ -142,7 +142,7 @@ public class OBJLoader : MonoBehaviour
         return mtrList.ToArray();
     }
 
-    IEnumerator _LoadOBJFile(String inputPath, LoadOBJCompleteCallback callback, bool updataIsReady)
+    IEnumerator _LoadOBJFile(String inputPath, LoadOBJCompleteCallback callback, string semanticFileName, bool updataIsReady)
     {
       //  string filename = Path.GetFileNameWithoutExtension(inputPath);
 
@@ -319,7 +319,7 @@ public class OBJLoader : MonoBehaviour
         sReader.Close();
         //loadCompelete = true;
         returnObject.SetActive(true);
-        if (callback != null) callback(returnObject, updataIsReady);
+        if (callback != null) callback(returnObject, semanticFileName, updataIsReady);
         yield return null;
     }
 

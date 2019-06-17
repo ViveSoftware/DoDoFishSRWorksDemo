@@ -65,12 +65,12 @@ public class SRWorkControl : MySingleton<SRWorkControl>
 
     public bool LoadReconstructMesh(Action beforeLoad, Action Done)
     {
-        if (!viveSR_Experience_StaticMesh.CheckModelExist())
+        if (!viveSR_Experience_StaticMesh.CheckModelFileExist())
             return false;
         if (!viveSR_Experience_StaticMesh.CheckModelLoaded() && !ViveSR_RigidReconstruction.IsScanning)
         {
             viveSR_Experience_StaticMesh.enabled = true;
-            viveSR_Experience_StaticMesh.LoadMesh(true, beforeLoad, Done);
+            viveSR_Experience_StaticMesh.LoadMesh(true, false, beforeLoad, Done);
             return true;
         }
         return false;

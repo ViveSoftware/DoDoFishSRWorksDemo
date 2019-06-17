@@ -24,11 +24,12 @@ namespace Vive.Plugin.SR.Experience
     public class ViveSR_Experience_StaticMesh : MonoBehaviour
     {
         public ViveSR_Experience_Recons3DAssetLoader ReconsLoader;
-        //public ViveSR_Experience_Recons3DAssetMultiLoader SemanticMeshLoader = null;
+        public ViveSR_Experience_Recons3DAssetMultiLoader SemanticMeshLoader = null;
 
         private bool _modelIsLoading = false;
-        private bool _semanticMeshlIsLoading = false;
-        private bool _semanticMeshlIsLoaded = false;
+        private bool _semanticMeshIsLoading = false;
+        private bool _semanticMeshIsLoaded = false;
+        private bool _semanticMeshIsExporting = false;
         string MeshName = "Model";
         string mesh_path;
         string cld_path;
@@ -48,11 +49,11 @@ namespace Vive.Plugin.SR.Experience
         bool wasDynamicMeshOn;
 
         //public ViveSR_Experience_SwitchMode SwitchModeScript;
-        public bool showMesh;
+        public bool ModelMeshVisible { get; private set; }
 
         ShowMode _MeshShowMode = ShowMode.None;
 
-        System.Action MeshReadyCallBack;//, SemanticMeshReadyCallback;
+        System.Action MeshReadyCallBack, SemanticMeshReadyCallback;
              
         [SerializeField] GameObject HintLocatorPrefab;
         List<GameObject> HintLocators = new List<GameObject>();
@@ -69,12 +70,17 @@ namespace Vive.Plugin.SR.Experience
 
         public bool SemanticMeshIsLoading
         {
-            get { return _semanticMeshlIsLoading; }
+            get { return _semanticMeshIsLoading; }
         }
 
         public bool SemanticMeshIsLoaded
         {
-            get { return _semanticMeshlIsLoaded; }
+            get { return _semanticMeshIsLoaded; }
+        }
+
+        public bool SemanticMeshIsExporting
+        {
+            get { return _semanticMeshIsExporting; }
         }
 
         private void Awake()
@@ -83,12 +89,12 @@ namespace Vive.Plugin.SR.Experience
             cld_path = reconsRootDir  + MeshName + "_cld.obj";
             semanticObj_dirPath = reconsRootDir  + semanticObj_dir;
             ReconsLoader = GetComponent<ViveSR_Experience_Recons3DAssetLoader>();
-            //SemanticMeshLoader = GetComponent<ViveSR_Experience_Recons3DAssetMultiLoader>();
+            SemanticMeshLoader = GetComponent<ViveSR_Experience_Recons3DAssetMultiLoader>();
         }
 
-        public void SetScanning(bool On)
+        public void EnableDepthProcessingAndScanning(bool enable)
         {
-            if (On)
+            if (enable)
             {
                 ViveSR_DualCameraImageCapture.EnableDepthProcess(true);
                 ViveSR_RigidReconstruction.StartScanning();
@@ -100,7 +106,7 @@ namespace Vive.Plugin.SR.Experience
             }
         }
 
-        public bool CheckModelExist()
+        public bool CheckModelFileExist()
         {
             return File.Exists(mesh_path) && File.Exists(cld_path);
         }
@@ -132,22 +138,23 @@ namespace Vive.Plugin.SR.Experience
             return ret;
         }
 
-        public void LoadMesh(bool isOn, System.Action beforeLoad = null, System.Action done = null)
+        public void LoadMesh(bool isOn, bool showMesh = false, System.Action beforeLoad = null, System.Action done = null)
         {
             if (ModelIsLoading) return;
+
+            RenderModelMesh(showMesh);
 
             if (isOn)
             {
                 if (!CheckModelLoaded())
                 {
-                    if(CheckModelExist())
+                    if (CheckModelFileExist())
                     {
                         _modelIsLoading = true;
 
-                        if (beforeLoad != null)
-                            beforeLoad();
+                        if (beforeLoad!= null) beforeLoad();
 
-                        if(done != null) MeshReadyCallBack = done;
+                        if (done != null) MeshReadyCallBack = done;
 
                         //Load here.
                         texturedMesh = ReconsLoader.LoadMeshObj(mesh_path);
@@ -156,12 +163,12 @@ namespace Vive.Plugin.SR.Experience
                     }
                     else
                     {
-                        Debug.Log("Files not found!");
+                        Debug.LogWarning("Scene files not found. Please rescan the scene!");
+                        if (done != null) done();
                     }
                 }
                 else
                 {
-                    RenderMesh(showMesh);
                     ActivateModelMesh(true);
                     if (done != null) done();
                 }
@@ -177,23 +184,47 @@ namespace Vive.Plugin.SR.Experience
             foreach (GameObject go in semanticList) go.SetActive(active);
         }
 
-        //public void LoadSemanticMesh(System.Action beforeLoad = null, System.Action done = null)
-        //{
-        //    if (SemanticMeshIsLoading || SemanticMeshIsLoaded) return;
+        public void LoadSemanticMesh(System.Action beforeLoad = null, System.Action done = null)
+        {
+            if (SemanticMeshIsLoading) return;
 
-        //    _semanticMeshlIsLoading = true;
+            if (SemanticMeshIsLoaded)
+                UnloadSemanticMesh();
 
-        //    if (beforeLoad != null) beforeLoad();
-        //    SemanticMeshReadyCallback = done;
+            _semanticMeshIsLoading = true;
 
-        //    GameObject[] semanticObjs = SemanticMeshLoader.LoadSemanticColliderObjs(semanticObj_dirPath);
-        //    foreach (GameObject go in semanticObjs)
-        //    {
-        //        go.SetActive(false);
-        //        semanticList.Add(go);
-        //    }
-        //    StartCoroutine(waitForSemanticMeshLoad());
-        //}
+            if (beforeLoad != null) beforeLoad();
+            SemanticMeshReadyCallback = done;
+
+            GameObject[] semanticObjs = SemanticMeshLoader.LoadSemanticColliderObjs(semanticObj_dirPath);
+            foreach (GameObject go in semanticObjs)
+            {
+                go.SetActive(false);
+                semanticList.Add(go);
+            }
+            StartCoroutine(waitForSemanticMeshLoad());
+        }
+
+        public void LoadSemanticMeshByType(SceneUnderstandingObjectType type, System.Action beforeLoad = null, System.Action done = null)
+        {
+            if (SemanticMeshIsLoading) return;
+
+            if (SemanticMeshIsLoaded)
+                UnloadSemanticMesh();
+
+            _semanticMeshIsLoading = true;
+
+            if (beforeLoad != null) beforeLoad();
+            SemanticMeshReadyCallback = done;
+
+            GameObject[] semanticObjs = SemanticMeshLoader.LoadSemanticColliderObjsByType(semanticObj_dirPath, type);
+            foreach (GameObject go in semanticObjs)
+            {
+                go.SetActive(false);
+                semanticList.Add(go);
+            }
+            StartCoroutine(waitForSemanticMeshLoad());
+        }
 
         public void UnloadSemanticMesh(System.Action done = null)
         {
@@ -202,24 +233,24 @@ namespace Vive.Plugin.SR.Experience
             foreach (GameObject go in semanticList) Destroy(go);
             semanticList.Clear();
             semanticCldPools.Clear();
-            _semanticMeshlIsLoaded = false;
+            _semanticMeshIsLoaded = false;
             if (done != null) done();
         }
 
-        //IEnumerator waitForSemanticMeshLoad()
-        //{
-        //    while (!SemanticMeshLoader.isAllColliderReady)
-        //    {
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //    SemanticMeshReady();
-        //}
+        IEnumerator waitForSemanticMeshLoad()
+        {
+            while (!SemanticMeshLoader.isAllColliderReady)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            SemanticMeshReady();
+        }
 
         private void SemanticMeshReady()
         {
-            //if (SemanticMeshReadyCallback != null) SemanticMeshReadyCallback();
-            _semanticMeshlIsLoaded = true;
-            _semanticMeshlIsLoading = false;
+            if (SemanticMeshReadyCallback != null) SemanticMeshReadyCallback();
+            _semanticMeshIsLoaded = true;
+            _semanticMeshIsLoading = false;
         }
 
         IEnumerator waitForMeshLoad()
@@ -242,13 +273,18 @@ namespace Vive.Plugin.SR.Experience
             }
             _modelIsLoading = false;
 
-            RenderMesh(showMesh);
+            RenderModelMesh(ModelMeshVisible);
             if (MeshReadyCallBack != null) MeshReadyCallBack();
         }
 
-        public void RenderMesh(bool show)
+        public void RenderModelMesh(bool show)
         {
-            foreach (MeshRenderer renderer in modelRenderers) renderer.material.shader = Shader.Find(show ? "ViveSR/Unlit, Textured, Shadowed, Stencil" : "ViveSR/MeshCuller, Shadowed, Stencil");
+            ModelMeshVisible = show;
+            foreach (MeshRenderer renderer in modelRenderers)
+            {
+                if (renderer != null)
+                    renderer.material.shader = Shader.Find(show ? "ViveSR/Unlit, Textured, Shadowed, Stencil" : "ViveSR/MeshCuller, Shadowed, Stencil");
+            }
         }
 
         void ActivateModelMesh(bool on)
@@ -262,6 +298,12 @@ namespace Vive.Plugin.SR.Experience
 
         public void ExportSemanticMesh(System.Action<int> UpdatePercentage = null, System.Action done = null)
         {
+            _semanticMeshIsExporting = true;
+            ViveSR_RigidReconstruction.StopScanning();
+
+            if (!ViveSR_DualCameraImageCapture.DepthProcessing)
+                ViveSR_DualCameraImageCapture.EnableDepthProcess(true); // in case depth has been turned off by other process
+
             ViveSR_SceneUnderstanding.ExportSceneUnderstandingInfo(ViveSR_SceneUnderstanding.SemanticObjDir);
             StartCoroutine(_ExportSemanticMesh(UpdatePercentage, done));
         }
@@ -269,18 +311,30 @@ namespace Vive.Plugin.SR.Experience
         private IEnumerator _ExportSemanticMesh(System.Action<int> UpdatePercentage = null, System.Action done = null)
         {
             int percentage = 0;
+            int lastPercentage = 0;
+
             while (percentage < 100)
             {
                 percentage = ViveSR_SceneUnderstanding.GetSceneUnderstandingProgress();
+
+                // wait until saving is really processing then we disable depth
+                if (lastPercentage == 0 && percentage > 0)
+                    ViveSR_DualCameraImageCapture.EnableDepthProcess(false);
                 if (UpdatePercentage != null) UpdatePercentage(percentage);
                 yield return new WaitForEndOfFrame();
             }
 
+            _semanticMeshIsExporting = false;
             if (done != null) done();
         }
 
         public void ExportModel(System.Action<int> UpdatePercentage = null, System.Action done = null)
         {
+            ViveSR_RigidReconstruction.StopScanning();
+
+            if (!ViveSR_DualCameraImageCapture.DepthProcessing)
+                ViveSR_DualCameraImageCapture.EnableDepthProcess(true); // in case depth has been turned off by other process
+
             StartCoroutine(_ExportModel(UpdatePercentage, done));
         }
 
@@ -316,21 +370,55 @@ namespace Vive.Plugin.SR.Experience
             if (done != null) done();
         }
 
-        public void _WaitForSemanticCldPoolToShow(GameObject go)
+        public void FinishScanAndPreviewMesh(System.Action<int> UpdatePercentage = null, System.Action done = null)
         {
-            //if(go.GetComponent<ViveSR_StaticColliderPool>() == null)
-            StartCoroutine(_CoroutineWaitForSemanticCldPoolToShow(go));
+            if (!ViveSR_DualCameraImageCapture.DepthProcessing)
+                ViveSR_DualCameraImageCapture.EnableDepthProcess(true); // in case depth has been turned off by other process
+
+            StartCoroutine(_ExtractPreviewModel(UpdatePercentage, done));
         }
 
-        IEnumerator _CoroutineWaitForSemanticCldPoolToShow(GameObject go)
+        private IEnumerator _ExtractPreviewModel(System.Action<int> UpdatePercentage = null, System.Action done = null)
+        {
+            ViveSR_RigidReconstruction.ExtractModelPreviewData();
+
+            int percentage = 0;
+            int lastPercentage = 0;
+
+            if (CheckModelLoaded())
+            {
+                Destroy(collisionMesh);
+                Destroy(texturedMesh);
+                collisionMesh = null;
+                texturedMesh = null;
+            }
+
+            while (percentage < 100)
+            {
+                ViveSR_RigidReconstruction.GetExtractPreviewProgress(ref percentage);
+
+                if (UpdatePercentage != null) UpdatePercentage(percentage);
+                lastPercentage = percentage;
+                yield return new WaitForEndOfFrame();
+            }
+
+            if (done != null) done();
+        }
+
+        public void WaitForSemanticCldPool(GameObject go, System.Action done = null)
+        {
+            StartCoroutine(_CoroutineWaitForSemanticCldPool(go, done));
+        }
+
+        IEnumerator _CoroutineWaitForSemanticCldPool(GameObject go, System.Action done = null)
         {
             ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
             while (pool == null)
             {
-                pool = collisionMesh.GetComponent<ViveSR_StaticColliderPool>();
+                pool = go.GetComponent<ViveSR_StaticColliderPool>();
                 yield return new WaitForEndOfFrame();
             }
-            pool.ShowAllColliderWithPropsAndCondition(new uint[] { (uint)ColliderShapeType.MESH_SHAPE });
+            done();
         }
 
         public void WaitForCldPool(System.Action done = null)
@@ -348,16 +436,40 @@ namespace Vive.Plugin.SR.Experience
             if(done != null) done();
         }
 
+        public GameObject[] GetSemanticObjects(SceneUnderstandingObjectType type)
+        {
+            List<GameObject> objList = new List<GameObject>();
+
+            if (type != SceneUnderstandingObjectType.NONE)
+            {
+                foreach (GameObject go in semanticList)
+                {
+                    ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
+                    if (pool == null)
+                    {
+                        Debug.Log("[SemanticSegmentation] Semantic object is not loaded completely.");
+                        break;
+                    }
+                    if (pool.GetSemanticType() == type)
+                        objList.Add(go);
+                }
+            }
+            return objList.ToArray();
+        }
+
         public void ShowSemanticColliderByType(SceneUnderstandingObjectType type)
         {
+            if (type == SceneUnderstandingObjectType.NONE) return;
+
             foreach (GameObject go in semanticList)
             {
-                ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
-                if (type != SceneUnderstandingObjectType.NONE && pool.GetSemanticType() == type)
-                {
-                    if (pool == null) _WaitForSemanticCldPoolToShow(go);
-                    else pool.ShowAllColliderWithPropsAndCondition(new uint[] { (uint)ColliderShapeType.MESH_SHAPE });
-                }
+                WaitForSemanticCldPool(go, () => {
+                    ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
+                    {
+                        if (pool.GetSemanticType() == type)
+                            pool.ShowAllColliderWithPropsAndCondition(new uint[] { (uint)ColliderShapeType.MESH_SHAPE });
+                    }
+                });
             }
         }
 
@@ -376,16 +488,19 @@ namespace Vive.Plugin.SR.Experience
             foreach(GameObject go in semanticList)
             {
                 if (go == null) continue;
-                ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
-                if (isVisible)
-                {
-                    if (pool == null) _WaitForSemanticCldPoolToShow(go);
-                    else pool.ShowAllColliderWithPropsAndCondition(new uint[] { (uint)ColliderShapeType.MESH_SHAPE });
-                }
-                else
-                {
-                    if (pool != null) pool.HideAllColliderRenderers();
-                }
+
+                WaitForSemanticCldPool(go, () => {
+                    ViveSR_StaticColliderPool pool = go.GetComponent<ViveSR_StaticColliderPool>();
+
+                    if (isVisible)
+                    {
+                        pool.ShowAllColliderWithPropsAndCondition(new uint[] { (uint)ColliderShapeType.MESH_SHAPE });
+                    }
+                    else
+                    {
+                        pool.HideAllColliderRenderers();
+                    }
+                });
             }
         }
 
@@ -486,7 +601,7 @@ namespace Vive.Plugin.SR.Experience
         public void SetChairSegmentationConfig(bool isOn)
         {
             #region Set SceneUnderstandingConfig for Chair
-            ViveSR_SceneUnderstanding.SetCustomSceneUnderstandingConfig((int)SceneUnderstandingObjectType.CHAIR, 5, isOn);
+            ViveSR_SceneUnderstanding.SetCustomSceneUnderstandingConfig(SceneUnderstandingObjectType.CHAIR, 5, isOn);
             #endregion
         }
 
@@ -520,9 +635,8 @@ namespace Vive.Plugin.SR.Experience
 
         private void OnDestroy()
         {
-            UnloadSemanticMesh();
             SetSegmentation(false);
-            SetScanning(false);
+            EnableDepthProcessingAndScanning(false);
         }
 
         public void GenerateHintLocators(List<SceneUnderstandingObjects.Element> Elements)

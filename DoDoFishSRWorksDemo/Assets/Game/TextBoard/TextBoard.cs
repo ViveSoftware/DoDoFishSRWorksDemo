@@ -21,16 +21,16 @@ public class TextBoard : MonoBehaviour
 #endif
     void Start()
     {
-#if USE_TEXTPRO
-        Canvas.GetDefaultCanvasMaterial().SetInt(
-     "unity_GUIZTestMode",
-     (int)UnityEngine.Rendering.CompareFunction.Disabled
-   );
-#endif
     }
 
     void Update()
     {
+#if USE_TEXTPRO
+        TMPro.TextMeshProUGUI[] textpros = GetComponentsInChildren<TMPro.TextMeshProUGUI>(true);
+        foreach (TMPro.TextMeshProUGUI textpro in textpros)
+            textpro.materialForRendering.SetInt("unity_GUIZTestMode", (int)UnityEngine.Rendering.CompareFunction.Always);
+#endif
+
         transform.localScale = new Vector3(scale, scale, 1);
         transform.LookAt(VRCamera, Vector3.up);
 
