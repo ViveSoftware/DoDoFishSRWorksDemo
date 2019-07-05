@@ -6,6 +6,8 @@ Geforce 10 series GPU
 
 Unity 2017
 
+!Note : Require dual camera enable
+
 # Initial steps :
 1. Get unity 2017
 https://unity3d.com/get-unity/download/archive
