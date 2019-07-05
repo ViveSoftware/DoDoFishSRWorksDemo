@@ -26,5 +26,6 @@ https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
 7. Done
 
 [SRWorks SDK](https://developer.vive.com/resources/knowledgebase/intro-vive-srworks-sdk/)
+[Sample Code Project: Experience Demo](https://developer.vive.com/resources/knowledgebase/download-vive-srworks-sdk-0-8-0-2-unity-plugin-early-access/)
 
 [![Demo video](https://img.youtube.com/vi/0RVWz03MOHI/0.jpg)](https://www.youtube.com/watch?v=0RVWz03MOHI)
