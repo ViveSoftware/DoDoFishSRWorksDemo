@@ -170,15 +170,20 @@ public class SRWorkControl : MySingleton<SRWorkControl>
             return;
         GameObject colRootObj = reconstructStaticColliderObj;
         Transform meshObj = colRootObj.transform.Find("PlaneBoundingRectColliderGroup");
-        meshObj = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        Transform HV = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
         if (meshObj == null)
             Debug.LogError("[GetReconstructStaticQuadCollider] : " + (getHorizontal ? "horizontal fail" : "vertical fail"));
 
         outColliders = new List<MeshCollider>();
-        for (int a = 0; a < meshObj.childCount; a++)
-        {
-            Transform t = meshObj.GetChild(a);
-            outColliders.Add(t.GetComponent<MeshCollider>());
-        }
+        outColliders.AddRange(new List<MeshCollider>(HV.GetComponentsInChildren<MeshCollider>()));
+        /*  for (int a = 0; a < meshObj.childCount; a++)
+          {
+              Transform t = meshObj.GetChild(a);
+              outColliders.Add(t.GetComponent<MeshCollider>());
+          }*/
+
+        Transform Oblique = meshObj.Find("Oblique");
+        if (Oblique != null)
+            outColliders.AddRange(new List<MeshCollider>(Oblique.GetComponentsInChildren<MeshCollider>()));
     }
 }
