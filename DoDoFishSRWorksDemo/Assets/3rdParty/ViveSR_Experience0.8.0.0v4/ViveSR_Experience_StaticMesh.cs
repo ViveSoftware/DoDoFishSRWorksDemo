@@ -299,7 +299,6 @@ namespace Vive.Plugin.SR.Experience
         public void ExportSemanticMesh(System.Action<int> UpdatePercentage = null, System.Action done = null)
         {
             _semanticMeshIsExporting = true;
-            ViveSR_RigidReconstruction.StopScanning();
 
             if (!ViveSR_DualCameraImageCapture.DepthProcessing)
                 ViveSR_DualCameraImageCapture.EnableDepthProcess(true); // in case depth has been turned off by other process
@@ -325,6 +324,7 @@ namespace Vive.Plugin.SR.Experience
             }
 
             _semanticMeshIsExporting = false;
+            ViveSR_RigidReconstruction.StopScanning();
             if (done != null) done();
         }
 
@@ -383,7 +383,7 @@ namespace Vive.Plugin.SR.Experience
             ViveSR_RigidReconstruction.ExtractModelPreviewData();
 
             int percentage = 0;
-            int lastPercentage = 0;
+            //int lastPercentage = 0;
 
             if (CheckModelLoaded())
             {
@@ -398,7 +398,7 @@ namespace Vive.Plugin.SR.Experience
                 ViveSR_RigidReconstruction.GetExtractPreviewProgress(ref percentage);
 
                 if (UpdatePercentage != null) UpdatePercentage(percentage);
-                lastPercentage = percentage;
+                //lastPercentage = percentage;
                 yield return new WaitForEndOfFrame();
             }
 
