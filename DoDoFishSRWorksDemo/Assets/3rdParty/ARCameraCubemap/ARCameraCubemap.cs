@@ -61,9 +61,9 @@ public class ARCameraCubemap : MonoBehaviour
         if (_BlendDest == null)
         {
             _BlendDest = new RenderTexture[2];
-            _BlendDest[0] = new RenderTexture(t.width, t.height, 0, RenderTextureFormat.ARGB32);
-            _BlendDest[1] = new RenderTexture(t.width, t.height, 0, RenderTextureFormat.ARGB32);
-            _BlendFinal = new RenderTexture(t.width, t.height, 0, RenderTextureFormat.ARGB32);
+            _BlendDest[0] = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
+            _BlendDest[1] = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
+            _BlendFinal = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
 
             currentRatio = 0;
 

@@ -36,6 +36,19 @@ namespace Demo
                 return;
             ARRender.Instance.VRCameraRemoveLayer(ARCameraCubemap.ARCameraCubemapLayer);
             ARRender.Instance.VRCameraRemoveLayer(TextBoard.EyeInfoTextLayer());
+            Texture pnaleL = ViveSR_DualCameraRig.Instance.TrackedCameraLeft.ImagePlane.GetComponent<Renderer>().sharedMaterial.GetTexture("_MainTex");
+            Texture pnaleR = ViveSR_DualCameraRig.Instance.TrackedCameraLeft.ImagePlane.GetComponent<Renderer>().sharedMaterial.GetTexture("_MainTex");
+            if (pnaleL != null && pnaleR != null)
+            {
+                float gamma =
+    (ViveSR_DualCameraRig.Instance.TrackedCameraLeft.ImagePlane.GetComponent<Renderer>().sharedMaterial.shader.name == "ViveSR/Unlit, Textured, Stencil") ?
+    1.8f : 1.4f;
+                SeethroughGamma sg = MyHelpNode.FindOrAddComponent<SeethroughGamma>(ViveSR_DualCameraRig.Instance.DualCameraLeft.transform);
+                sg.gamma = gamma;
+
+                sg = MyHelpNode.FindOrAddComponent<SeethroughGamma>(ViveSR_DualCameraRig.Instance.DualCameraRight.transform);
+                sg.gamma = gamma;
+            }
 
             //1: select [scan] | [load] ,2:[saving], 3:[loading], 0: select wall done, 4: [scanning], 5: [Select wall]
             if (scanningProgress == 0)
