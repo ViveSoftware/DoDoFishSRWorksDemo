@@ -92,8 +92,9 @@ Shader "Custom/TransparentMRWallCover"
 				float NdotL = saturate(dot(N, L));
 				float4 diffuseTerm = NdotL * _DiffuseTint * attenuation;
 
-				half4 col = tex2Dproj(_LeftEyeTexture, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex == 0) +
-					tex2Dproj(_RightEyeTexture, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex != 0);
+				//half4 col = tex2Dproj(_LeftEyeTexture, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex == 0) +
+				//	tex2Dproj(_RightEyeTexture, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex != 0);
+                half4 col = tex2Dproj(_LeftEyeTexture, UNITY_PROJ_COORD(i.uvgrab));
 
 
 				half2 newBlendUV = half2(0, clamp(i.wpos.y - _Transparent, 0, 1));
@@ -101,6 +102,7 @@ Shader "Custom/TransparentMRWallCover"
 				half blend = tex2D(_BlendTexture, blendUV).r;
 
                 float4 finalColor = (attenuation)* col +(1 - attenuation) * (/*ambient * 0.5 + */col *0.5);
+                    //float4(0,0,0,0);
 				finalColor.a = blend;
 
 				return finalColor;

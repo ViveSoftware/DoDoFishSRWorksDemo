@@ -53,18 +53,21 @@ namespace Demo
 
         void Start()
         {
-            //LiftMachine
-            Renderer[] renders = LiftMachine.GetComponentsInChildren<Renderer>(true);
-            foreach (Renderer r in renders)
-                r.enabled = false;
-            CarDoorOpen[] carDoorOpens = LiftMachine.GetComponentsInChildren<CarDoorOpen>();
-            for (int a = 0; a < carDoorOpens.Length; a++)
-                Destroy(carDoorOpens[a]);
+            if (LiftMachine != null)
+            {
+                //LiftMachine
+                Renderer[] renders = LiftMachine.GetComponentsInChildren<Renderer>(true);
+                foreach (Renderer r in renders)
+                    r.enabled = false;
+                CarDoorOpen[] carDoorOpens = LiftMachine.GetComponentsInChildren<CarDoorOpen>();
+                for (int a = 0; a < carDoorOpens.Length; a++)
+                    Destroy(carDoorOpens[a]);
+            }
 
             //Add OnPaintingListener
             PaintVR.PBSPaintableObject[] tp = fishAI.GetComponentsInChildren<PaintVR.PBSPaintableObject>();
             List<PaintVR.PBSPaintableObject> poList = new List<PaintVR.PBSPaintableObject>(tp);
-            StartCoroutine(_GarageGBufferGeneratorInit(poList));
+            StartCoroutine(_GBufferGeneratorInit(poList));
             foreach (PaintVR.PBSPaintableObject paintObj in poList)
                 paintObj.AddOnPaintingListener(OnPaintBallShot);
 
@@ -160,15 +163,16 @@ namespace Demo
             Debug.Log("[_waitGarageClose] close done");
         }
 
-        public void StartGarageSetting()
+        public void StartGarageSetting(Vector3 pos)
         {
-            VivePoseTracker tracker = LiftMachine.GetComponent<VivePoseTracker>();
-            if (tracker.isPoseValid)
-                LiftMachine.position = tracker.transform.position;
-            //else if (recontructFloor != null && recontructFloor.transform.childCount > 0)
-            //    LiftMachinePosition = recontructFloor.transform.GetChild(0).position;
-            else
-                LiftMachine.position = Vector3.zero;
+            //VivePoseTracker tracker = LiftMachine.GetComponent<VivePoseTracker>();
+            //if (tracker.isPoseValid)
+            //    LiftMachine.position = tracker.transform.position;
+            ////else if (recontructFloor != null && recontructFloor.transform.childCount > 0)
+            ////    LiftMachinePosition = recontructFloor.transform.GetChild(0).position;
+            //else
+            pos.y -= 0.1f;
+            LiftMachine.position = pos;
 
             if (ARRender.ADVANCE_RENDER)
             {
@@ -190,6 +194,8 @@ namespace Demo
             Renderer[] renders = LiftMachine.GetComponentsInChildren<Renderer>(true);
             foreach (Renderer r in renders)
                 r.enabled = true;
+
+            ARRender.Instance.SetDirectionalLightBack(LiftMachine);
         }
 
         public void ClosePufferFishDemo()
@@ -213,12 +219,36 @@ namespace Demo
             fishAI.RestartAI();
         }
 
+        public string PadKeyName
+        {
+            get
+            {
+                return "'AKey | Pad'";
+            }
+        }
+
+        public string CarGateKeyName
+        {
+            get
+            {
+                return (MyInput.isJoystickController(ViveRole.GetDeviceIndex(HandRole.RightHand))) ? "Trigger" : "Pad";
+            }
+        }
+
+        public string ChangeModeKeyName
+        {
+            get
+            {
+                return (MyInput.isJoystickController(ViveRole.GetDeviceIndex(HandRole.RightHand))) ? "AKey" : "Grip";
+            }
+        }
+
         public GarageController StartBigCarDemo()
         {
-            eyeInfoText.ShowTextBigToSmaller("<align=center><size=120%><b>The car demo</b><line-height=100%><align=left><b><size=100%>\nPress <color=#FFC000FF>Pad</b> <color=white><size=80%>: to open gate\n<size=100%><b>Press <color=#FFC000FF>Pad <size=70%>L, R, Up, Down <color=white><size=80%></b>: to control platform<b><size=100%><color=white>\nPress<color=#FFC000FF> Grip<color=white></b> <size=80%>: to switch game mode",
+            eyeInfoText.ShowTextBigToSmaller("<align=center><size=120%><b>The car demo</b><line-height=100%><align=left><b><size=100%>\nPress <color=#FFC000FF>" + CarGateKeyName + "</b> <color=white><size=80%>: to place/open gate\n<size=100%><b>Press <color=#FFC000FF>Pad <size=70%>L, R, Up, Down <color=white><size=80%></b>: to control platform<b><size=100%><color=white>\nPress<color=#FFC000FF> " + ChangeModeKeyName + "<color=white></b> <size=80%>: to switch game mode",
                 9999, true, false);
             //currentDemoType = DemoType.car;
-            StartGarageSetting();
+            StartGarageSetting(Vector3.zero);
             garageController = LiftMachine.GetComponentInChildren<GarageController>(true);
             return garageController;
         }
@@ -227,7 +257,7 @@ namespace Demo
         {
             eyeInfoText.ShowTextBigToSmaller(
             //"<b><align=center><size=120%>Robot demo\n<align=left><size=100%>Press <color=red>Trigger</b><color=white><size=80%> : to move forward\n<size=100%><b>Touch <color=red>Pad</b><color=white><size=80%> : to turn\n<size=100%><b>Press <color=red>Pad Up, Down</b> <color=white><size=80%>:\nto control height\n<size=100%><b>Press <color=red>Pad L, R</b><color=white><size=80%>:\nto switch functions<b><size=100%>\nPress <color=red>'Grip'<color=white></b> <size=80%>:\nto switch game mode"
-            "<b><align=center><size=120%>Robot demo\n<line-height=100%><align=left><size=100%>Press <color=#FFC000FF>Trigger</b><color=white><size=80%> : to move forward\n<size=100%><b>Touch <color=#FFC000FF>Pad</b><color=white><size=80%> : to turn\n<size=100%><b>Press <color=#FFC000FF>Pad Up, Down</b> <color=white><size=80%>: to control height\n<size=100%><b>Press <color=#FFC000FF>Pad L, R</b><color=white><size=80%>: to switch functions<b><size=100%>\nPress <color=#FFC000FF>Grip<color=white></b> <size=80%>: to switch game mode"
+            "<b><align=center><size=120%>Robot demo\n<line-height=100%><align=left><size=100%>Press <color=#FFC000FF>Trigger</b><color=white><size=80%> : to move forward\n<size=100%><b>Touch <color=#FFC000FF>Pad</b><color=white><size=80%> : to turn\n<size=100%><b>Press <color=#FFC000FF>Pad Up, Down</b> <color=white><size=80%>: to control height\n<size=100%><b>Press <color=#FFC000FF>Pad L, R</b><color=white><size=80%>: to switch functions<b><size=100%>\nPress <color=#FFC000FF>" + ChangeModeKeyName + "<color=white></b> <size=80%>: to switch game mode"
             , 9999, false, false
             );
             //currentDemoType = DemoType.robot;
@@ -245,7 +275,8 @@ namespace Demo
             //Add rigidbody, when we don't shoot(paint) fish, thus we can hit fish.
             MyPhysics.SetBallRigidbody(fishAI.gameObject);
             SRWorkHand.Instance.SetDetectHand();
-            SRWorkHand.GetDynamicHand().gameObject.layer = HandTouchFish.HandTouchLayer;
+            if (SRWorkHand.GetDynamicHand() != null)
+                SRWorkHand.GetDynamicHand().gameObject.layer = HandTouchFish.HandTouchLayer;
             PBSPaintBallGun.gameObject.SetActive(false);
         }
 
@@ -367,7 +398,7 @@ namespace Demo
             }
             else
                 MyHelpLayer.SetSceneLayer(trackerOfMRWall, ARRender.UnityRenderOnTopLayer);
-            
+
             paintBallStateManger.SetState((int)PaintBallStateManager.PaintBallStateEnum.WAIT_USER_TRIGGER);
 
             MRWallManager.instance.ResetMRWall();
@@ -384,18 +415,22 @@ namespace Demo
             return objNormal * ((dotSide < 0) ? -1f : 1f);
         }
 
-        IEnumerator _GarageGBufferGeneratorInit(List<PaintVR.PBSPaintableObject> poList)
+        IEnumerator _GBufferGeneratorInit(List<PaintVR.PBSPaintableObject> poList)
         {
             //Must not GBufferGenerate at same time, wait until MRWallManager init gbuffer done!
             while (!MRWallManager.instance.initStatus)
                 yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            generator.targetObject = poList[0].gameObject;
-            generator.GBufferGeneratorInit();
-            poList.RemoveAt(0);
 
-            if (poList.Count > 0)
-                StartCoroutine(_GarageGBufferGeneratorInit(poList));
+            while (true)
+            {
+                if (poList.Count == 0)
+                    break;
+
+                yield return new WaitForEndOfFrame();
+                generator.targetObject = poList[0].gameObject;
+                generator.GBufferGeneratorInit();
+                poList.RemoveAt(0);
+            }
         }
 
         public void ClosePaintBallWallGame()
@@ -521,7 +556,7 @@ namespace Demo
         {
             eyeInfoText.ShowTextBigToSmaller(
                 //"Try hit fish by your hand!\n<color=red>'Trigger'<color=#005500> to switch items\n'Grip' to switch game mode"
-                "<align=center><size=120%><b>Try hit fish by your hand!</b>\n<b><line-height=100%><align=left><size=100%>Press <color=#FFC000FF>Trigger</b> <size=80%><color=white>: to switch item\n<b><size=100%>Press <color=#FFC000FF>Grip<color=white></b> <size=80%>: to switch game mode"
+                "<align=center><size=120%><b>Try hit fish by your hand!</b>\n<b><line-height=100%><align=left><size=100%>Press <color=#FFC000FF>Trigger</b> <size=80%><color=white>: to switch item\n<b><size=100%>Press <color=#FFC000FF>" + ChangeModeKeyName + "<color=white></b> <size=80%>: to switch game mode"
                 , 999, false, false
                 );
         }
@@ -547,9 +582,16 @@ namespace Demo
             eyeInfoText.gameObject.SetActive(active);
         }
 
+        public void SwitchInfoText()
+        {
+            eyeInfoText.gameObject.SetActive(!eyeInfoText.gameObject.activeSelf);
+        }
+
         public void infoTextStart()
         {
-            eyeInfoText.ShowTextBigToSmaller("<align=center><b>Press <color=#FFC000FF>Trigger\n</b><size=80%><color=white>to start scanning room\n\n<b><size=100%>Press <color=#FFC000FF>Pad</b>\n<color=white><size=80%>to load scanning scene"
+            eyeInfoText.ShowTextBigToSmaller("<align=center><b>Press <color=#FFC000FF>Trigger\n</b><size=80%><color=white>to start scanning room\n\n" +
+                "<b><size=100%>Press <color=#FFC000FF>" + PadKeyName + "</b>\n<color=white><size=80%>to load scanning scene\n\n" +
+                "<b><size=100%>Press <color=#FFC000FF>BKey</b>\n<color=white><size=80%>to skip wall"
                 );
         }
 
@@ -589,8 +631,18 @@ namespace Demo
 
         public bool ViveIsGrip()
         {
-            return (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Grip) &&
-             ReconstructManager.Instance.reconstructDataAnalyzeDone);
+            if (_gameStateManager.myInput.IsJoystick)
+            {
+                return (_gameStateManager.myInput.IsFirstCosmosAKey
+                    //&& (ReconstructManager.Instance.reconstructDataAnalyzeDone || GameStateSRWorksLoading.SkipSelectWall)
+                 );
+            }
+            else
+            {
+                return (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Grip)
+                    //&& ReconstructManager.Instance.reconstructDataAnalyzeDone
+                 );
+            }
         }
     }
 

@@ -75,23 +75,6 @@ public class MyReflection
     }
 
     /// <summary>
-    /// http://stackoverflow.com/questions/7649324/c-sharp-reflection-get-field-values-from-a-simple-class
-    /// according name to set member object
-    /// </summary>
-    public static bool SetMemberVariable(object src, string propName, object value)
-    {
-        Type t = src.GetType();
-        FieldInfo fields = t.GetField(propName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-        if (fields != null)
-        {
-            fields.SetValue(src, value);
-            return true;
-            //Debug.Log("[MyReflection][GetMemberVariable] variable : " + fields.Name);
-        }
-        return false;
-    }
-
-    /// <summary>
     /// https://msdn.microsoft.com/en-us/library/system.reflection.fieldinfo.getvalue(v=vs.110).aspx
     /// 由傳入的class instance(src)找出我要的類型成員(T)
     /// </summary>

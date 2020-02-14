@@ -110,11 +110,11 @@ public class WriteDepthPerspective : MonoBehaviour
 
         Matrix4x4 camMat = cam.GetStereoViewMatrix(Camera.StereoscopicEye.Left);
         camMat = camMat.inverse;
-        Vector3 camPosL = camMat.GetColumn(3);
+        Vector3 camPosL = camMat.GetPosition();
 
         camMat = cam.GetStereoViewMatrix(Camera.StereoscopicEye.Right);
         camMat = camMat.inverse;
-        Vector3 camPosR = camMat.GetColumn(3);
+        Vector3 camPosR = camMat.GetPosition();
 
         //https://answers.unity.com/questions/314049/how-to-make-a-plane-fill-the-field-of-view.html
         float pos = (cam.nearClipPlane + 0.01f);

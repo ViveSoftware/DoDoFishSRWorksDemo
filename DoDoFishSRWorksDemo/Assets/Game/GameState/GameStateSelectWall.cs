@@ -14,15 +14,22 @@ namespace Demo
         {
             alreadySelected = false;
             manager = statePatternBase as GameStateManager;
-            ARRender.Instance.InitRenderSystem();
+            //ARRender.Instance.InitRenderSystem();
             ReconstructManager.Instance.ClearWallCandidate();
             ReconstructManager.Instance.AutoPickFloor();
             ReconstructManager.Instance.ActiveSelectWallPointer(true);
+
+            if(GameStateSRWorksLoading.SkipSelectWall)
+            {
+                Debug.Log("[GameStateSelectWall] Skip Select Wall");
+                alreadySelected = true;
+                manager.SwitchState(GameStateManager.GameState.PUFFERFISH);
+            }
         }
 
         public void LeaveState()
         {
-            ReconstructManager.Instance.ActiveSelectWallPointer(false);
+            ReconstructManager.Instance.ActiveSelectWallPointer(false);            
         }
 
         public string Name()
@@ -63,7 +70,7 @@ namespace Demo
                                 wall.origWall.name + "_convexWall : " + wall.area,
                                 wall.normal, wall.center);
 
-                            finalWall.layer = AdvanceRender.ScanLiveMeshLayer;                            
+                            finalWall.layer = ARRender.ScanLiveMeshLayer;                            
                             break;
                         }
                     }

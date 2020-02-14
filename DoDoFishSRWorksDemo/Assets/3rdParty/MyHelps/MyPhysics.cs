@@ -27,6 +27,20 @@ public class MyPhysics : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (RacketFollowHand != null)
+        {
+            Collider c = GetComponent<Collider>();
+            if (c != null)
+                c.enabled = RacketFollowHand.activeInHierarchy;
+
+            //Renderer r = GetComponent<Renderer>();
+            //if (r != null)
+            //    r.enabled = RacketFollowHand.activeInHierarchy;
+        }
+    }
+
     /// <summary>
     /// Add a rigidbody for Racket, very hight speed wave racket and the ball not through racket(球拍).
     /// and use _rb.MovePosition to follow hand.

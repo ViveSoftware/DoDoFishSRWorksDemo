@@ -10,7 +10,7 @@ using System.Threading;
 
 public class OBJLoader : MonoBehaviour
 {
-    public delegate void LoadOBJCompleteCallback(GameObject go, bool updateIsReady);
+    public delegate void LoadOBJCompleteCallback(GameObject go, string semanticFileName, bool updateIsReady);
 
     private static GameObject loaderOBJ = null;
     //private string inputPath = "";
@@ -18,12 +18,15 @@ public class OBJLoader : MonoBehaviour
     private GameObject returnObject = null;
     //private LoadOBJCompleteCallback callback = null;
 
+    bool isMaterialLoaded;
+    Material[] materialPool;
+
     struct Triangle
     {
         public int[] indices;
     }
 
-    public static GameObject LoadOBJFile(string fn, LoadOBJCompleteCallback cb = null, bool updataIsReady = true)
+    public static GameObject LoadOBJFile(string fn, LoadOBJCompleteCallback cb = null, string semanticFileName = null, bool updataIsReady = true)
     {
         if (loaderOBJ == null)
         {
@@ -32,17 +35,17 @@ public class OBJLoader : MonoBehaviour
         }
 
         OBJLoader loader = loaderOBJ.AddComponent<OBJLoader>();
-        loader._Load( fn, cb, updataIsReady );
+        loader._Load( fn, cb, semanticFileName, updataIsReady );
         return loader.returnObject;
     }
 
-    private void _Load(string fn, LoadOBJCompleteCallback cb, bool updataIsReady)
+    private void _Load(string fn, LoadOBJCompleteCallback cb, string semanticFileName, bool updataIsReady)
     {
         string name = Path.GetFileNameWithoutExtension(fn);
         //loadCompelete = false;
         returnObject = new GameObject(name);
         returnObject.SetActive(false);
-        StartCoroutine(_LoadOBJFile(fn, cb, updataIsReady));
+        StartCoroutine(_LoadOBJFile(fn, cb, semanticFileName, updataIsReady));
     }
 
     private static Vector2 _ReadVector2(string[] tokens)
@@ -77,26 +80,36 @@ public class OBJLoader : MonoBehaviour
         return null;
     }
 
-    private static Texture2D _LoadTexture(string filename)
+    static byte[] textureByteData;
+
+    static void Thread_LoadTextureByteData( string filename)
+    {
+        isTextureByteDataLoaded = false;
+        textureByteData = File.ReadAllBytes(filename);
+        isTextureByteDataLoaded = true;
+    }
+
+    static void _LoadTextureByteData(string filename)
     {
         if (!File.Exists(filename))
-            return null;
+            return;
 
         string ext = Path.GetExtension(filename).ToLower();
-        Texture2D texture = null;
+
         if (ext == ".png" || ext == ".jpg")
-        {
-            texture = new Texture2D(1, 1);
-            texture.LoadImage(File.ReadAllBytes(filename));
+        {                              
+            Thread thread = new Thread(() => Thread_LoadTextureByteData(filename));
+            thread.Start();
         }
         else
         {
             Debug.Log("Unsupported Texture Format: " + filename);
         }
-        return texture;
     }
 
-    private static Material[] _LoadMTLFile(string filepath)
+    static bool isTextureByteDataLoaded;
+
+    IEnumerator LoadMTLFile(string filepath)
     {
         Material currentMaterial = null;
         List<Material> mtrList = new List<Material>();
@@ -104,9 +117,11 @@ public class OBJLoader : MonoBehaviour
         StreamReader sReader = mtlFileInfo.OpenText();
         string mtlFileDir = mtlFileInfo.Directory.FullName + Path.DirectorySeparatorChar;
 
+        int curLines = 0;
         while (!sReader.EndOfStream)
         {
             string ln = sReader.ReadLine();
+            ++curLines;
 
             string l = ln.Trim().Replace("  ", " ");
             string[] tokens = l.Split(' ');
@@ -124,7 +139,15 @@ public class OBJLoader : MonoBehaviour
             {
                 string texPath = _GetActualPathOrName(mtlFileDir, data);
                 if (texPath != null)
-                    currentMaterial.SetTexture("_MainTex", _LoadTexture(texPath));
+                {                                         
+                    _LoadTextureByteData(texPath);
+                    
+                    yield return new WaitUntil(() => isTextureByteDataLoaded == true);
+
+                    Texture2D texture = new Texture2D(1, 1);
+                    texture.LoadImage(textureByteData);
+                    currentMaterial.SetTexture("_MainTex", texture);
+                }
             }
             else if (tokens[0] == "Kd")
             {
@@ -134,17 +157,27 @@ public class OBJLoader : MonoBehaviour
             {
                 currentMaterial.SetColor("_SpecColor", _ReadColor(tokens));
             }
+
+            if ((curLines > 0) && (curLines % 5000 == 0))
+                yield return new WaitForEndOfFrame();
         }
 
         if (currentMaterial != null)
             mtrList.Add(currentMaterial);
 
-        return mtrList.ToArray();
+        isMaterialLoaded = true;
+
+        materialPool = mtrList.ToArray();
+
+        yield return new WaitForEndOfFrame();
     }
 
-    IEnumerator _LoadOBJFile(String inputPath, LoadOBJCompleteCallback callback, bool updataIsReady)
+    IEnumerator _LoadOBJFile(String inputPath, LoadOBJCompleteCallback callback, string semanticFileName, bool updataIsReady)
     {
-      //  string filename = Path.GetFileNameWithoutExtension(inputPath);
+        isMaterialLoaded = false;
+        materialPool = null;
+
+        //  string filename = Path.GetFileNameWithoutExtension(inputPath);
 
         List<Vector3> vertices = new List<Vector3>();
         List<Vector3> normals = new List<Vector3>();
@@ -161,7 +194,6 @@ public class OBJLoader : MonoBehaviour
         string curGroupName = "default";
         int numGroups = 0, numGroupMtrs = 0;
 
-        Material[] materialPool = null;
         FileInfo OBJFileInfo = new FileInfo(inputPath);
         StreamReader sReader = OBJFileInfo.OpenText();
 
@@ -181,10 +213,14 @@ public class OBJLoader : MonoBehaviour
                 if (tokens[0] == "mtllib")
                 {
                     string mtrPath = _GetActualPathOrName(OBJFileInfo.Directory.FullName + Path.DirectorySeparatorChar, sData);
-                    if (mtrPath != null)
-                        materialPool = _LoadMTLFile(mtrPath);
 
-                }
+                    if (mtrPath != null)
+                    {
+                        StartCoroutine(LoadMTLFile(mtrPath));
+
+                        yield return new WaitUntil(() => isMaterialLoaded == true);
+                    }
+                }                 
                 else if (tokens[0] == "g")
                 {
                     curGroupName = sData;
@@ -319,7 +355,7 @@ public class OBJLoader : MonoBehaviour
         sReader.Close();
         //loadCompelete = true;
         returnObject.SetActive(true);
-        if (callback != null) callback(returnObject, updataIsReady);
+        if (callback != null) callback(returnObject, semanticFileName, updataIsReady);
         yield return null;
     }
 
@@ -383,5 +419,4 @@ public class OBJLoader : MonoBehaviour
             finished = true;       
         }
     }
-
 }

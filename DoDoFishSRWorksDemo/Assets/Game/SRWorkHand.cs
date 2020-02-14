@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define UseHandtracking
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using Vive.Plugin.SR;
 
 public class SRWorkHand : MySingleton<SRWorkHand>
 {
+    //public SkinnedMeshRenderer skinHand;
+    [SerializeField] ViveHandTracking.HandRenderer HandrenderL;
+    [SerializeField] ViveHandTracking.HandRenderer HandrenderR;
+
     public bool considerSkinColor = false;
     public bool showHand = true;
     [Range(0.01f, 0.5f)]
@@ -20,6 +25,7 @@ public class SRWorkHand : MySingleton<SRWorkHand>
 
     const string DynamicHandName = "Depth Collider";
 
+#if !UseHandtracking
     static bool isEnableDepth;
     public static void OpenDynamicHandCollider()
     {
@@ -52,6 +58,7 @@ public class SRWorkHand : MySingleton<SRWorkHand>
         _getDynamicScanMesh().Clear();
         Debug.Log("[SRWorkHand] CloseDynamicHandCollider");
     }
+#endif
 
     public static Transform GetDynamicHand()
     {
@@ -63,18 +70,44 @@ public class SRWorkHand : MySingleton<SRWorkHand>
         //return handCollider;
     }
 
+
     static Transform _getDynamicScanObj()
     {
-        Transform handCollider;
-        MyHelpNode.FindTransform(SRWorkControl.Instance.viveSR.transform, DynamicHandName, out handCollider);
-        return handCollider;
+        //換成手的skin mesh
+#if UseHandtracking
+        //return SRWorkHand.Instance.skinHand.transform;
+        //return SRWorkHand.Instance.Handrender.transform.GetChild(0);
+        return null;
+#else
+        {
+            Transform handCollider;
+            MyHelpNode.FindTransform(SRWorkControl.Instance.viveSR.transform, DynamicHandName, out handCollider);
+            return handCollider;
+        }
+#endif
     }
 
     static Mesh _dynamicScanMesh;
     static Mesh _getDynamicScanMesh()
     {
+#if UseHandtracking
         if (_dynamicScanMesh == null)
+        {
+            _dynamicScanMesh = _getDynamicScanObj().GetComponentInChildren<MeshFilter>().mesh;
+        }
+        //if (_dynamicScanMesh != null)
+        //{
+        //    _dynamicScanMesh.Clear();
+        //    Destroy(_dynamicScanMesh);
+        //}
+        //_dynamicScanMesh = new Mesh();
+        //_getDynamicScanObj().GetComponent<SkinnedMeshRenderer>().BakeMesh(_dynamicScanMesh);
+#else
+        if (_dynamicScanMesh == null)
+        {
             _dynamicScanMesh = _getDynamicScanObj().GetComponent<MeshFilter>().mesh;
+        }
+#endif
         return _dynamicScanMesh;
     }
 
@@ -85,26 +118,26 @@ public class SRWorkHand : MySingleton<SRWorkHand>
     TextMesh _showDebug;
     Vector3 oldNearPoint, oldFarPoint;
     GameObject nearDebug, farDebug;
-    DataInfo[] _dataInfoUndistorted;
+    //DataInfo[] _dataInfoUndistorted;
     byte[] _dummyLeftTex;
-    byte[] _getDummyLeftTex()
-    {
-        if (_dataInfoUndistorted == null)
-        {
-            object obj = MyReflection.GetStaticMemberVariable(typeof(ViveSR_DualCameraImageCapture), "DataInfoUndistorted");
-            if (obj == null)
-            {
-                Debug.LogError("[SRWorkHand] get DataInfoUndistorted null");
-                return null;
-            }
-            _dataInfoUndistorted = obj as DataInfo[];
-        }
-        IntPtr ptr = _dataInfoUndistorted[(int)SeeThroughDataMask.UNDISTORTED_FRAME_LEFT].ptr;
-        if (_dummyLeftTex == null)
-            _dummyLeftTex = new byte[ViveSR_DualCameraImageCapture.UndistortedImageWidth * ViveSR_DualCameraImageCapture.UndistortedImageHeight * ViveSR_DualCameraImageCapture.UndistortedImageChannel];
-        System.Runtime.InteropServices.Marshal.Copy(ptr, _dummyLeftTex, 0, _dummyLeftTex.Length);
-        return _dummyLeftTex;
-    }
+    //byte[] _getDummyLeftTex()
+    //{
+    //    if (_dataInfoUndistorted == null)
+    //    {
+    //        object obj = MyReflection.GetStaticMemberVariable(typeof(ViveSR_DualCameraImageCapture), "DataInfoUndistorted");
+    //        if (obj == null)
+    //        {
+    //            Debug.LogError("[SRWorkHand] get DataInfoUndistorted null");
+    //            return null;
+    //        }
+    //        _dataInfoUndistorted = obj as DataInfo[];
+    //    }
+    //    IntPtr ptr = _dataInfoUndistorted[(int)SeeThroughDataMask.UNDISTORTED_FRAME_LEFT].ptr;
+    //    if (_dummyLeftTex == null)
+    //        _dummyLeftTex = new byte[ViveSR_DualCameraImageCapture.UndistortedImageWidth * ViveSR_DualCameraImageCapture.UndistortedImageHeight * ViveSR_DualCameraImageCapture.UndistortedImageChannel];
+    //    System.Runtime.InteropServices.Marshal.Copy(ptr, _dummyLeftTex, 0, _dummyLeftTex.Length);
+    //    return _dummyLeftTex;
+    //}
 
     const bool renderSkinVert = false;
     const int capW = 780, capH = 880, shiftX = 15;//The screen capture range, try&error to get these value
@@ -214,30 +247,30 @@ public class SRWorkHand : MySingleton<SRWorkHand>
 
         byte[] colorRGB = null;
         tempVertices.Clear();
-        if (considerSkinColor)
-        {
-            int vid = 0;
-            colorRGB = _getDummyLeftTex();
-            foreach (Vector3 v in vertices)
-            {
-                if (IsSkinColorVert(v, colorRGB))
-                    tempVertices.Add(vertices[vid]);
-                vid++;
-            }
+        //if (considerSkinColor)
+        //{
+        //    int vid = 0;
+        //    colorRGB = _getDummyLeftTex();
+        //    foreach (Vector3 v in vertices)
+        //    {
+        //        if (IsSkinColorVert(v, colorRGB))
+        //            tempVertices.Add(vertices[vid]);
+        //        vid++;
+        //    }
 
-            if (renderSkinVert)
-            {
-                Texture2D tex = ViveSR_DualCameraRig.Instance.DualCameraImageRenderer.UndistortedLeft[0].mainTexture as Texture2D;
-                tex.LoadRawTextureData(_dummyLeftTex);
-                tex.Apply();
+        //    if (renderSkinVert)
+        //    {
+        //        Texture2D tex = ViveSR_DualCameraRig.Instance.DualCameraImageRenderer.UndistortedLeft[0].mainTexture as Texture2D;
+        //        tex.LoadRawTextureData(_dummyLeftTex);
+        //        tex.Apply();
 
-                //byte[] bytes = tex.EncodeToJPG();
-                //System.IO.File.WriteAllBytes("d:/234.jpg", bytes);
-                //UnityEditor.EditorApplication.isPaused = true;
-            }
-        }
-        else
-            tempVertices.AddRange(vertices);
+        //        //byte[] bytes = tex.EncodeToJPG();
+        //        //System.IO.File.WriteAllBytes("d:/234.jpg", bytes);
+        //        //UnityEditor.EditorApplication.isPaused = true;
+        //    }
+        //}
+        //else
+        tempVertices.AddRange(vertices);
 
         //consider nearest from all dynamic vertices
         //foreach (Vector3 v in vertices)
@@ -402,12 +435,12 @@ public class SRWorkHand : MySingleton<SRWorkHand>
                 _colliderHandMeshRenderer.material.color = farDebugColor;
             }
             _colliderHandObjs.GetComponent<MeshRenderer>().enabled = true;
-            _getDynamicScanObj().GetComponent<MeshRenderer>().enabled = false;
+            _getDynamicScanObj().GetComponent<Renderer>().enabled = false;
         }
         else
         {
             _colliderHandObjs.GetComponent<MeshRenderer>().enabled = false;
-            _getDynamicScanObj().GetComponent<MeshRenderer>().enabled = true;
+            _getDynamicScanObj().GetComponent<Renderer>().enabled = true;
         }
 
 
@@ -466,6 +499,7 @@ public class SRWorkHand : MySingleton<SRWorkHand>
         _colliderHandMeshes.sharedMesh.Clear();
     }
 
+    public Camera GestureCamera;
     bool isDetectingHand;
     public void SetDetectHand()
     {
@@ -474,10 +508,17 @@ public class SRWorkHand : MySingleton<SRWorkHand>
         isDetectingHand = true;
 
         Debug.Log("SetDetectHand");
-        SRWorkHand.OpenDynamicHandCollider();
 
+#if UseHandtracking
+        //SRWorkControl.Instance.CloseDepth();
+        GestureCamera.GetComponent<ViveHandTracking.GestureProvider>().enabled = true;
+        HandrenderL.transform.gameObject.SetActive(true);
+        HandrenderR.transform.gameObject.SetActive(true);
+#else
+        SRWorkHand.OpenDynamicHandCollider();
         _createHandDetectMesh();
         _getDynamicScanObj().GetComponent<Collider>().enabled = false;
+#endif
 
         if (_showDebug == null)
             _showDebug = MyHelpVR.CreateTextMeshOnHead(SRWorkControl.Instance.eye);
@@ -487,6 +528,16 @@ public class SRWorkHand : MySingleton<SRWorkHand>
     {
         if (isDetectingHand)
         {
+#if UseHandtracking
+            handObjNear.SetActive(HandrenderL.transform.gameObject.activeInHierarchy);
+            handObjFar.SetActive(HandrenderR.transform.gameObject.activeInHierarchy);
+
+            handObjNear.transform.position = HandrenderL.transform.position + HandrenderL.transform.up * 0.1f;
+            handObjNear.transform.rotation = Quaternion.identity;
+
+            handObjFar.transform.position = HandrenderR.transform.position + HandrenderR.transform.up * 0.1f;
+            handObjFar.transform.rotation = Quaternion.identity;
+#else
             Mesh handMesh = SRWorkHand._getDynamicScanMesh();
             if (handMesh != null)
             {
@@ -504,6 +555,7 @@ public class SRWorkHand : MySingleton<SRWorkHand>
                     handObjFar.transform.rotation = handRot;
                 }
             }
+#endif
         }
     }
 
@@ -513,8 +565,15 @@ public class SRWorkHand : MySingleton<SRWorkHand>
             return;
         isDetectingHand = false;
         Debug.Log("CloseDetectHand");
+
+#if UseHandtracking
+        GestureCamera.GetComponent<ViveHandTracking.GestureProvider>().enabled = false;
+        HandrenderL.transform.gameObject.SetActive(false);
+        HandrenderR.transform.gameObject.SetActive(false);
+#else
         SRWorkHand.CloseDynamicHandCollider();
         // StopCoroutine(waitDetectHandCoroutine);
         //waitDetectHandCoroutine = null;
+#endif
     }
 }

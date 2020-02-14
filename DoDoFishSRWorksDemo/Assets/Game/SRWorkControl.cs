@@ -14,6 +14,11 @@ public class SRWorkControl : MySingleton<SRWorkControl>
     public bool DebugShow;
     public ViveSR_Experience_StaticMesh viveSR_Experience_StaticMesh;
 
+    //public void CloseDepth()
+    //{
+    //    viveSR.EnableDepthMeshModule = viveSR.EnableDepthModule = viveSR.EnableRigidReconstructionModule = false;
+    //}
+
     public void SaveScanning(Action<int> UpdatePercentage, Action Done)
     {
         if (ViveSR_RigidReconstruction.IsScanning)
@@ -65,12 +70,12 @@ public class SRWorkControl : MySingleton<SRWorkControl>
 
     public bool LoadReconstructMesh(Action beforeLoad, Action Done)
     {
-        if (!viveSR_Experience_StaticMesh.CheckModelExist())
+        if (!viveSR_Experience_StaticMesh.CheckModelFileExist())
             return false;
         if (!viveSR_Experience_StaticMesh.CheckModelLoaded() && !ViveSR_RigidReconstruction.IsScanning)
         {
             viveSR_Experience_StaticMesh.enabled = true;
-            viveSR_Experience_StaticMesh.LoadMesh(true, beforeLoad, Done);
+            viveSR_Experience_StaticMesh.LoadMesh(true, false, beforeLoad, Done);
             return true;
         }
         return false;
@@ -138,8 +143,16 @@ public class SRWorkControl : MySingleton<SRWorkControl>
             return;
         GameObject colRootObj = reconstructStaticColliderObj;
 
-        Transform meshObj = colRootObj.transform.Find("PlaneConvexColliderGroup");
-        Transform HV = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        //Transform meshObj = colRootObj.transform.Find("PlaneConvexColliderGroup");
+        Transform meshObj;
+        MyHelpNode.FindTransform(colRootObj.transform, "PlaneConvexColliderGroup", out meshObj);
+
+        //Transform HV = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        Transform HV;
+        if (getHorizontal)
+            MyHelpNode.FindTransform(meshObj, "Horizontal", out HV);
+        else
+            MyHelpNode.FindTransform(meshObj, "Vertical", out HV);
         if (HV == null)
             Debug.LogError("[GetReconstructStaticConvexCollider] : " + (getHorizontal ? "horizontal fail" : "vertical fail"));
 
@@ -151,7 +164,9 @@ public class SRWorkControl : MySingleton<SRWorkControl>
               outColliders.Add(t.GetComponent<MeshCollider>());
           }*/
 
-        Transform Oblique = meshObj.Find("Oblique");
+        //Transform Oblique = meshObj.Find("Oblique");
+        Transform Oblique;
+        MyHelpNode.FindTransform(meshObj, "Oblique", out Oblique);
         if (Oblique != null)
             outColliders.AddRange(new List<MeshCollider>(Oblique.GetComponentsInChildren<MeshCollider>()));
 
@@ -169,12 +184,24 @@ public class SRWorkControl : MySingleton<SRWorkControl>
         if (reconstructStaticColliderObj == null)
             return;
         GameObject colRootObj = reconstructStaticColliderObj;
-        Transform meshObj = colRootObj.transform.Find("PlaneBoundingRectColliderGroup");
-        Transform HV = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        Transform meshObj;// = colRootObj.transform.Find("PlaneBoundingRectColliderGroup");
+        MyHelpNode.FindTransform(colRootObj.transform, "PlaneBoundingRectColliderGroup", out meshObj);
+        //meshObj = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        //Transform HV = getHorizontal ? meshObj.Find("Horizontal") : meshObj.Find("Vertical");
+        Transform HV;
+        if (getHorizontal)
+        {
+            MyHelpNode.FindTransform(meshObj, "Horizontal", out HV);
+        }
+        else
+        {
+            MyHelpNode.FindTransform(meshObj, "Vertical", out HV);
+        }
         if (meshObj == null)
             Debug.LogError("[GetReconstructStaticQuadCollider] : " + (getHorizontal ? "horizontal fail" : "vertical fail"));
 
         outColliders = new List<MeshCollider>();
+
         outColliders.AddRange(new List<MeshCollider>(HV.GetComponentsInChildren<MeshCollider>()));
         /*  for (int a = 0; a < meshObj.childCount; a++)
           {
@@ -182,8 +209,11 @@ public class SRWorkControl : MySingleton<SRWorkControl>
               outColliders.Add(t.GetComponent<MeshCollider>());
           }*/
 
-        Transform Oblique = meshObj.Find("Oblique");
+        Transform Oblique = null;
+        MyHelpNode.FindTransform(meshObj, "Oblique", out Oblique);
+        //meshObj.Find("Oblique");
         if (Oblique != null)
             outColliders.AddRange(new List<MeshCollider>(Oblique.GetComponentsInChildren<MeshCollider>()));
+
     }
 }

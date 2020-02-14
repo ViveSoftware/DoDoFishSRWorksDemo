@@ -18,7 +18,8 @@ public class HandTouchFish : MonoBehaviour
     float recoverTime;
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        if (GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().enabled = false;
         recoverTime = 0.5f;
     }
 
@@ -29,8 +30,11 @@ public class HandTouchFish : MonoBehaviour
 
     private void Update()
     {
+        if (GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().enabled = false;
         recoverTime -= Time.deltaTime;
         if (recoverTime < 0)
-            GetComponent<MeshRenderer>().material.color = Color.white;
+            if (GetComponent<MeshRenderer>() != null)
+                GetComponent<MeshRenderer>().enabled = false;
     }
 }

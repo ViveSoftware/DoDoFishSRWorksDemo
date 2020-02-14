@@ -172,23 +172,28 @@ namespace Demo
 
             //Get the lowest is the floor and y must -0.5~0.5
             MeshSizeData lowestMesh = null;
-            float lowestD = 9999f;
-            for (int a = 0; a < meshSizeDataList.Count; a++)
+            if (false &&//don't consider via scan data
+                meshSizeDataList != null)
             {
-                if (a >= 3)
-                    break;
-                MeshSizeData current = meshSizeDataList[a];
-
-                if (current.meshCenterWorld.y < lowestD)
+                float lowestD = 9999f;
+                for (int a = 0; a < meshSizeDataList.Count; a++)
                 {
+                    if (a >= 3)
+                        break;
+                    MeshSizeData current = meshSizeDataList[a];
 
-                    //if (-0.6f < current.meshCenterWorld.y && current.meshCenterWorld.y < 0.6f)
+                    if (current.meshCenterWorld.y < lowestD)
                     {
-                        lowestD = current.meshCenterWorld.y;
-                        lowestMesh = current;
+
+                        //if (-0.6f < current.meshCenterWorld.y && current.meshCenterWorld.y < 0.6f)
+                        {
+                            lowestD = current.meshCenterWorld.y;
+                            lowestMesh = current;
+                        }
                     }
                 }
             }
+
             if (lowestMesh != null)
             {
                 GameObject floorConvexObj = SetPivotInMeshCenter(
@@ -199,7 +204,7 @@ namespace Demo
                      lowestMesh.colliderMesh.name + "_convex : " + lowestMesh.area,
                      lowestMesh.avgNormalWorld,
                      lowestMesh.meshCenterWorld);
-                meshSizeDataList.Remove(lowestMesh);
+                //meshSizeDataList.Remove(lowestMesh);
 
                 //Add floor quad for shadow rendering
                 foreach (MeshCollider mc in reconstructQuadCollidersHorizontal)
@@ -221,25 +226,6 @@ namespace Demo
                         floorPlaneObj.transform.position = center;
                         floorPlaneObj.transform.rotation = Quaternion.identity;
                         floorPlaneObj.transform.localScale = Vector3.one * 2;
-
-                        //SRWork 0.7.5.0 use scan mesh collider
-                        floorPlaneObj.isStatic = true;
-
-                        floorPlaneObj.layer = AdvanceRender.ScanLiveMeshLayer;
-                        if (ARRender.ADVANCE_RENDER)
-                        {
-                            //In advance render floorPlaneObj is for render, so, we clone a new one for collision                            
-                            floorPlaneObjCollider = GameObject.Instantiate(floorPlaneObj);
-                            floorPlaneObjCollider.layer = AdvanceRender.MRCollisionFloorLayer;
-                            floorPlaneObjCollider.transform.position = floorPlaneObj.transform.position;
-                            floorPlaneObjCollider.transform.rotation = floorPlaneObj.transform.rotation;
-                            ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, AdvanceRender.MRCollisionFloorLayer);
-                        }
-                        else
-                        {
-                            floorPlaneObj.GetComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("ViveSR/MeshCuller, Shadowed, Stencil"));
-                            //floorPlaneObj.GetComponent<MeshRenderer>().enabled = false;
-                        }
                         break;
                     }
                 }
@@ -259,7 +245,36 @@ namespace Demo
                 //}
             }
             else
+            {
                 Debug.LogWarning("[reconstructPickFloor] there are no reconstruct floor picked...");
+                Debug.LogWarning("[reconstructPickFloor] use (0,0,0) as floor...");
+
+                floorPlaneObj = GameObject.CreatePrimitive(PrimitiveType.Plane);
+                floorPlaneObj.name = "Zero_quadFloor";
+                floorPlaneObj.transform.parent = recontructFloor.transform;
+                floorPlaneObj.transform.position = Vector3.zero;
+                floorPlaneObj.transform.rotation = Quaternion.identity;
+                floorPlaneObj.transform.localScale = Vector3.one * 2;
+            }
+
+            //SRWork 0.7.5.0 use scan mesh collider
+            floorPlaneObj.isStatic = true;
+            floorPlaneObj.layer = ARRender.ScanLiveMeshLayer;
+            if (ARRender.ADVANCE_RENDER)
+            {
+                //In advance render floorPlaneObj is for render, so, we clone a new one for collision                            
+                floorPlaneObjCollider = GameObject.Instantiate(floorPlaneObj);
+                floorPlaneObjCollider.layer = ARRender.MRCollisionFloorLayer;
+                floorPlaneObjCollider.transform.position = floorPlaneObj.transform.position;
+                floorPlaneObjCollider.transform.rotation = floorPlaneObj.transform.rotation;
+                ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, ARRender.MRCollisionFloorLayer);
+            }
+            else
+            {
+                floorPlaneObj.GetComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("ViveSR/MeshCuller, Shadowed, Stencil"));
+                //floorPlaneObj.GetComponent<MeshRenderer>().enabled = false;
+            }
+
             /*
                     //Get the highest is the table
                     MeshSizeData highestMesh = null;
@@ -357,6 +372,8 @@ namespace Demo
         {
             ignoreList = new List<MeshCollider>();
             meshSizeDataList = new List<MeshSizeData>();
+            if (getReconColliderList == null)
+                return;
             List<MeshCollider>.Enumerator itr = getReconColliderList.GetEnumerator();
             while (itr.MoveNext())
             {
@@ -569,7 +586,8 @@ namespace Demo
             }
 
             wall.layer = ARRender.MRReconstructObjectLayer;
-            ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, ARRender.MRReconstructObjectLayer);
+            //ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, ARRender.MRReconstructObjectLayer);
+            ARRender.Instance.VRCameraRemoveLayer(ARRender.MRReconstructObjectLayer);
             return wall;
         }
 

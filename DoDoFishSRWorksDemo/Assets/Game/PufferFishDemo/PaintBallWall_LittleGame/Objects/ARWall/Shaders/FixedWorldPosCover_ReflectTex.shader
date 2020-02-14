@@ -81,8 +81,9 @@ Shader "Custom/FixedWorldPosCover_ReflectTex"
 				float NdotL = saturate(dot(N, L));
 				float4 diffuseTerm = NdotL * _DiffuseTint * attenuation;
 
-                half4 col = tex2Dproj(_ReflectTextureL, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex == 0) +
-                    tex2Dproj(_ReflectTextureR, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex != 0);
+             /*   half4 col = tex2Dproj(_ReflectTextureL, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex == 0) +
+                    tex2Dproj(_ReflectTextureR, UNITY_PROJ_COORD(i.uvgrab)) * (unity_StereoEyeIndex != 0);*/
+                half4 col = tex2Dproj(_ReflectTextureL, UNITY_PROJ_COORD(i.uvgrab));
 
                 float4 finalColor = (attenuation)* col +(1 - attenuation)*ambient*0.4;
 				//float4 finalColor = (ambient + diffuseTerm) * col;

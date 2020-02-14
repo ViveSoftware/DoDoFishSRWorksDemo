@@ -36,7 +36,7 @@ public class FishIdleState : IState, FishAIStateManager.IStatePunch
     {
         int idleAni = Random.Range((int)FishAIStateManager.FishAni.Idle1, (int)FishAIStateManager.FishAni.IdleEnd);
         manager.WaitToTriggerAnimation((FishAIStateManager.FishAni)idleAni);
-        considerNext = 0;
+        changeIng = true;
         Debug.Log("[FishIdleState] idleAni : " + (FishAIStateManager.FishAni)idleAni);
     }
 
@@ -49,8 +49,7 @@ public class FishIdleState : IState, FishAIStateManager.IStatePunch
         return "FishIdleState";
     }
 
-    bool _firstEnter;
-    int considerNext;
+    bool _firstEnter, changeIng;
     public void UpdateState()
     {
         AnimatorStateInfo info = manager.GetAnimator().GetCurrentAnimatorStateInfo(0);
@@ -58,7 +57,7 @@ public class FishIdleState : IState, FishAIStateManager.IStatePunch
             return;
         _firstEnter = false;
 
-        if (considerNext > 10 && info.normalizedTime >= 0.99f)
+        if (!changeIng && info.normalizedTime >= 0.99f)
         {
             if (idlePoseCount == 3)
                 manager.SwitchState(FishAIStateManager.FishState.move);
@@ -66,7 +65,11 @@ public class FishIdleState : IState, FishAIStateManager.IStatePunch
                 randomIdle();
             idlePoseCount++;
         }
-        considerNext++;
+
+        if (changeIng && info.normalizedTime < 0.5f)
+        {
+            changeIng = false;
+        }
     }
 
     public void OnCollisionEnter(Vector3 punchDir, float PunchM, Vector3 contactP)

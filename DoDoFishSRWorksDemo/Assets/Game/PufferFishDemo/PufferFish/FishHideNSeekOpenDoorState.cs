@@ -22,7 +22,7 @@ public class FishHideNSeekOpenDoorState : IState, FishAIStateManager.IStatePaint
         //manager.WaitToTriggerAnimation(FishAIStateManager.FishAni.WryFace);
 
         isFaceToDone = false;
-        WryFaceTime = 10;
+        WryFaceTime = 4;
         shootFishCount = 3;
         fishCanBeShoot = false;
         manager.StartCoroutine(_startWryFace());

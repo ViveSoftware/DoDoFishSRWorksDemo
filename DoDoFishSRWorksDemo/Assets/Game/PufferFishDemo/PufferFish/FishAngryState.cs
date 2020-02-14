@@ -99,6 +99,10 @@ public class FishAngryState : IState, FishAIStateManager.IStatePunch
                         //}
                     }
                 }
+                else
+                {
+                    manager.WaitToSwitchState(FishAIStateManager.FishState.move);
+                }
             }
         }
         else

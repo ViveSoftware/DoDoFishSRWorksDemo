@@ -1,4 +1,4 @@
-﻿#define ADVANCE_RENDER
+﻿#define ADVANCE_RENDERxx
 
 using System;
 using System.Collections;
@@ -17,7 +17,9 @@ namespace Demo
 
         public bool showFPS;
         public Camera VRCamera, DualCameraL, DualCameraR;
+#if ADVANCE_RENDER
         public AdvanceRender advanceRender;
+#endif
         public Light shadowCastDirLight;
 
         [SerializeField]
@@ -26,8 +28,44 @@ namespace Demo
         private List<Transform> unityrenderWithDepthNoShadowObject;
 
         CopyCameraImage _dualCameraLRT, _dualCameraRRT;
-        Camera _UnityRenderOnTopCamera;
-        const int _UnityRenderOnTopCamOrder = 3;
+        [HideInInspector] public Camera _UnityRenderOnTopCameraLL, _UnityRenderOnTopCameraRR;
+        const int _UnityRenderOnTopCamOrder = 1;
+
+        public static int ScanLiveMeshLayer
+        {
+            get
+            {
+                if (ARRender.ADVANCE_RENDER)
+                {
+                    int layer = LayerMask.NameToLayer("ScanLiveMesh");
+                    if (layer < 0)
+                    { Debug.LogError("please add a layer => ScanLiveMesh"); return 0; }
+                    return layer;
+                }
+                else
+                {
+                    return LayerMask.NameToLayer("Default");
+                }
+            }
+        }
+
+        public static int MRCollisionFloorLayer
+        {
+            get
+            {
+                if (ARRender.ADVANCE_RENDER)
+                {
+                    int layer = LayerMask.NameToLayer("MRCollisionFloor");
+                    if (layer < 0)
+                    { Debug.LogError("please add a layer => MRCollisionFloor"); return 0; }
+                    return layer;
+                }
+                else
+                {
+                    return LayerMask.NameToLayer("Default");
+                }
+            }
+        }
 
         public static int GetParticleLayer()
         {
@@ -128,8 +166,52 @@ namespace Demo
                 MyHelpLayer.SetSceneLayer(t, UnityRenderWithDepthLayer);
         }
 
+        Transform _VRCameraRTran;
+        bool _fixVRCamera;
+        void _checkVRCamera()
+        {
+            if (_fixVRCamera)
+                return;
+            Vive.Plugin.SR.ViveSR_VirtualCameraRig rig = GameObject.FindObjectOfType<Vive.Plugin.SR.ViveSR_VirtualCameraRig>();
+            if (rig != null)
+            {
+                _fixVRCamera = true;
+
+                MyHelpNode.FindTransform(rig.transform, "right", out _VRCameraRTran, true, true);
+                if (_VRCameraRTran != null)
+                {
+                    if (_VRCameraRTran.GetComponent<BackGroundSound>() != null)
+                        Destroy(_VRCameraRTran.GetComponent<BackGroundSound>());//.enabled = false;
+                    if (_VRCameraRTran.GetComponent<AudioListener>() != null)
+                        Destroy(_VRCameraRTran.GetComponent<AudioListener>());//.enabled = false;
+                    if (_VRCameraRTran.GetComponent<HTC.UnityPlugin.Vive3DSoundPerception.Vive3DSPAudioListener>() != null)
+                        Destroy(_VRCameraRTran.GetComponent<HTC.UnityPlugin.Vive3DSoundPerception.Vive3DSPAudioListener>());//.enabled = false;
+                    AudioSource[] ass = _VRCameraRTran.GetComponents<AudioSource>();
+                    for (int a = 0; a < ass.Length; a++)
+                        Destroy(ass[a]);
+                }
+
+                Debug.LogWarning("[ARRender] [_checkVRCamera] : already fix right VRCamera");
+            }
+        }
+
+        public void VRCameraRemoveLayer(int layer)
+        {
+            VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(VRCamera.cullingMask, layer);
+            Transform _VRCameraRTran;
+            MyHelpNode.FindTransform(VRCamera.transform.parent, "right", out _VRCameraRTran, true, true);
+            Camera cameraRight = _VRCameraRTran.GetComponent<Camera>();
+            cameraRight.cullingMask = MyHelpLayer.RemoveMaskLayer(cameraRight.cullingMask, layer);
+        }
+
+        private void OnDestroy()
+        {
+            Camera.onPreRender -= PreRender;
+        }
+
         void Start()
         {
+            Camera.onPreRender += PreRender;
             VRCamera.gameObject.AddComponent<HTC.UnityPlugin.Vive3DSoundPerception.Vive3DSPAudioListener>();
             DualCameraR.depthTextureMode = DualCameraL.depthTextureMode = DepthTextureMode.None;
 
@@ -159,6 +241,14 @@ namespace Demo
                     frameCount = 0;
                 }
             }
+
+            //if (renderOnTopCameraShifter != null)
+            //{
+            //    Vive.Plugin.SR.ViveSR_HMDCameraShifter mainShifter = VRCamera.transform.parent.GetComponent<Vive.Plugin.SR.ViveSR_HMDCameraShifter>();
+            //    renderOnTopCameraShifter.CameraShift = mainShifter.CameraShift;
+            //}
+
+            _checkVRCamera();
         }
 
         public void SetRobotLightBeam(RobotController robotController)
@@ -178,8 +268,23 @@ namespace Demo
             //    DLightRot = Quaternion.AngleAxis(-80, Vector3.right) * Quaternion.LookRotation(lightDir);
             //shadowCastDirLight.transform.rotation = DLightRot;
 
-            Vector3 lightDir = fishHidingWall.position - Vector3.up * 5f;
-            shadowCastDirLight.transform.forward = lightDir.normalized;
+            //Vector3 lightDir = fishHidingWall.position - VRCamera.transform.position + Vector3.up * 5f;
+            //shadowCastDirLight.transform.forward = -lightDir.normalized;
+
+            Vector3 lightDir = fishHidingWall.position - VRCamera.transform.position;
+            lightDir.y = 0;
+            lightDir.Normalize();
+            Vector3 oppoPos = fishHidingWall.position + lightDir * -4f + Vector3.up * 5f;
+            shadowCastDirLight.transform.forward = fishHidingWall.position - oppoPos;
+        }
+
+        public void SetDirectionalLightBack(Transform fishHidingWall)
+        {
+            Vector3 lightDir = fishHidingWall.position - VRCamera.transform.position;
+            lightDir.y = 0;
+            lightDir.Normalize();
+            Vector3 oppoPos = fishHidingWall.position + lightDir * 10f + Vector3.up * 5f;
+            shadowCastDirLight.transform.forward = fishHidingWall.position - oppoPos;
         }
 
         public void InitRenderSystem()
@@ -203,51 +308,72 @@ namespace Demo
 #endif
 
             foreach (Transform t in unityrenderWithDepthObject)
-                MyHelpLayer.SetSceneLayer(t, ARRender.UnityRenderWithDepthLayer);
+                if (t != null)
+                    MyHelpLayer.SetSceneLayer(t, ARRender.UnityRenderWithDepthLayer);
             foreach (Transform t in unityrenderWithDepthNoShadowObject)
-                MyHelpLayer.SetSceneLayer(t, ARRender.UnityRenderWithDepthNoShadowLayer);
+                if (t != null)
+                    MyHelpLayer.SetSceneLayer(t, ARRender.UnityRenderWithDepthNoShadowLayer);
         }
 
-        void LDualCamRTRefreshCallback(CopyCameraImage copyCameraImage, RenderTexture OnRenderImageDest)
+        void LDualCamRTRefreshCallback(RenderTexture copyCameraImage, RenderTexture OnRenderImageDest)
         {
             //Update the real world camera image to shader
-            GameManager.Instance.UpdateLDualCamRT(copyCameraImage.GetRT());
+            GameManager.Instance.UpdateLDualCamRT(copyCameraImage);
 
 #if !ADVANCE_RENDER
-            Graphics.Blit(copyCameraImage.GetRT(), OnRenderImageDest);
+            Graphics.Blit(copyCameraImage, OnRenderImageDest);
 #endif
         }
 
-        void RDualCamRTRefreshCallback(CopyCameraImage copyCameraImage, RenderTexture OnRenderImageDest)
+        void RDualCamRTRefreshCallback(RenderTexture copyCameraImage, RenderTexture OnRenderImageDest)
         {
             //Update the real world camera image to shader
-            GameManager.Instance.UpdateRDualCamRT(copyCameraImage.GetRT());
+            GameManager.Instance.UpdateRDualCamRT(copyCameraImage);
 
 #if !ADVANCE_RENDER
-            Graphics.Blit(copyCameraImage.GetRT(), OnRenderImageDest);
+            Graphics.Blit(copyCameraImage, OnRenderImageDest);
 #endif
         }
 
+        //Vive.Plugin.SR.ViveSR_HMDCameraShifter renderOnTopCameraShifter;
         void _createRenderOnTopCamera()
         {
+            Vive.Plugin.SR.ViveSR_VirtualCameraRig rig = GameObject.FindObjectOfType<Vive.Plugin.SR.ViveSR_VirtualCameraRig>();
+
+            if (rig == null)
+                Debug.LogError("There is no ViveSR_VirtualCameraRig in scene");
+
             //Create None DepthTest Camera, which is clear the depth buffer ,and render mesh on screen top.
             GameObject camObj = new GameObject(VRCamera.name + "_RenderOnTop +" + _UnityRenderOnTopCamOrder);
             camObj.transform.parent = null;
-            Vive.Plugin.SR.ViveSR_HMDCameraShifter shifter = camObj.AddComponent<Vive.Plugin.SR.ViveSR_HMDCameraShifter>();
+            //renderOnTopCameraShifter = camObj.AddComponent<Vive.Plugin.SR.ViveSR_HMDCameraShifter>();
 
-            GameObject eyeObj = new GameObject("eye");
-            eyeObj.transform.parent = camObj.transform;
-            eyeObj.transform.localPosition = Vector3.zero;
-            eyeObj.transform.localRotation = Quaternion.identity;
-            _UnityRenderOnTopCamera = eyeObj.AddComponent<Camera>();
-            _UnityRenderOnTopCamera.CopyFrom(VRCamera);
-            _UnityRenderOnTopCamera.cullingMask = (1 << UnityRenderOnTopLayer | 1 << UnityRenderOnTopNoShadowLayer);
-            _UnityRenderOnTopCamera.clearFlags = CameraClearFlags.Depth;
-            _UnityRenderOnTopCamera.depth = VRCamera.depth + _UnityRenderOnTopCamOrder;
-            //shifter.TargetCamera = _UnityRenderOnTopCamera;
-            bool setTargetCam = MyReflection.SetMemberVariable(shifter, "TargetCamera", _UnityRenderOnTopCamera);
-            if (!setTargetCam)
-                Debug.LogError("shifter.TargetCamera set fail..._UnityRenderOnTopCamera");
+            GameObject eyeObjLL = new GameObject("eyeL");
+            eyeObjLL.transform.parent = camObj.transform;
+            eyeObjLL.transform.localPosition = Vector3.zero;
+            eyeObjLL.transform.localRotation = Quaternion.identity;
+            _UnityRenderOnTopCameraLL = eyeObjLL.AddComponent<Camera>();
+            _UnityRenderOnTopCameraLL.CopyFrom(rig.CameraLeft);
+            _UnityRenderOnTopCameraLL.cullingMask = (1 << UnityRenderOnTopLayer | 1 << UnityRenderOnTopNoShadowLayer);
+            _UnityRenderOnTopCameraLL.clearFlags = CameraClearFlags.Depth;
+            _UnityRenderOnTopCameraLL.depth = VRCamera.depth + _UnityRenderOnTopCamOrder;
+            _UnityRenderOnTopCameraLL.targetTexture = rig.CameraLeft.targetTexture;//_RenderOnTopCameraRTL;//assign render texture to control FOV
+            _UnityRenderOnTopCameraLL.stereoTargetEye = StereoTargetEyeMask.Left;//Use 'Both' for unity_StereoEyeIndex in shader is worked.
+            //renderOnTopCameraShifter.TargetCamera = _UnityRenderOnTopCamera;
+            _UnityRenderOnTopCameraLL.fieldOfView = rig.CameraLeft.fieldOfView;
+
+            GameObject eyeObjRR = new GameObject("eyeR");
+            eyeObjRR.transform.parent = camObj.transform;
+            eyeObjRR.transform.localPosition = Vector3.zero;
+            eyeObjRR.transform.localRotation = Quaternion.identity;
+            _UnityRenderOnTopCameraRR = eyeObjRR.AddComponent<Camera>();
+            _UnityRenderOnTopCameraRR.CopyFrom(rig.CameraRight);
+            _UnityRenderOnTopCameraRR.cullingMask = (1 << UnityRenderOnTopLayer | 1 << UnityRenderOnTopNoShadowLayer);
+            _UnityRenderOnTopCameraRR.clearFlags = CameraClearFlags.Depth;
+            _UnityRenderOnTopCameraRR.depth = VRCamera.depth + _UnityRenderOnTopCamOrder;
+            _UnityRenderOnTopCameraRR.targetTexture = rig.CameraRight.targetTexture; //_RenderOnTopCameraRTR;//assign render texture to control FOV
+            _UnityRenderOnTopCameraRR.stereoTargetEye = StereoTargetEyeMask.Right;//Use 'Both' for unity_StereoEyeIndex in shader is worked.
+            _UnityRenderOnTopCameraRR.fieldOfView = rig.CameraRight.fieldOfView;
 
 #if ADVANCE_RENDER
             VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(VRCamera.cullingMask, UnityRenderOnTopLayer);
@@ -258,6 +384,33 @@ namespace Demo
             //So, we don't remove VRCamera's UnityRenderOnTop Layer
 #endif
         }
+
+        private void PreRender(Camera eye)
+        {
+            UpdateRenderTopCamera();
+        }
+
+        public void UpdateRenderTopCamera()
+        {
+            if (_UnityRenderOnTopCameraLL == null)
+                return;
+            Vive.Plugin.SR.ViveSR_VirtualCameraRig rig = VRCamera.transform.parent.GetComponent<Vive.Plugin.SR.ViveSR_VirtualCameraRig>();
+
+            Vector3 positionLeft = rig.CameraLeft.transform.localPosition;
+            Quaternion rotationLeft = rig.CameraLeft.transform.localRotation;
+            Vector3 positionRight = rig.CameraRight.transform.localPosition;
+            Quaternion rotationRight = rig.CameraRight.transform.localRotation;
+
+            _UnityRenderOnTopCameraLL.transform.localPosition = positionLeft;
+            _UnityRenderOnTopCameraLL.transform.localRotation = rotationLeft;
+
+            if (_VRCameraRTran != null)
+            {
+                _UnityRenderOnTopCameraRR.transform.localPosition = positionRight;
+                _UnityRenderOnTopCameraRR.transform.localRotation = rotationRight;
+            }
+        }
     }
+
 
 }

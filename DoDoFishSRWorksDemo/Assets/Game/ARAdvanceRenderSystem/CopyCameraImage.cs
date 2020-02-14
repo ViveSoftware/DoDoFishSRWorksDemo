@@ -6,9 +6,9 @@ using UnityEngine;
 public class CopyCameraImage : MonoBehaviour
 {
     public int delayFrame;
-    RenderTexture destination;
+    public RenderTexture destination;
 
-    public delegate void RTRefreshCallback(CopyCameraImage copyCameraImage, RenderTexture OnRenderImageDest);
+    public delegate void RTRefreshCallback(RenderTexture rt, RenderTexture OnRenderImageDest);
     public RTRefreshCallback rtRefreshCallback;
 
     public RenderTexture GetRT()
@@ -27,6 +27,6 @@ public class CopyCameraImage : MonoBehaviour
         Graphics.Blit(src, destination);
 
         if (rtRefreshCallback != null)
-            rtRefreshCallback(this, dest);
+            rtRefreshCallback(destination, dest);
     }
 }

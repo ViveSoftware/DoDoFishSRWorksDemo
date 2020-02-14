@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1024466987279296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4426348439962432}
+  - component: {fileID: 114743830950906374}
+  m_Layer: 0
+  m_Name: ARRenderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1371780786223324
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +60,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1968107785206448
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -52,12 +68,12 @@ GameObject:
   - component: {fileID: 4542360227987264}
   - component: {fileID: 114194977932218798}
   m_Layer: 0
-  m_Name: ARRender
+  m_Name: AdvanceRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1973195472959170
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +83,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4440610437933466}
   - component: {fileID: 114508523275322098}
-  - component: {fileID: 114384565846585918}
+  - component: {fileID: 114910190476964850}
+  - component: {fileID: 114267328703087670}
   m_Layer: 0
   m_Name: ReconstructManager
   m_TagString: Untagged
@@ -82,11 +99,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371780786223324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3515306, y: -2.018519, z: 3.3980618}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4360686016529100}
-  - {fileID: 4542360227987264}
+  - {fileID: 4426348439962432}
   - {fileID: 4440610437933466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,6 +120,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4200799424926114}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4426348439962432
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024466987279296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4542360227987264}
+  m_Father: {fileID: 4200799424926114}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4440610437933466
 Transform:
@@ -123,12 +154,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968107785206448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4200799424926114}
-  m_RootOrder: 1
+  m_Father: {fileID: 4426348439962432}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114194977932218798
 MonoBehaviour:
@@ -141,10 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5984d8e528c03b4face6fdc2baefb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFPS: 0
-  VRCamera: {fileID: 0}
-  DualCameraL: {fileID: 0}
-  DualCameraR: {fileID: 0}
   dilateMaskShader: {fileID: 4800000, guid: 8145ad2d2c5cb3a4097a93706ad1bbec, type: 3}
   genBinaryMaskShader: {fileID: 4800000, guid: 600115c8ce130f843913339a595581c7, type: 3}
   refineGBufferShader: {fileID: 4800000, guid: 94415dcb5459b9342a20c39c5cf6168e, type: 3}
@@ -156,8 +183,6 @@ MonoBehaviour:
     type: 2}
   MergeDepthMat: {fileID: 2100000, guid: cac9140893860c040ba6d394f36910cd, type: 2}
   CopyCameraDepthMat: {fileID: 2100000, guid: cf33be9bcbf63b940922a1b710cad068, type: 2}
-  shadowCastDirLight: {fileID: 0}
-  shadowRecieveShader: {fileID: 4800000, guid: 1dc04a4583d5bf248b7d91c4e37ed704, type: 3}
   screenShadowBlit: {fileID: 2100000, guid: 287232553d5fd814a887fff440009423, type: 2}
   blurHMaterial: {fileID: 2100000, guid: d8f831a1a8a05b347a22cce7c53334b5, type: 2}
   blurVMaterial: {fileID: 2100000, guid: 8e91db0230325d346bb8c589fe89ac1f, type: 2}
@@ -179,6 +204,64 @@ MonoBehaviour:
   - {fileID: 0}
   writeDepthCameraPrefab: {fileID: 1392538371767862, guid: 6ed8e56d1b0f25d46ac2faa3441d1577,
     type: 2}
+  softEdgeWeightMaterial: {fileID: 2100000, guid: 6d2d6731e00cfa743869f4511279ecc6,
+    type: 2}
+--- !u!114 &114267328703087670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973195472959170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbac86126eb6edd42b4001333a20bd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandrenderL: {fileID: 0}
+  HandrenderR: {fileID: 0}
+  considerSkinColor: 1
+  showHand: 1
+  handSizeRange: 0.15
+  DebugShow: 0
+  farDebugColor: {r: 0.3602941, g: 0.92058825, b: 1, a: 1}
+  handObjNear: {fileID: 0}
+  handObjFar: {fileID: 0}
+  lowPassRatio: 0.1
+  HandNear: {x: 0, y: 0, z: 0}
+  HandFar: {x: 0, y: 0, z: 0}
+  GestureCamera: {fileID: 0}
+--- !u!114 &114508523275322098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973195472959170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7307a1681e129f418876e2582ca5599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectWallMaterial: {fileID: 2100000, guid: 71c749c87cd9da042876731a92568530, type: 2}
+  selectWallPointer: {fileID: 0}
+  selectedWallRoot: {fileID: 0}
+  recontructFloor: {fileID: 0}
+--- !u!114 &114743830950906374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024466987279296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c822cd23421030f4cbe6adf2ccb0cd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFPS: 0
+  VRCamera: {fileID: 0}
+  DualCameraL: {fileID: 0}
+  DualCameraR: {fileID: 0}
+  advanceRender: {fileID: 114194977932218798}
+  shadowCastDirLight: {fileID: 0}
   unityrenderWithDepthObject:
   - {fileID: 0}
   - {fileID: 0}
@@ -187,10 +270,7 @@ MonoBehaviour:
   unityrenderWithDepthNoShadowObject:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  softEdgeWeightMaterial: {fileID: 2100000, guid: 6d2d6731e00cfa743869f4511279ecc6,
-    type: 2}
---- !u!114 &114384565846585918
+--- !u!114 &114910190476964850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -207,22 +287,6 @@ MonoBehaviour:
   Far: 0.63
   DebugShow: 0
   viveSR_Experience_StaticMesh: {fileID: 0}
-  dynamicHandDisDivided: 0.2
---- !u!114 &114508523275322098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1973195472959170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7307a1681e129f418876e2582ca5599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectWallMaterial: {fileID: 2100000, guid: 71c749c87cd9da042876731a92568530, type: 2}
-  selectWallPointer: {fileID: 0}
-  selectedWallRoot: {fileID: 0}
-  recontructFloor: {fileID: 0}
 --- !u!114 &114966194761226956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,8 +312,5 @@ MonoBehaviour:
     type: 2}
   generator: {fileID: 0}
   LiftMachine: {fileID: 0}
-  garageController: {fileID: 0}
   Robot: {fileID: 0}
   FairyStick: {fileID: 0}
-  handStart: {fileID: 0}
-  handEnd: {fileID: 0}

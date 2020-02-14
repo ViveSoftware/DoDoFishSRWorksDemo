@@ -1,0 +1,2239 @@
+fileFormatVersion: 2
+guid: 74b7b147f7d6f7948bf3734b2a45e8b6
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bone
+    100002: eye_L
+    100004: eye_R
+    100006: eyelid
+    100008: group1
+    100010: group2
+    100012: jnt_back
+    100014: jnt_backfin_01
+    100016: jnt_backfin_02
+    100018: jnt_backfin_03
+    100020: jnt_belly
+    100022: jnt_belly_side_L_01
+    100024: jnt_belly_side_L_02
+    100026: jnt_belly_side_R_01
+    100028: jnt_belly_side_R_02
+    100030: jnt_cheek_L
+    100032: jnt_cheek_R
+    100034: jnt_chest_Fin_L_01
+    100036: jnt_chest_Fin_L_02
+    100038: jnt_chest_Fin_L_03
+    100040: jnt_chest_Fin_L_04
+    100042: jnt_chest_Fin_L_05
+    100044: jnt_chest_Fin_R_01
+    100046: jnt_chest_Fin_R_02
+    100048: jnt_chest_Fin_R_03
+    100050: jnt_chest_Fin_R_04
+    100052: jnt_chest_Fin_R_05
+    100054: jnt_eye_L_01
+    100056: jnt_eye_L_02
+    100058: jnt_eye_R_01
+    100060: jnt_eye_R_02
+    100062: jnt_head
+    100064: jnt_mouth_conner_L
+    100066: jnt_mouth_conner_R
+    100068: jnt_mouth_lower
+    100070: jnt_mouth_lower_L
+    100072: jnt_mouth_lower_R
+    100074: jnt_mouth_upper
+    100076: jnt_mouth_upper_L
+    100078: jnt_mouth_upper_R
+    100080: jnt_pelvic_fin_01
+    100082: jnt_pelvic_fin_02
+    100084: jnt_pelvic_fin_03
+    100086: jnt_spine_01
+    100088: jnt_spine_02
+    100090: jnt_spine_03
+    100092: jnt_TailMain_01
+    100094: jnt_TailMain_02
+    100096: jnt_TailMain_03
+    100098: jnt_TailMain_04
+    100100: jnt_tongue_01
+    100102: jnt_tongue_02
+    100104: jnt_tongue_03
+    100106: jnt_tongue_04
+    100108: jnt_tongue_05
+    100110: joint_Root
+    100112: model
+    100114: mouth
+    100116: //RootNode
+    100118: Puffer_fish_body
+    100120: tongue
+    100122: Under_eyelid_L
+    100124: Under_eyelid_R
+    100126: Upper_eyelid_L
+    100128: Upper_eyelid_R
+    400000: bone
+    400002: eye_L
+    400004: eye_R
+    400006: eyelid
+    400008: group1
+    400010: group2
+    400012: jnt_back
+    400014: jnt_backfin_01
+    400016: jnt_backfin_02
+    400018: jnt_backfin_03
+    400020: jnt_belly
+    400022: jnt_belly_side_L_01
+    400024: jnt_belly_side_L_02
+    400026: jnt_belly_side_R_01
+    400028: jnt_belly_side_R_02
+    400030: jnt_cheek_L
+    400032: jnt_cheek_R
+    400034: jnt_chest_Fin_L_01
+    400036: jnt_chest_Fin_L_02
+    400038: jnt_chest_Fin_L_03
+    400040: jnt_chest_Fin_L_04
+    400042: jnt_chest_Fin_L_05
+    400044: jnt_chest_Fin_R_01
+    400046: jnt_chest_Fin_R_02
+    400048: jnt_chest_Fin_R_03
+    400050: jnt_chest_Fin_R_04
+    400052: jnt_chest_Fin_R_05
+    400054: jnt_eye_L_01
+    400056: jnt_eye_L_02
+    400058: jnt_eye_R_01
+    400060: jnt_eye_R_02
+    400062: jnt_head
+    400064: jnt_mouth_conner_L
+    400066: jnt_mouth_conner_R
+    400068: jnt_mouth_lower
+    400070: jnt_mouth_lower_L
+    400072: jnt_mouth_lower_R
+    400074: jnt_mouth_upper
+    400076: jnt_mouth_upper_L
+    400078: jnt_mouth_upper_R
+    400080: jnt_pelvic_fin_01
+    400082: jnt_pelvic_fin_02
+    400084: jnt_pelvic_fin_03
+    400086: jnt_spine_01
+    400088: jnt_spine_02
+    400090: jnt_spine_03
+    400092: jnt_TailMain_01
+    400094: jnt_TailMain_02
+    400096: jnt_TailMain_03
+    400098: jnt_TailMain_04
+    400100: jnt_tongue_01
+    400102: jnt_tongue_02
+    400104: jnt_tongue_03
+    400106: jnt_tongue_04
+    400108: jnt_tongue_05
+    400110: joint_Root
+    400112: model
+    400114: mouth
+    400116: //RootNode
+    400118: Puffer_fish_body
+    400120: tongue
+    400122: Under_eyelid_L
+    400124: Under_eyelid_R
+    400126: Upper_eyelid_L
+    400128: Upper_eyelid_R
+    2300000: Under_eyelid_L
+    2300002: Under_eyelid_R
+    2300004: Upper_eyelid_L
+    2300006: Upper_eyelid_R
+    3300000: Under_eyelid_L
+    3300002: Under_eyelid_R
+    3300004: Upper_eyelid_L
+    3300006: Upper_eyelid_R
+    4300000: Upper_eyelid_R
+    4300002: Under_eyelid_R
+    4300004: Upper_eyelid_L
+    4300006: Under_eyelid_L
+    4300008: Puffer_fish_body
+    4300010: eye_L
+    4300012: eye_R
+    4300014: tongue
+    7400000: HappySwing
+    7400002: HappyTurnAround
+    7400004: SpitBubble
+    7400006: Scared
+    7400008: Angry
+    7400010: LieDown
+    7400012: LieDowning
+    7400014: GetUp
+    7400016: WryFace
+    7400018: Flirtatious
+    7400020: AngryNotLoop
+    7400022: WryFaceLoop
+    7400024: ScareNotLoop
+    9500000: //RootNode
+    13700000: eye_L
+    13700002: eye_R
+    13700004: Puffer_fish_body
+    13700006: tongue
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Puffer_fish_body2
+    second: {fileID: 2100000, guid: 0a045449a8a83144e93aa6da615f056b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Puffer_fish_eye1
+    second: {fileID: 2100000, guid: 2ee07fb4d945beb46b6e47b2b421fff2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: HappySwing
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Happy_Twist_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: HappyTurnAround
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Happy_Turn_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SpitBubble
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.018918918
+        functionName: playaudio
+        data: TC_Bubbling_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Scared
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Scare_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Angry
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Angry_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LieDown
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Tickle_Step_1_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LieDowning
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Tickle_Step_2_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GetUp
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 340
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Tickle_Step_3_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: WryFace
+      takeName: Take 001
+      firstFrame: 340
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.16666667
+        functionName: playaudio
+        data: TC_Grimace_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Flirtatious
+      takeName: Take 001
+      firstFrame: 380
+      lastFrame: 430
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.40624997
+        functionName: playaudio
+        data: TC_Blink_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AngryNotLoop
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: playaudio
+        data: TC_Angry_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ScareNotLoop
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.0063023567
+        functionName: playaudio
+        data: TC_Scare_SFX
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bone
+        weight: 1
+      - path: bone/jnt_back
+        weight: 1
+      - path: bone/jnt_belly_side_L_01
+        weight: 1
+      - path: bone/jnt_belly_side_L_02
+        weight: 1
+      - path: bone/jnt_belly_side_R_01
+        weight: 1
+      - path: bone/jnt_belly_side_R_02
+        weight: 1
+      - path: bone/joint_Root
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_L_01/jnt_chest_Fin_L_02/jnt_chest_Fin_L_03/jnt_chest_Fin_L_04/jnt_chest_Fin_L_05
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04
+        weight: 1
+      - path: bone/joint_Root/jnt_chest_Fin_R_01/jnt_chest_Fin_R_02/jnt_chest_Fin_R_03/jnt_chest_Fin_R_04/jnt_chest_Fin_R_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_belly
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_cheek_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_conner_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_lower_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/mouth/jnt_mouth_upper_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Under_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_L
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/eyelid/Upper_eyelid_R
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_L_01/group1/jnt_eye_L_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_eye_R_01/group2/jnt_eye_R_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_head/jnt_tongue_01/jnt_tongue_02/jnt_tongue_03/jnt_tongue_04/jnt_tongue_05
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_backfin_01/jnt_backfin_02/jnt_backfin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_pelvic_fin_01/jnt_pelvic_fin_02/jnt_pelvic_fin_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03
+        weight: 1
+      - path: bone/joint_Root/jnt_spine_01/jnt_spine_02/jnt_spine_03/jnt_TailMain_01/jnt_TailMain_02/jnt_TailMain_03/jnt_TailMain_04
+        weight: 1
+      - path: model
+        weight: 1
+      - path: model/eye_L
+        weight: 1
+      - path: model/eye_R
+        weight: 1
+      - path: model/Puffer_fish_body
+        weight: 1
+      - path: model/tongue
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 45
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
