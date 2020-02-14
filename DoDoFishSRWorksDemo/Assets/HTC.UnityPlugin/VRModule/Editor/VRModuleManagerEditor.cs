@@ -1,8 +1,10 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -16,7 +18,7 @@ namespace HTC.UnityPlugin.VRModuleManagement
         , UnityEditor.Build.IActiveBuildTargetChanged
 #endif
     {
-        private class SymbolRequirement
+        public class SymbolRequirement
         {
             public class ReqFieldInfo
             {
@@ -36,11 +38,16 @@ namespace HTC.UnityPlugin.VRModuleManagement
 
             public string symbol = string.Empty;
             public string[] reqTypeNames = null;
+            public string[] reqAnyTypeNames = null;
             public string[] reqFileNames = null;
+            public string[] reqAnyFileNames = null;
             public ReqFieldInfo[] reqFields = null;
+            public ReqFieldInfo[] reqAnyFields = null;
             public ReqMethodInfo[] reqMethods = null;
+            public ReqMethodInfo[] reqAnyMethods = null;
+            public Func<SymbolRequirement, bool> validateFunc = null;
 
-            private static Dictionary<string, Type> s_foundTypes;
+            public static Dictionary<string, Type> s_foundTypes;
 
             public static void ResetFoundTypes()
             {
@@ -60,6 +67,14 @@ namespace HTC.UnityPlugin.VRModuleManagement
                     }
                 }
 
+                if (reqAnyTypeNames != null)
+                {
+                    foreach (var name in reqAnyTypeNames)
+                    {
+                        TryAddTypeFromAssembly(name, assembly);
+                    }
+                }
+
                 if (reqFields != null)
                 {
                     foreach (var field in reqFields)
@@ -68,9 +83,33 @@ namespace HTC.UnityPlugin.VRModuleManagement
                     }
                 }
 
+                if (reqAnyFields != null)
+                {
+                    foreach (var field in reqAnyFields)
+                    {
+                        TryAddTypeFromAssembly(field.typeName, assembly);
+                    }
+                }
+
                 if (reqMethods != null)
                 {
                     foreach (var method in reqMethods)
+                    {
+                        TryAddTypeFromAssembly(method.typeName, assembly);
+
+                        if (method.argTypeNames != null)
+                        {
+                            foreach (var typeName in method.argTypeNames)
+                            {
+                                TryAddTypeFromAssembly(typeName, assembly);
+                            }
+                        }
+                    }
+                }
+
+                if (reqAnyMethods != null)
+                {
+                    foreach (var method in reqAnyMethods)
                     {
                         TryAddTypeFromAssembly(method.typeName, assembly);
 
@@ -112,6 +151,48 @@ namespace HTC.UnityPlugin.VRModuleManagement
                     }
                 }
 
+                if (reqAnyTypeNames != null)
+                {
+                    var found = false;
+
+                    foreach (var name in reqAnyTypeNames)
+                    {
+                        if (s_foundTypes.ContainsKey(name))
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) { return false; }
+                }
+
+                if (reqFileNames != null)
+                {
+                    foreach (var requiredFile in reqFileNames)
+                    {
+                        var files = Directory.GetFiles(Application.dataPath, requiredFile, SearchOption.AllDirectories);
+                        if (files == null || files.Length == 0) { return false; }
+                    }
+                }
+
+                if (reqAnyFileNames != null)
+                {
+                    var found = false;
+
+                    foreach (var requiredFile in reqAnyFileNames)
+                    {
+                        var files = Directory.GetFiles(Application.dataPath, requiredFile, SearchOption.AllDirectories);
+                        if (files != null && files.Length > 0)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) { return false; }
+                }
+
                 if (reqFields != null)
                 {
                     foreach (var field in reqFields)
@@ -120,6 +201,23 @@ namespace HTC.UnityPlugin.VRModuleManagement
                         if (!s_foundTypes.TryGetValue(field.typeName, out type)) { return false; }
                         if (type.GetField(field.name, field.bindingAttr) == null) { return false; }
                     }
+                }
+
+                if (reqAnyFields != null)
+                {
+                    var found = false;
+
+                    foreach (var field in reqAnyFields)
+                    {
+                        Type type;
+                        if (!s_foundTypes.TryGetValue(field.typeName, out type)) { continue; }
+                        if (type.GetField(field.name, field.bindingAttr) == null) { continue; }
+
+                        found = true;
+                        break;
+                    }
+
+                    if (!found) { return false; }
                 }
 
                 if (reqMethods != null)
@@ -139,24 +237,51 @@ namespace HTC.UnityPlugin.VRModuleManagement
                     }
                 }
 
-                if (reqFileNames != null)
+                if (reqAnyMethods != null)
                 {
-                    foreach (var requiredFile in reqFileNames)
+                    var found = false;
+
+                    foreach (var method in reqAnyMethods)
                     {
-                        var files = Directory.GetFiles(Application.dataPath, requiredFile, SearchOption.AllDirectories);
-                        if (files == null || files.Length == 0) { return false; }
+                        Type type;
+                        if (!s_foundTypes.TryGetValue(method.typeName, out type)) { continue; }
+
+                        var argTypes = new Type[method.argTypeNames == null ? 0 : method.argTypeNames.Length];
+                        for (int i = argTypes.Length - 1; i >= 0; --i)
+                        {
+                            if (!s_foundTypes.TryGetValue(method.argTypeNames[i], out argTypes[i])) { continue; }
+                        }
+
+                        if (type.GetMethod(method.name, method.bindingAttr, null, CallingConventions.Any, argTypes, method.argModifiers ?? new ParameterModifier[0]) == null) { continue; }
+
+                        found = true;
+                        break;
                     }
+
+                    if (!found) { return false; }
+                }
+
+                if (validateFunc != null)
+                {
+                    if (!validateFunc(this)) { return false; }
                 }
 
                 return true;
             }
         }
 
+        public abstract class SymbolRequirementCollection : List<SymbolRequirement> { }
+
         private static List<SymbolRequirement> s_symbolReqList;
 
         static VRModuleManagerEditor()
         {
             s_symbolReqList = new List<SymbolRequirement>();
+
+            foreach (var type in Assembly.GetAssembly(typeof(SymbolRequirementCollection)).GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(SymbolRequirementCollection))))
+            {
+                s_symbolReqList.AddRange((SymbolRequirementCollection)Activator.CreateInstance(type));
+            }
 
             s_symbolReqList.Add(new SymbolRequirement()
             {
@@ -167,104 +292,22 @@ namespace HTC.UnityPlugin.VRModuleManagement
 
             s_symbolReqList.Add(new SymbolRequirement()
             {
-                symbol = "VIU_STEAMVR",
-                reqTypeNames = new string[] { "SteamVR" },
-                reqFileNames = new string[] { "SteamVR.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_STEAMVR_1_1_1",
-                reqTypeNames = new string[] { "SteamVR_Utils+Event" },
-                reqFileNames = new string[] { "SteamVR_Utils.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_STEAMVR_1_2_0_OR_NEWER",
-                reqTypeNames = new string[] { "SteamVR_Events" },
-                reqFileNames = new string[] { "SteamVR_Events.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_STEAMVR_1_2_1_OR_NEWER",
-                reqMethods = new SymbolRequirement.ReqMethodInfo[]
-                {
-                    new SymbolRequirement.ReqMethodInfo()
-                    {
-                         typeName = "SteamVR_Events",
-                         name = "System",
-                         argTypeNames = new string[] { "Valve.VR.EVREventType" },
-                         bindingAttr = BindingFlags.Public | BindingFlags.Static,
-                    }
-                },
-                reqFileNames = new string[] { "SteamVR_Events.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_STEAMVR_1_2_2_OR_NEWER",
-                reqFields = new SymbolRequirement.ReqFieldInfo[]
-                {
-                    new SymbolRequirement.ReqFieldInfo()
-                    {
-                        typeName = "SteamVR_ExternalCamera+Config",
-                        name = "r",
-                        bindingAttr = BindingFlags.Public | BindingFlags.Instance,
-                    }
-                },
-                reqFileNames = new string[] { "SteamVR_ExternalCamera.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_STEAMVR_1_2_3_OR_NEWER",
-                reqMethods = new SymbolRequirement.ReqMethodInfo[]
-                {
-                    new SymbolRequirement.ReqMethodInfo()
-                    {
-                         typeName = "Valve.VR.CVRSystem",
-                         name = "IsInputAvailable",
-                         bindingAttr = BindingFlags.Public | BindingFlags.Instance,
-                    }
-                },
-                reqFileNames = new string[] { "openvr_api.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_OCULUSVR",
-                reqTypeNames = new string[] { "OVRInput" },
-                reqFileNames = new string[] { "OVRInput.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_GOOGLEVR",
-                reqTypeNames = new string[] { "GvrUnitySdkVersion" },
-                reqFileNames = new string[] { "GvrUnitySdkVersion.cs" },
-            });
-
-            s_symbolReqList.Add(new SymbolRequirement()
-            {
-                symbol = "VIU_WAVEVR",
-                reqTypeNames = new string[] { "WaveVR" },
-                reqFileNames = new string[] { "WaveVR.cs" },
+                symbol = "VIU_SIUMULATOR_SUPPORT",
+                validateFunc = (req) => Vive.VIUSettingsEditor.supportSimulator,
             });
 
             // Obsolete symbol, will be removed in all condition
             s_symbolReqList.Add(new SymbolRequirement()
             {
                 symbol = "VIU_EXTERNAL_CAMERA_SWITCH",
-                reqFileNames = new string[] { "" },
+                validateFunc = (req) => false,
             });
 
             // Obsolete symbol, will be removed in all condition
             s_symbolReqList.Add(new SymbolRequirement()
             {
                 symbol = "VIU_BINDING_INTERFACE_SWITCH",
-                reqFileNames = new string[] { "" },
+                validateFunc = (req) => false,
             });
 
 #if !UNITY_2017_1_OR_NEWER
@@ -284,6 +327,21 @@ namespace HTC.UnityPlugin.VRModuleManagement
         [DidReloadScripts]
         public static void UpdateScriptingDefineSymbols()
         {
+            if (!s_isUpdatingScriptingDefineSymbols)
+            {
+                s_isUpdatingScriptingDefineSymbols = true;
+                EditorApplication.update += DoUpdateScriptingDefineSymbols;
+            }
+        }
+
+        private static bool s_isUpdatingScriptingDefineSymbols = false;
+        private static void DoUpdateScriptingDefineSymbols()
+        {
+            // some symbolRequirement depends on installed packages (only works when UNITY_2018_1_OR_NEWER)
+            Vive.VIUSettingsEditor.PackageManagerHelper.PreparePackageList();
+
+            if (Vive.VIUSettingsEditor.PackageManagerHelper.isPreparingList) { return; }
+
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 try
@@ -332,6 +390,9 @@ namespace HTC.UnityPlugin.VRModuleManagement
             }
 
             SymbolRequirement.ResetFoundTypes();
+
+            s_isUpdatingScriptingDefineSymbols = false;
+            EditorApplication.update -= DoUpdateScriptingDefineSymbols;
         }
 
         private static bool s_delayCallRemoveRegistered;
@@ -346,6 +407,8 @@ namespace HTC.UnityPlugin.VRModuleManagement
 
             foreach (var symbolReq in s_symbolReqList)
             {
+                if (symbolReq == null || symbolReq.reqFileNames == null) { continue; }
+
                 foreach (var reqFileName in symbolReq.reqFileNames)
                 {
                     if (isDir)

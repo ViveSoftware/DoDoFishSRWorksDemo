@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.VRModuleManagement;
 using System.Collections.Generic;
@@ -57,7 +57,9 @@ namespace HTC.UnityPlugin.Vive
 
             UnmappingAll();
 
-            MappingRoleIfUnbound(BodyRole.Head, 0u);
+            if (!VRModule.IsValidDeviceIndex(VRModule.HMD_DEVICE_INDEX)) { return; }
+
+            MappingRoleIfUnbound(BodyRole.Head, VRModule.HMD_DEVICE_INDEX);
 
             // get related poses and record controller/tracker devices
             var hmdPose = VivePose.GetPose(0u);
@@ -67,11 +69,11 @@ namespace HTC.UnityPlugin.Vive
             hmdPose.pos = Vector3.Scale(hmdPose.pos, new Vector3(1f, 0.5f, 1f));
             var halfHeight = hmdPose.pos.y;
             var centerPoseInverse = hmdPose.GetInverse();
-            for (uint i = 1; i < VRModule.MAX_DEVICE_COUNT; ++i)
+            for (uint i = 1, imax = VRModule.GetDeviceStateCount(); i < imax; ++i)
             {
                 if (!IsTrackingDevice(i)) { continue; }
 
-                var relatedCenterPos = centerPoseInverse.InverseTransformPoint(VRModule.GetCurrentDeviceState(i).pose.pos);
+                var relatedCenterPos = centerPoseInverse.TransformPoint(VRModule.GetCurrentDeviceState(i).pose.pos);
                 m_directionPoint[i] = HandRoleHandler.GetDirectionPoint(new Vector2(relatedCenterPos.x, -relatedCenterPos.y));
                 m_distanceSqr[i] = relatedCenterPos.sqrMagnitude / (halfHeight * halfHeight);
 

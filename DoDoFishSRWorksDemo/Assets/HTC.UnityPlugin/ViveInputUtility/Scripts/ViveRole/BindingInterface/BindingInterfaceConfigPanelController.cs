@@ -1,5 +1,6 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
+#pragma warning disable 0649
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace HTC.UnityPlugin.Vive.BindingInterface
                 EventSystem.current.gameObject.AddComponent<StandaloneInputModule>();
             }
 
-            m_pathInfo.text = "The changes will be stored in \"" + VIUSettings.externalCameraConfigFilePath + "\".";
+            m_pathInfo.text = "The changes will be stored in \"" + VIUSettings.bindingConfigFilePath + "\".";
         }
 
         private void OnDisable()

@@ -1,8 +1,11 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+#if VIU_STEAMVR_2_0_0_OR_NEWER
+using Valve.VR;
+#endif
 
 [RequireComponent(typeof(InputField))]
 public class OverlayKeyboardSample : MonoBehaviour

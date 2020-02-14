@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using System;
@@ -24,11 +24,20 @@ namespace HTC.UnityPlugin.PoseTracker
             }
             else if (!modifierSet.Contains(obj))
             {
-                for (int i = modifierSet.Count - 1; i >= 0; --i)
+                // insert obj with right priority order
+                if (obj.priority > modifierSet[modifierSet.Count - 1].priority)
                 {
-                    if (modifierSet[i].priority <= obj.priority)
+                    modifierSet.Add(obj);
+                }
+                else
+                {
+                    for (int i = 0, imax = modifierSet.Count; i < imax; ++i)
                     {
-                        modifierSet.Insert(i + 1, obj);
+                        if (obj.priority <= modifierSet[i].priority)
+                        {
+                            modifierSet.Insert(i, obj);
+                            break;
+                        }
                     }
                 }
             }

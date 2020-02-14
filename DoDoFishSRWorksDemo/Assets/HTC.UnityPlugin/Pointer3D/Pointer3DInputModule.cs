@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using System;
@@ -112,11 +112,6 @@ namespace HTC.UnityPlugin.Pointer3D
                 }
 
                 instance = eventSystem.gameObject.AddComponent<Pointer3DInputModule>();
-            }
-
-            if (Active)
-            {
-                DontDestroyOnLoad(instance.gameObject);
             }
         }
 

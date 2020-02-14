@@ -1,15 +1,18 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Pointer3D;
 using HTC.UnityPlugin.VRModuleManagement;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+#if VIU_STEAMVR_2_0_0_OR_NEWER
+using Valve.VR;
+#endif
 
 namespace HTC.UnityPlugin.Vive
 {
-    [AddComponentMenu("HTC/VIU/Teleportable", 3)]
-    public class Teleportable : MonoBehaviour
+    [AddComponentMenu("VIU/Teleportable", 3)]
+    public class Teleportable : MonoBehaviour, ReticlePoser.IMaterialChanger
         , IPointer3DPressExitHandler
     {
         public enum TeleportButton
@@ -22,15 +25,25 @@ namespace HTC.UnityPlugin.Vive
         public Transform target;  // The actual transfrom that will be moved Ex. CameraRig
         public Transform pivot;  // The actual pivot point that want to be teleported to the pointed location Ex. CameraHead
         public float fadeDuration = 0.3f;
+        [SerializeField]
+        private Material m_reticleMaterial;
 
         public TeleportButton teleportButton = TeleportButton.Pad;
 
         private Coroutine teleportCoroutine;
 
+        public Material reticleMaterial { get { return m_reticleMaterial; } set { m_reticleMaterial = value; } }
+
 #if UNITY_EDITOR
         private void Reset()
         {
             FindTeleportPivotAndTarget();
+
+            var scriptDir = System.IO.Path.GetDirectoryName(UnityEditor.AssetDatabase.GetAssetPath(UnityEditor.MonoScript.FromMonoBehaviour(this)));
+            if (!string.IsNullOrEmpty(scriptDir))
+            {
+                m_reticleMaterial = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(scriptDir.Replace("Scripts/Misc", "Materials/Reticle.mat"));
+            }
         }
 #endif
         private void FindTeleportPivotAndTarget()
@@ -102,7 +115,7 @@ namespace HTC.UnityPlugin.Vive
 
         public IEnumerator StartTeleport(Vector3 position, float duration)
         {
-#if VIU_STEAMVR
+#if VIU_STEAMVR && !VIU_STEAMVR_2_0_0_OR_NEWER
             var halfDuration = Mathf.Max(0f, duration * 0.5f);
 
             if (VRModule.activeModule == VRModuleActiveEnum.SteamVR && !Mathf.Approximately(halfDuration, 0f))

@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
@@ -37,8 +37,8 @@ namespace HTC.UnityPlugin.Vive
 
         // classic buttons
         System = 14,
-        Menu = 4,
-        MenuTouch = 7,
+        Menu = 4, // Cosmos(RightHandB, LeftHandY), Index(B)
+        MenuTouch = 7, // Cosmos(RightHandB, LeftHandY), Index(B)
         Trigger = 0, // on:0.55 off:0.45
         TriggerTouch = 8, // on:0.25 off:0.20
         Pad = 1,
@@ -47,14 +47,20 @@ namespace HTC.UnityPlugin.Vive
         GripTouch = 9,
         CapSenseGrip = 10, // on:1.00 off:0.90 // Knuckles, Oculus Touch only
         CapSenseGripTouch = 11, // on:0.25 off:0.20 // Knuckles, Oculus Touch only
-        AKey = 12, // Oculus Touch only, RightHandA or LeftHandX pressed
-        AKeyTouch = 13, // Oculus Touch only, RightHandA or LeftHandX touched
+        ProximitySensor = 15,
+        Bumper = 16,
+        BumperTouch = 17,
+        AKey = 12, // Knuckles(InnerFaceButton), Oculus Touch(RightHandA or LeftHandX pressed), Cosmos(RightHandA, LeftHandX), Index(A)
+        AKeyTouch = 13, // Knuckles(InnerFaceButton), Oculus Touch(RightHandA or LeftHandX touched), Cosmos(RightHandA, LeftHandX), Index(A)
 
         // button alias
+        BKey = Menu,
+        BkeyTouch = MenuTouch,
         OuterFaceButton = Menu, // 7
         OuterFaceButtonTouch = MenuTouch, // 9
-        InnerFaceButton = Grip, // 2
-        InnerFaceButtonTouch = GripTouch, // 11
+        InnerFaceButton = AKey, // 12
+        InnerFaceButtonTouch = AKeyTouch, // 13
+
         [HideInInspector]
         Axis0 = Pad,
         [HideInInspector]
@@ -62,9 +68,9 @@ namespace HTC.UnityPlugin.Vive
         [HideInInspector]
         Axis2 = CapSenseGrip,
         [HideInInspector]
-        Axis3 = 14,
+        Axis3 = Bumper,
         [HideInInspector]
-        Axis4 = 15,
+        Axis4 = 18,
         [HideInInspector]
         Axis0Touch = PadTouch,
         [HideInInspector]
@@ -72,13 +78,33 @@ namespace HTC.UnityPlugin.Vive
         [HideInInspector]
         Axis2Touch = CapSenseGripTouch,
         [HideInInspector]
-        Axis3Touch = 16,
+        Axis3Touch = BumperTouch,
         [HideInInspector]
-        Axis4Touch = 17,
+        Axis4Touch = 19,
 
         // virtual buttons
         HairTrigger = 5, // Pressed if trigger button is pressing, unpressed if trigger button is releasing
         FullTrigger = 6, // on:1.00 off:1.00
+
+        DPadLeft = 20,
+        DPadUp = 21,
+        DPadRight = 22,
+        DPadDown = 23,
+
+        DPadLeftTouch = 24,
+        DPadUpTouch = 25,
+        DPadRightTouch = 26,
+        DPadDownTouch = 27,
+
+        DPadUpperLeft = 28,
+        DPadUpperRight = 29,
+        DPadLowerRight = 30,
+        DPadLowerLeft = 31,
+
+        DPadUpperLeftTouch = 32,
+        DPadUpperRightTouch = 33,
+        DPadLowerRightTouch = 34,
+        DPadLowerLeftTouch = 35,
     }
 
     public enum ControllerAxis
@@ -92,6 +118,11 @@ namespace HTC.UnityPlugin.Vive
         MiddleCurl, // Knuckles only
         RingCurl, // Knuckles only
         PinkyCurl, // Knuckles only
+        JoystickCap = RingCurl, // Cosmos only
+        TriggerCap = PinkyCurl, // Cosmos only
+
+        JoystickX,
+        JoystickY,
     }
 
     public enum ScrollType
@@ -124,7 +155,7 @@ namespace HTC.UnityPlugin.Vive
         [SerializeField]
         private float m_clickInterval = 0.3f;
         [SerializeField]
-        private bool m_dontDestroyOnLoad = true;
+        private bool m_dontDestroyOnLoad = false;
         [SerializeField]
         private UnityEvent m_onUpdate = new UnityEvent();
 

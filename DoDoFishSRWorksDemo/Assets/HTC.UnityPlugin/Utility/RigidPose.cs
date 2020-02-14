@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using System;
 using UnityEngine;
@@ -144,10 +144,8 @@ namespace HTC.UnityPlugin.Utility
         {
             if (origin != null && origin != target.parent)
             {
-                pose = new RigidPose(origin) * pose;
-                pose.pos.Scale(origin.localScale);
-                target.position = pose.pos;
-                target.rotation = pose.rot;
+                target.position = origin.transform.TransformPoint(pose.pos);
+                target.rotation = origin.rotation * pose.rot;
             }
             else
             {

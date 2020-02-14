@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Utility;
@@ -28,6 +28,14 @@ public class MaterialChanger : MonoBehaviour
     private HashSet<ColliderHoverEventData> hovers = new HashSet<ColliderHoverEventData>();
     private HashSet<ColliderButtonEventData> presses = new HashSet<ColliderButtonEventData>();
     private IndexedSet<ColliderButtonEventData> drags = new IndexedSet<ColliderButtonEventData>();
+
+    public static void SetAllChildrenHeighlightButton(GameObject parent, ColliderButtonEventData.InputButton button)
+    {
+        var matChangers = ListPool<MaterialChanger>.Get();
+        parent.GetComponentsInChildren(matChangers);
+        for (int i = matChangers.Count - 1; i >= 0; --i) { matChangers[i].heighlightButton = button; }
+        ListPool<MaterialChanger>.Release(matChangers);
+    }
 
     private void Start()
     {

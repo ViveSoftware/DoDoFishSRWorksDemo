@@ -1,5 +1,6 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
+#pragma warning disable 0649
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
 using System;
@@ -78,7 +79,7 @@ namespace HTC.UnityPlugin.Vive.BindingInterface
             m_inputDeviceSN.text = string.Empty;
             CheckInputDeviceSN(string.Empty);
 
-            for (uint deviceIndex = 0; deviceIndex < VRModule.MAX_DEVICE_COUNT; ++deviceIndex)
+            for (uint deviceIndex = 0, imax = VRModule.GetDeviceStateCount(); deviceIndex < imax; ++deviceIndex)
             {
                 if (VRModule.GetCurrentDeviceState(deviceIndex).isConnected)
                 {

@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Utility;
@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 namespace HTC.UnityPlugin.Vive
 {
-    [AddComponentMenu("HTC/VIU/Object Grabber/Vive Collider Event Caster (Grabber)", 2)]
+    [AddComponentMenu("VIU/Object Grabber/Vive Collider Event Caster (Grabber)", 2)]
     public class ViveColliderEventCaster : ColliderEventCaster, IViveRoleComponent
     {
         [SerializeField]
@@ -27,7 +27,7 @@ namespace HTC.UnityPlugin.Vive
         [SerializeField]
         [FormerlySerializedAs("m_buttonEvents")]
         [FlagsFromEnum(typeof(ControllerButton))]
-        private uint m_additionalButtons = 0;
+        private ulong m_additionalButtons = 0ul;
         [SerializeField]
         private ScrollType m_scrollType = ScrollType.Auto;
         [SerializeField]
@@ -44,10 +44,10 @@ namespace HTC.UnityPlugin.Vive
 #endif
         protected void FilterOutAssignedButton()
         {
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_buttonTrigger);
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_buttonPadOrStick);
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_buttonFunctionKey);
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_buttonGripOrHandTrigger);
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_buttonTrigger)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_buttonTrigger, false); }
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_buttonPadOrStick)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_buttonPadOrStick, false); }
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_buttonFunctionKey)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_buttonFunctionKey, false); }
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_buttonGripOrHandTrigger)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_buttonGripOrHandTrigger, false); }
         }
 
         protected virtual void Start()

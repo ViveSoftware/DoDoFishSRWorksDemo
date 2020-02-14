@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Pointer3D;
 using HTC.UnityPlugin.Utility;
@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace HTC.UnityPlugin.Vive
 {
-    [AddComponentMenu("HTC/VIU/UI Pointer/Vive Raycaster (VR Controller Input)", 4)]
+    [AddComponentMenu("VIU/UI Pointer/Vive Raycaster (VR Controller Input)", 4)]
     // Customized Pointer3DRaycaster for Vive controllers.
     public class ViveRaycaster : Pointer3DRaycaster, IViveRoleComponent
     {
@@ -29,7 +29,7 @@ namespace HTC.UnityPlugin.Vive
         [SerializeField]
         [FormerlySerializedAs("m_buttonEvents")]
         [FlagsFromEnum(typeof(ControllerButton))]
-        private uint m_additionalButtons = 0;
+        private ulong m_additionalButtons = 0ul;
         [SerializeField]
         private ScrollType m_scrollType = ScrollType.Auto;
         [SerializeField]
@@ -39,7 +39,7 @@ namespace HTC.UnityPlugin.Vive
         public ControllerButton mouseButtonLeft { get { return m_mouseButtonLeft; } }
         public ControllerButton mouseButtonMiddle { get { return m_mouseButtonMiddle; } }
         public ControllerButton mouseButtonRight { get { return m_mouseButtonRight; } }
-        public uint additionalButtonMask { get { return m_additionalButtons; } }
+        public ulong additionalButtonMask { get { return m_additionalButtons; } }
         public ScrollType scrollType { get { return m_scrollType; } set { m_scrollType = value; } }
         public Vector2 scrollDeltaScale { get { return m_scrollDeltaScale; } set { m_scrollDeltaScale = value; } }
 #if UNITY_EDITOR
@@ -52,9 +52,9 @@ namespace HTC.UnityPlugin.Vive
 #endif
         protected void FilterOutAssignedButton()
         {
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_mouseButtonLeft);
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_mouseButtonMiddle);
-            m_additionalButtons = EnumUtils.UnsetFlag(m_additionalButtons, (int)m_mouseButtonRight);
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_mouseButtonLeft)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_mouseButtonLeft, false); }
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_mouseButtonMiddle)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_mouseButtonMiddle, false); }
+            if (EnumUtils.GetFlag(m_additionalButtons, (int)m_mouseButtonRight)) { EnumUtils.SetFlag(ref m_additionalButtons, (int)m_mouseButtonRight, false); }
         }
 
         protected override void Start()

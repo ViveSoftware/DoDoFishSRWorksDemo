@@ -1,5 +1,6 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
+#pragma warning disable 0649
 using HTC.UnityPlugin.VRModuleManagement;
 using System;
 using UnityEngine;
@@ -46,7 +47,7 @@ namespace HTC.UnityPlugin.Vive.BindingInterface
 
         public void UpdateModel()
         {
-            BindingInterfaceSpriteManager.SetupTrackingDeviceIcon(m_imageModel, VRModule.GetCurrentDeviceState(deviceIndex).deviceModel, isBound);
+            BindingInterfaceSpriteManager.SetupTrackingDeviceIcon(m_imageModel, VRModule.GetCurrentDeviceState(deviceIndex), isBound);
         }
 
         public void UpdatePosition()

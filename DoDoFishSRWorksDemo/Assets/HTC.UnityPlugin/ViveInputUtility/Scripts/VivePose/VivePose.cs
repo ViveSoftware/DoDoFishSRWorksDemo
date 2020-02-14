@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
@@ -21,7 +21,7 @@ namespace HTC.UnityPlugin.Vive
         private static IndexedSet<INewPoseListener> s_listeners = new IndexedSet<INewPoseListener>();
 
         [SerializeField]
-        private bool m_dontDestroyOnLoad = true;
+        private bool m_dontDestroyOnLoad = false;
 
         static VivePose()
         {

@@ -1,7 +1,9 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
+using System;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace HTC.UnityPlugin.VRModuleManagement
 {
@@ -9,17 +11,37 @@ namespace HTC.UnityPlugin.VRModuleManagement
     {
         public abstract class ModuleBase
         {
+            [Obsolete("Module should set their own MAX_DEVICE_COUNT, use EnsureDeviceStateLength to set, VRModule.GetDeviceStateCount() to get")]
             protected const uint MAX_DEVICE_COUNT = VRModule.MAX_DEVICE_COUNT;
             protected const uint INVALID_DEVICE_INDEX = VRModule.INVALID_DEVICE_INDEX;
 
             private static readonly Regex s_viveRgx = new Regex("^.*(vive|htc).*$", RegexOptions.IgnoreCase);
+            private static readonly Regex s_viveCosmosRgx = new Regex("^.*(cosmos).*$", RegexOptions.IgnoreCase);
             private static readonly Regex s_oculusRgx = new Regex("^.*(oculus).*$", RegexOptions.IgnoreCase);
-            private static readonly Regex s_knucklesRgx = new Regex("^.*(knuckles).*$", RegexOptions.IgnoreCase);
+            private static readonly Regex s_indexRgx = new Regex("^.*(index|knuckles).*$", RegexOptions.IgnoreCase);
+            private static readonly Regex s_knucklesRgx = new Regex("^.*(knu_ev1).*$", RegexOptions.IgnoreCase);
             private static readonly Regex s_daydreamRgx = new Regex("^.*(daydream).*$", RegexOptions.IgnoreCase);
-            private static readonly Regex s_leftRgx = new Regex("^.*left.*$", RegexOptions.IgnoreCase);
-            private static readonly Regex s_rightRgx = new Regex("^.*right.*$", RegexOptions.IgnoreCase);
+            private static readonly Regex s_wmrRgx = new Regex("^.*(asus|acer|dell|lenovo|hp|samsung|windowsmr).*(mr|$)", RegexOptions.IgnoreCase);
+            private static readonly Regex s_leftRgx = new Regex("^.*(left|(mr|windowsmr)).*$", RegexOptions.IgnoreCase);
+            private static readonly Regex s_rightRgx = new Regex("^.*(right|(mr|windowsmr)).*$", RegexOptions.IgnoreCase);
+
+            public bool isActivated { get; private set; }
+
+            public abstract int moduleIndex { get; }
 
             public virtual bool ShouldActiveModule() { return false; }
+
+            public void Activated()
+            {
+                isActivated = true;
+                OnActivated();
+            }
+
+            public void Deactivated()
+            {
+                isActivated = false;
+                OnDeactivated();
+            }
 
             public virtual void OnActivated() { }
 
@@ -30,16 +52,16 @@ namespace HTC.UnityPlugin.VRModuleManagement
             public virtual uint GetRightControllerDeviceIndex() { return INVALID_DEVICE_INDEX; }
             public virtual void UpdateTrackingSpaceType() { }
             public virtual void Update() { }
+            public virtual void FixedUpdate() { }
+            public virtual void LateUpdate() { }
+            public virtual void BeforeRenderUpdate() { }
 
-            public virtual void UpdateDeviceState(IVRModuleDeviceState[] prevState, IVRModuleDeviceStateRW[] currState)
-            {
-                for (uint i = 0; i < MAX_DEVICE_COUNT; ++i)
-                {
-                    if (prevState[i].isConnected) { currState[i].Reset(); }
-                }
-            }
+            [Obsolete]
+            public virtual void UpdateDeviceState(IVRModuleDeviceState[] prevState, IVRModuleDeviceStateRW[] currState) { }
 
             public virtual void TriggerViveControllerHaptic(uint deviceIndex, ushort durationMicroSec = 500) { }
+
+            public virtual void TriggerHapticVibration(uint deviceIndex, float durationSeconds = 0.01f, float frequency = 85f, float amplitude = 0.125f, float startSecondsFromNow = 0f) { }
 
             protected void InvokeInputFocusEvent(bool value)
             {
@@ -49,6 +71,46 @@ namespace HTC.UnityPlugin.VRModuleManagement
             protected void InvokeControllerRoleChangedEvent()
             {
                 VRModule.InvokeControllerRoleChangedEvent();
+            }
+
+            protected uint GetDeviceStateLength()
+            {
+                return Instance.GetDeviceStateLength();
+            }
+
+            protected void EnsureDeviceStateLength(uint capacity)
+            {
+                Instance.EnsureDeviceStateLength(capacity);
+            }
+
+            protected bool TryGetValidDeviceState(uint index, out IVRModuleDeviceState prevState, out IVRModuleDeviceStateRW currState)
+            {
+                return Instance.TryGetValidDeviceState(index, out prevState, out currState);
+            }
+
+            protected void EnsureValidDeviceState(uint index, out IVRModuleDeviceState prevState, out IVRModuleDeviceStateRW currState)
+            {
+                Instance.EnsureValidDeviceState(index, out prevState, out currState);
+            }
+
+            protected void FlushDeviceState()
+            {
+                Instance.ModuleFlushDeviceState();
+            }
+
+            protected void ProcessConnectedDeviceChanged()
+            {
+                Instance.ModuleConnectedDeviceChanged();
+            }
+
+            protected void ProcessDevicePoseChanged()
+            {
+                InvokeNewPosesEvent();
+            }
+
+            protected void ProcessDeviceInputChanged()
+            {
+                InvokeNewInputEvent();
             }
 
             protected static void SetupKnownDeviceModel(IVRModuleDeviceStateRW deviceState)
@@ -61,7 +123,23 @@ namespace HTC.UnityPlugin.VRModuleManagement
                             deviceState.deviceModel = VRModuleDeviceModel.ViveHMD;
                             return;
                         case VRModuleDeviceClass.Controller:
-                            deviceState.deviceModel = VRModuleDeviceModel.ViveController;
+                            if (s_viveCosmosRgx.IsMatch(deviceState.modelNumber))
+                            {
+                                if (s_leftRgx.IsMatch(deviceState.renderModelName))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.ViveCosmosControllerLeft;
+                                }
+                                else if (s_rightRgx.IsMatch(deviceState.renderModelName))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.ViveCosmosControllerRight;
+                                }
+                                deviceState.input2DType = VRModuleInput2DType.JoystickOnly;
+                            }
+                            else
+                            {
+                                deviceState.deviceModel = VRModuleDeviceModel.ViveController;
+                                deviceState.input2DType = VRModuleInput2DType.TouchpadOnly;
+                            }
                             return;
                         case VRModuleDeviceClass.GenericTracker:
                             deviceState.deviceModel = VRModuleDeviceModel.ViveTracker;
@@ -79,15 +157,41 @@ namespace HTC.UnityPlugin.VRModuleManagement
                             deviceState.deviceModel = VRModuleDeviceModel.OculusHMD;
                             return;
                         case VRModuleDeviceClass.Controller:
-                            if (s_leftRgx.IsMatch(deviceState.modelNumber))
+                            if (Application.platform == RuntimePlatform.Android)
                             {
-                                deviceState.deviceModel = VRModuleDeviceModel.OculusTouchLeft;
-                                return;
+                                if (deviceState.modelNumber.Contains("Go"))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.OculusGoController;
+                                    deviceState.input2DType = VRModuleInput2DType.TouchpadOnly;
+                                    return;
+                                }
+                                else if (s_leftRgx.IsMatch(deviceState.modelNumber))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.OculusQuestControllerLeft;
+                                    deviceState.input2DType = VRModuleInput2DType.JoystickOnly;
+                                    return;
+                                }
+                                else if (s_rightRgx.IsMatch(deviceState.modelNumber))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.OculusQuestControllerRight;
+                                    deviceState.input2DType = VRModuleInput2DType.JoystickOnly;
+                                    return;
+                                }
                             }
-                            else if (s_rightRgx.IsMatch(deviceState.modelNumber))
+                            else
                             {
-                                deviceState.deviceModel = VRModuleDeviceModel.OculusTouchRight;
-                                return;
+                                if (s_leftRgx.IsMatch(deviceState.modelNumber))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.OculusTouchLeft;
+                                    deviceState.input2DType = VRModuleInput2DType.JoystickOnly;
+                                    return;
+                                }
+                                else if (s_rightRgx.IsMatch(deviceState.modelNumber))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.OculusTouchRight;
+                                    deviceState.input2DType = VRModuleInput2DType.JoystickOnly;
+                                    return;
+                                }
                             }
                             break;
                         case VRModuleDeviceClass.TrackingReference:
@@ -95,17 +199,70 @@ namespace HTC.UnityPlugin.VRModuleManagement
                             return;
                     }
                 }
-                else if (deviceState.deviceClass == VRModuleDeviceClass.Controller && s_knucklesRgx.IsMatch(deviceState.modelNumber))
+                else if (s_wmrRgx.IsMatch(deviceState.modelNumber) || s_wmrRgx.IsMatch(deviceState.renderModelName))
                 {
-                    if (s_leftRgx.IsMatch(deviceState.renderModelName))
+                    switch (deviceState.deviceClass)
                     {
-                        deviceState.deviceModel = VRModuleDeviceModel.KnucklesLeft;
-                        return;
+                        case VRModuleDeviceClass.HMD:
+                            deviceState.deviceModel = VRModuleDeviceModel.WMRHMD;
+                            return;
+                        case VRModuleDeviceClass.Controller:
+                            if (s_leftRgx.IsMatch(deviceState.modelNumber) && VRModule.GetLeftControllerDeviceIndex() == deviceState.deviceIndex)
+                            {
+                                deviceState.deviceModel = VRModuleDeviceModel.WMRControllerLeft;
+                                deviceState.input2DType = VRModuleInput2DType.Both;
+                                return;
+                            }
+                            else if (s_rightRgx.IsMatch(deviceState.modelNumber) && VRModule.GetRightControllerDeviceIndex() == deviceState.deviceIndex)
+                            {
+                                deviceState.deviceModel = VRModuleDeviceModel.WMRControllerRight;
+                                deviceState.input2DType = VRModuleInput2DType.Both;
+                                return;
+                            }
+                            break;
                     }
-                    else if (s_rightRgx.IsMatch(deviceState.renderModelName))
+                }
+                else if (s_indexRgx.IsMatch(deviceState.modelNumber) || s_indexRgx.IsMatch(deviceState.renderModelName))
+                {
+                    switch (deviceState.deviceClass)
                     {
-                        deviceState.deviceModel = VRModuleDeviceModel.KnucklesRight;
-                        return;
+                        case VRModuleDeviceClass.HMD:
+                            deviceState.deviceModel = VRModuleDeviceModel.IndexHMD;
+                            return;
+                        case VRModuleDeviceClass.Controller:
+                            deviceState.input2DType = VRModuleInput2DType.TouchpadOnly;
+                            if (s_leftRgx.IsMatch(deviceState.renderModelName))
+                            {
+                                if (s_knucklesRgx.IsMatch(deviceState.renderModelName))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.KnucklesLeft;
+                                }
+                                else
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.IndexControllerLeft;
+#if VIU_STEAMVR_2_0_0_OR_NEWER
+                                    deviceState.input2DType = VRModuleInput2DType.Both;
+#endif
+                                }
+                            }
+                            else if (s_rightRgx.IsMatch(deviceState.renderModelName))
+                            {
+                                if (s_knucklesRgx.IsMatch(deviceState.renderModelName))
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.KnucklesRight;
+                                }
+                                else
+                                {
+                                    deviceState.deviceModel = VRModuleDeviceModel.IndexControllerRight;
+#if VIU_STEAMVR_2_0_0_OR_NEWER
+                                    deviceState.input2DType = VRModuleInput2DType.Both;
+#endif
+                                }
+                            }
+                            return;
+                        case VRModuleDeviceClass.TrackingReference:
+                            deviceState.deviceModel = VRModuleDeviceModel.ViveBaseStation;
+                            return;
                     }
                 }
                 else if (s_daydreamRgx.IsMatch(deviceState.modelNumber))
@@ -117,6 +274,7 @@ namespace HTC.UnityPlugin.VRModuleManagement
                             return;
                         case VRModuleDeviceClass.Controller:
                             deviceState.deviceModel = VRModuleDeviceModel.DaydreamController;
+                            deviceState.input2DType = VRModuleInput2DType.TrackpadOnly;
                             return;
                     }
                 }
@@ -131,6 +289,9 @@ namespace HTC.UnityPlugin.VRModuleManagement
             }
         }
 
-        private sealed class DefaultModule : ModuleBase { }
+        private sealed class DefaultModule : ModuleBase
+        {
+            public override int moduleIndex { get { return (int)VRModuleActiveEnum.None; } }
+        }
     }
 }

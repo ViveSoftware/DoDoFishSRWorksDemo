@@ -1,5 +1,6 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
+#pragma warning disable 0649
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
 using System;
@@ -75,6 +76,7 @@ namespace HTC.UnityPlugin.Vive.BindingInterface
         private void OnDeviceConnected(uint deviceIndex, bool connected)
         {
             RefreshSelectedRoleBindings();
+            RefreshRoleSelection();
         }
 
         public void SetAnimatorSlideLeft()
@@ -208,7 +210,6 @@ namespace HTC.UnityPlugin.Vive.BindingInterface
             }
 
             selectedRoleMap.UnbindDevice(deviceSN);
-
             RefreshRoleSelection();
             RefreshSelectedRoleBindings();
         }

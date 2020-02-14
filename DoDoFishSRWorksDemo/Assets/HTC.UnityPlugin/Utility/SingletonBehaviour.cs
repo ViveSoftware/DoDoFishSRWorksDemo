@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
 using System;
 using UnityEngine;
@@ -18,6 +18,8 @@ namespace HTC.UnityPlugin.Utility
         public static bool Active { get { return !s_isApplicationQuitting && s_instance != null; } }
 
         public bool IsInstance { get { return this == Instance; } }
+
+        protected bool IsApplicationQuitting { get { return s_isApplicationQuitting; } }
 
         public static T Instance
         {
