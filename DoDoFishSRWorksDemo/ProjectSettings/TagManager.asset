@@ -29,7 +29,7 @@ TagManager:
   - GameOverVideo
   - ScanLiveMesh
   - HandTouch
-  - 
+  - RenderPlane (Right)
   - A*Obstacle
   - A*Ground
   - UnityRenderOnTop
@@ -39,11 +39,11 @@ TagManager:
   - MRCollisionFloor
   - WriteDepthL
   - UnityRenderWithDepthNoShadow
-  - 
+  - RenderPlane (Left)
   - DualCamera (Left)
   - DualCamera (Right)
-  - 
-  - 
+  - EyeInfoText
+  - ARCameraCubemap
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 14
+  serializedVersion: 15
   productGUID: 5afc95f3f3c399a48be2955bf8bee655
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -16,7 +16,7 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
-  m_ShowUnitySplashScreen: 0
+  m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
@@ -150,6 +150,7 @@ PlayerSettings:
     oculus:
       sharedDepthBuffer: 0
       dashSupport: 0
+      v2Signing: 0
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   m_ColorGamuts: 00000000
@@ -239,7 +240,7 @@ PlayerSettings:
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
   clonedFromGUID: 00000000000000000000000000000000
-  AndroidTargetDevice: 0
+  AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
@@ -265,7 +266,6 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
-    - Oculus
     - OpenVR
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
@@ -564,7 +564,8 @@ PlayerSettings:
   webGLUseWasm: 0
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
-    1: UNITY;VIU_PLUGIN
+    1: UNITY;VIU_OPENVR_SUPPORT;VIU_OPENVR_API;VIU_STEAMVR;VIU_STEAMVR_1_1_1;VIU_STEAMVR_1_2_0_OR_NEWER;VIU_STEAMVR_1_2_1_OR_NEWER;VIU_STEAMVR_1_2_2_OR_NEWER;VIU_STEAMVR_1_2_3_OR_NEWER;VIU_STEAMVR_2_0_0_OR_NEWER;VIU_STEAMVR_2_1_0_OR_NEWER;VIU_STEAMVR_2_2_0_OR_NEWER;VIU_STEAMVR_2_4_0_OR_NEWER;VIU_PLUGIN
+    7: 
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}

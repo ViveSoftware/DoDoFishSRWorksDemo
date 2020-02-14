@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/CES2018/Scenes/SRWorksDemo.unity
-    guid: 0cb64fcb52e3ee94d9d5371832072116
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/CES2018/Scenes/SRWorksDemoDepth.unity
-    guid: 53bba2005a82f6542b01db8739ea7f10
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/GDC2018/GDCDemo.unity
+    path: Assets/Game/XRDemo.unity
     guid: a4d1618174ecaf44bb4e78dbab0ed346
+  - enabled: 0
+    path: Assets/ViveSR/Scenes/ViveSR_Sample.unity
+    guid: dcc01f74becb9bc4b8bcb422b091dfcf
