@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ARCameraCubemap : MonoBehaviour
 {
+    public enum MapSize
+    {
+        _128 = 128,
+        _256 = 256,
+        _512 = 512,
+    }
+    public MapSize mapSize = MapSize._256;
+
     public Cubemap cubeMap;//serialize for debug
     Camera _camera;
     ReflectionProbe _reflectProb;
@@ -60,10 +68,11 @@ public class ARCameraCubemap : MonoBehaviour
     {
         if (_BlendDest == null)
         {
+            int size = (int)mapSize;
             _BlendDest = new RenderTexture[2];
-            _BlendDest[0] = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
-            _BlendDest[1] = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
-            _BlendFinal = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32);
+            _BlendDest[0] = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32);
+            _BlendDest[1] = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32);
+            _BlendFinal = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32);
 
             currentRatio = 0;
 
