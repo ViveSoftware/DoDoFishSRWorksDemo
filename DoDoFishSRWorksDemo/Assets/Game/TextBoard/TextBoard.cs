@@ -56,7 +56,8 @@ public class TextBoard : MonoBehaviour
         {
             mustMove = false;
             isMoving = true;
-            recPos = VRCamera.forward * lenth;
+            //recPos = VRCamera.forward * lenth;
+            recPos = VRCamera.transform.position + VRCamera.forward * lenth;
             transform.DOMove(recPos, moveSpeed).SetEase(easeType).OnComplete(moveDone);
             /*Vector3 dir = (recPos - VRCamera.position);
             dir.y = 0;
