@@ -16,20 +16,23 @@ https://unity3d.com/get-unity/download/archive
 https://developer.vive.com/resources/knowledgebase/download-vive-srworks-xr-sdk-0-9-0-3-unity-plugin/
 https://developer.vive.com/resources/knowledgebase/download-vive-srworks-xr-sdk-0-9-1-0-unity-plugin/
 
-3. Import TextMesh Pro (unity asset store)
+3.Import Handtracking SDK – 0.9.1(or later)
+https://developer.vive.com/resources/knowledgebase/vive-hand-tracking-sdk/
+
+4. Import TextMesh Pro (unity asset store)
 https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126
 
-4. Import DOTween (HOTween v2) (unity asset store)
+5. Import DOTween (HOTween v2) (unity asset store)
 https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
 
-5. Import SteamVR Plugin (unity asset store)
+6. Import SteamVR Plugin (unity asset store)
 https://assetstore.unity.com/packages/tools/integration/steamvr-plugin-32647
 
-6. Open Assets\Game\XRDemo.unity
+7. Open Assets\Game\XRDemo.unity
 
-7. Restart unity
+8. Restart unity
 
-8. Done
+9. Done
 
 [SRWorks SDK](https://developer.vive.com/resources/knowledgebase/intro-vive-srworks-sdk/)
 
