@@ -28,6 +28,9 @@ public class FishHideNSeekOpenDoorState : IState, FishAIStateManager.IStatePaint
         manager.StartCoroutine(_startWryFace());
 
         GameManager.Instance.PaintGunCanPickUp();
+
+        if (manager.fishAI.gameObject.GetComponent<Rigidbody>() != null)
+            Debug.LogError("[FishHideNSeekOpenDoorState] shouldn't has Rigidbody");
     }
 
     bool isFaceToDone;

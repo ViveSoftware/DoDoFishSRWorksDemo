@@ -1,4 +1,5 @@
 ﻿#define USE_TEXTPRO
+using Demo;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ public class TextBoard : MonoBehaviour
 {
     public float lenth = 1;
     public float scale = 1;
-    public Transform VRCamera;
+    Transform VRCamera { get { return ARRender.Instance.VRCamera().transform; } }
     public int followAngle = 30;
     public Ease easeType = Ease.OutQuart;
     public float moveSpeed = 2;
@@ -20,7 +21,7 @@ public class TextBoard : MonoBehaviour
     public TextMesh textmesh;
 #endif
     void Start()
-    {
+    {        
 //#if USE_TEXTPRO
 //        Canvas.GetDefaultCanvasMaterial().SetInt(
 //     "unity_GUIZTestMode",
@@ -56,7 +57,6 @@ public class TextBoard : MonoBehaviour
         {
             mustMove = false;
             isMoving = true;
-            //recPos = VRCamera.forward * lenth;
             recPos = VRCamera.transform.position + VRCamera.forward * lenth;
             transform.DOMove(recPos, moveSpeed).SetEase(easeType).OnComplete(moveDone);
             /*Vector3 dir = (recPos - VRCamera.position);

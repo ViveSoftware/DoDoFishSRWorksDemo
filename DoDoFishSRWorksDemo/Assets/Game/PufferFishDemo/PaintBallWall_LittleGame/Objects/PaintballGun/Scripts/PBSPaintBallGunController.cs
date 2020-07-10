@@ -266,7 +266,7 @@ namespace PaintVR
         {
             if (ARRender.Instance != null)
             {
-                if (ARRender.Instance.VRCamera.GetComponent<DeferredLightMap>() != null)
+                if (ARRender.Instance.VRCamera().GetComponent<DeferredLightMap>() != null)
                 {
                     bodyMeshRenderer.material.SetColor("_EmissionColor", newColor * 2);
                     bodyMeshRenderer.material.SetColor("_Color", Color.black);

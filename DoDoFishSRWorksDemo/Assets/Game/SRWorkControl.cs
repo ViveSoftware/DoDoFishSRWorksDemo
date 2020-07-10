@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ using Vive.Plugin.SR.Experience;
 public class SRWorkControl : MySingleton<SRWorkControl>
 {
     public ViveSR viveSR;
-    public Transform eye;
+    [HideInInspector] public Transform eye { get { return ARRender.Instance.VRCamera().transform; } }
     public float Near = 0f, Far = 0.63f;
     public bool DebugShow;
     public ViveSR_Experience_StaticMesh viveSR_Experience_StaticMesh;

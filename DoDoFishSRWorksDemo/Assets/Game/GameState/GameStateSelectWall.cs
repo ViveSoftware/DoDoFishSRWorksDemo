@@ -42,14 +42,17 @@ namespace Demo
             if (alreadySelected)
                 return;
             List<SelectWall> wallCandidates = ReconstructManager.Instance.GetWallCandidate();
+            if (wallCandidates == null)
+                return;
 
             HTC.UnityPlugin.Utility.RigidPose rightHandPose = VivePose.GetPose(HandRole.RightHand);
             Matrix4x4 matRot = Matrix4x4.Rotate(rightHandPose.rot);
             Vector3 rightArmPos = rightHandPose.pos;
             Vector3 rightHandDir = matRot.GetColumn(2);
-            RaycastHit hit;
-            int hitLayer = (1 << ARRender.UnityRenderOnTopNoShadowLayer);
-            if (Physics.Raycast(rightArmPos, rightHandDir, out hit, 99999, hitLayer))
+            
+            int hitLayer = 1 << ARRender.UnityRenderOnTopNoShadowLayer;
+            RaycastHit[] hits = Physics.RaycastAll(rightArmPos, rightHandDir, 99999, hitLayer);            
+            foreach(RaycastHit hit in hits)
             {
                 foreach (SelectWall wall in wallCandidates)
                 {

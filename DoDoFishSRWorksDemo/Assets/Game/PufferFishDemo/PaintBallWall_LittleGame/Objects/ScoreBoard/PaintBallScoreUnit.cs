@@ -15,16 +15,17 @@ public class PaintBallScoreUnit : MonoBehaviour
     private float timer;
     // Use this for initialization
 
-    void Start ()
+    void Start()
     {
         textMesh = GetComponent<TextMeshPro>();
         render = GetComponent<Renderer>();
-	}
-	
-	// Update is called once per frame
-	public void UpdateText (int score)
+    }
+
+    // Update is called once per frame
+    public void UpdateText(int score)
     {
-        textMesh.text = score.ToString();
+        if (textMesh != null)
+            textMesh.text = score.ToString();
         timer = 0;
         if (TextAnimIEnumerator == null)
         {
@@ -40,11 +41,13 @@ public class PaintBallScoreUnit : MonoBehaviour
         {
             if (timer < halfDuration)
             {
-                textMesh.fontSize = Mathf.Lerp(minScale, maxScale, timer / halfDuration);
+                if (textMesh != null)
+                    textMesh.fontSize = Mathf.Lerp(minScale, maxScale, timer / halfDuration);
             }
             else
             {
-                textMesh.fontSize = Mathf.Lerp(maxScale, minScale, (timer - halfDuration) / (duration - halfDuration));
+                if (textMesh != null)
+                    textMesh.fontSize = Mathf.Lerp(maxScale, minScale, (timer - halfDuration) / (duration - halfDuration));
             }
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();

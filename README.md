@@ -9,18 +9,16 @@ Unity 2017
 !Note : Require dual camera enable
 
 # Initial steps :
-1. Get the latest unity 2017.4
+1. Get the latest unity 2019.4
 https://unity3d.com/get-unity/download/archive
 
-2. Import VIVE SRWorks SDK – 0.9.1.0
-https://developer.vive.com/resources/knowledgebase/download-vive-srworks-xr-sdk-0-9-0-3-unity-plugin/
-https://developer.vive.com/resources/knowledgebase/download-vive-srworks-xr-sdk-0-9-1-0-unity-plugin/
+2. Import VIVE SRWorks SDK – 0.9.3.0
+https://developer.vive.com/resources/knowledgebase/download-vive-srworks-xr-sdk-0-9-3-0-unity-plugin/
 
-3.Import Handtracking SDK – 0.9.1(or later)
+3.Import Handtracking SDK – 0.9.2(or later)
 https://developer.vive.com/resources/knowledgebase/vive-hand-tracking-sdk/
 
-4. Import TextMesh Pro (unity asset store)
-https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126
+4. Import TextMesh Pro from 'Unity Package Manager'
 
 5. Import DOTween (HOTween v2) (unity asset store)
 https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676

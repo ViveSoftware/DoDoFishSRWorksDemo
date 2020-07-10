@@ -50,6 +50,7 @@ namespace Demo
                 sg.gamma = gamma;
             }
 
+
             //1: select [scan] | [load] ,2:[saving], 3:[loading], 0: select wall done, 4: [scanning], 5: [Select wall]
             if (scanningProgress == 0)
                 return;

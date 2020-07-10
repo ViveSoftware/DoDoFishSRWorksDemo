@@ -14,10 +14,10 @@ namespace PaintVR
 
     public enum GBufferResolution
     {
-        Low = 512,
-        Medium = 1024,
-        High = 2048,
-        VeryHigh = 4096
+        Low = 64,
+        Medium = 128,
+        High = 256,
+        VeryHigh = 256
     }
 
     [System.Serializable]

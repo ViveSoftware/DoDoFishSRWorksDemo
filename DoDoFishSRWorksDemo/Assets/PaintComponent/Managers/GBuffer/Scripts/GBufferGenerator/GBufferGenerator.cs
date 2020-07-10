@@ -160,7 +160,7 @@ namespace PaintVR
 
             // Prepare data for serization.
             GBufferTexData gBuffer = new GBufferTexData();
-            gBuffer.size = GetGBufferSize(gBufferResolution);
+            gBuffer.size = int.Parse(gBufferResolution.ToString()); //GetGBufferSize(gBufferResolution);
             FileUtil.ColorArrayToFloatArray(positionTex.GetPixels(), out gBuffer.positionData);
             FileUtil.ColorArrayToFloatArray(normalTex.GetPixels(), out gBuffer.normalData);
 
@@ -187,22 +187,22 @@ namespace PaintVR
             return true;
         }
 
-        public static int GetGBufferSize(GBufferResolution resolution)
-        {
-            switch (resolution)
-            {
-                case GBufferResolution.Low:
-                    return 512;
-                case GBufferResolution.Medium:
-                    return 1024;
-                case GBufferResolution.High:
-                    return 2048;
-                case GBufferResolution.VeryHigh:
-                    return 4096;
-                default:
-                    return 1024;    
-            }
-        }
+        //public static int GetGBufferSize(GBufferResolution resolution)
+        //{
+        //    switch (resolution)
+        //    {
+        //        case GBufferResolution.Low:
+        //            return 512;
+        //        case GBufferResolution.Medium:
+        //            return 1024;
+        //        case GBufferResolution.High:
+        //            return 2048;
+        //        case GBufferResolution.VeryHigh:
+        //            return 4096;
+        //        default:
+        //            return 1024;    
+        //    }
+        //}
 
         public static RenderTextureFormat GetGBufferFormat(GBufferFormat format)
         {

@@ -8,7 +8,7 @@ public class FishAI : MonoBehaviour
 {
     FishAIStateManager _fishAIStateManager;
 
-    [SerializeField] public Transform PlayerEye;
+    [HideInInspector] public Transform PlayerEye { get { return ARRender.Instance.VRCamera().transform; } }
     [SerializeField] public bool punchTest;
     [SerializeField] public float hideSize = 0.5f;
     [SerializeField] public float fishScale = 0.8f;

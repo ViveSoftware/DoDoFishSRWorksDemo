@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Demo;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,19 +7,19 @@ public class FishEyeController : MonoBehaviour
 {
     public Transform LEyeTrack, REyeTrack, LEyeSubTracker, REyeSubTracker;
     public Transform LEyeBone, REyeBone;
-    public Transform Target;
+    [HideInInspector] public Transform Target;
 
     public Vector3 MaxRotConstraints, MinRotConstraints;
 
     private float LEyeOffset, REyeOffset;
     [SerializeField] private bool _act;
-    void Start ()
+    void Start()
     {
         LEyeOffset = LEyeTrack.transform.localPosition.x;
         REyeOffset = REyeTrack.transform.localPosition.x;
-	}
-	
-	void LateUpdate ()
+    }
+
+    void LateUpdate()
     {
         CalculateEyeDirect();
     }
@@ -34,6 +35,8 @@ public class FishEyeController : MonoBehaviour
 
     private void CalculateEyeDirect()
     {
+        if (Target == null)
+            return;
         if (!_act) return;
 
         float x, y, z;

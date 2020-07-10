@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ARCameraCubemap : MonoBehaviour
 {
-    public enum MapSize
+     public enum MapSize
     {
         _128 = 128,
         _256 = 256,

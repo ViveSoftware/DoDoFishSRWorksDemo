@@ -19,6 +19,7 @@ public class FishAngryState : IState, FishAIStateManager.IStatePunch
 
         manager.fishAI.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         manager.fishAI.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        //manager.fishAI.gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     bool isfaceToDone;
@@ -35,7 +36,7 @@ public class FishAngryState : IState, FishAIStateManager.IStatePunch
 
     public void LeaveState()
     {
-
+        //manager.fishAI.gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public string Name()

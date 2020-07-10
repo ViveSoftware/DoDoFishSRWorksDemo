@@ -8,6 +8,7 @@ namespace Demo
     public class GameStatePufferFish : IState, GameStateManager.IGameStateUpdateRealWorldCameraImage
     {
         GameStateManager manager;
+        GameObject Glove_L, Glove_R;
         public void EnterState(IState oldState, StatePatternBase statePatternBase)
         {
             manager = statePatternBase as GameStateManager;
@@ -27,12 +28,30 @@ namespace Demo
             if (fishHidingWall == null)
                 fishHidingWall = GameManager.Instance.fishAI.transform;
             ARRender.Instance.SetDirectionalLight(fishHidingWall);
+
+            if (!GameManager.Instance.Glove_L.GetComponent<BoneSimilarity>().isWearDone)
+                GameManager.Instance.Glove_L.GetComponent<InitClove>().ReStart = true;
+            if (!GameManager.Instance.Glove_R.GetComponent<BoneSimilarity>().isWearDone)
+                GameManager.Instance.Glove_R.GetComponent<InitClove>().ReStart = true;
+            //GameManager.Instance.Glove_L.SetActive(true);
+            //GameManager.Instance.Glove_R.SetActive(true);
+
+            ViveHandTracking.GestureProvider gp = GameObject.FindObjectOfType<ViveHandTracking.GestureProvider>();
+            gp.enabled = true;
         }
 
         public void LeaveState()
         {
             SRWorkHand.Instance.CloseDetectHand();
             GameManager.Instance.ClosePufferFishDemo();
+
+            GameManager.Instance.Glove_L.GetComponent<BoneSimilarity>().enabled = false;
+            GameManager.Instance.Glove_R.GetComponent<BoneSimilarity>().enabled = false;
+            GameManager.Instance.Glove_L.SetActive(false);
+            GameManager.Instance.Glove_R.SetActive(false);
+
+            ViveHandTracking.GestureProvider gp = GameObject.FindObjectOfType<ViveHandTracking.GestureProvider>();
+            gp.enabled = false;
         }
 
         public string Name()

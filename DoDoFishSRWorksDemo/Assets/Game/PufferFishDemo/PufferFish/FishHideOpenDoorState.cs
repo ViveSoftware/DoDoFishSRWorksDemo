@@ -28,10 +28,15 @@ public class FishHideOpenDoorState : IState
 
         manager.fishAI.StopShakeFishPosScale();
         GameManager.Instance.SetFishToRenderTop();
+
+        manager.fishAI.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        manager.fishAI.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     public void LeaveState()
     {
+        manager.fishAI.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        manager.fishAI.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     public string Name()

@@ -18,10 +18,11 @@ public class GameOverTextUnit : MonoBehaviour
     [SerializeField] private mode playMode = mode.character;
     private TextMeshPro textMesh;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         textMesh = GetComponent<TextMeshPro>();
-        textMesh.text = "";
+        if (textMesh != null)
+            textMesh.text = "";
     }
 
     public void PlayTextAnim()
@@ -42,14 +43,16 @@ public class GameOverTextUnit : MonoBehaviour
 
     public void OnResetEvent()
     {
-        textMesh.text = "";
+        if (textMesh != null)
+            textMesh.text = "";
     }
 
     private IEnumerator PlayCharacterCoroutine()
     {
         for (int i = 0; i < characters.Length; i++)
         {
-            textMesh.text += characters[i];
+            if (textMesh != null)
+                textMesh.text += characters[i];
             yield return new WaitForSeconds(duration / (float)characters.Length);
         }
     }
@@ -61,7 +64,8 @@ public class GameOverTextUnit : MonoBehaviour
         {
             timer += Time.deltaTime;
             float value = Mathf.Lerp(0, floating, timer / duration);
-            textMesh.text = value.ToString("F2");
+            if (textMesh != null)
+                textMesh.text = value.ToString("F2");
             yield return new WaitForEndOfFrame();
         }
     }
@@ -73,7 +77,8 @@ public class GameOverTextUnit : MonoBehaviour
         {
             timer += Time.deltaTime;
             float value = Mathf.Lerp(0, scores, timer / duration);
-            textMesh.text = ((int)value).ToString();
+            if (textMesh != null)
+                textMesh.text = ((int)value).ToString();
             yield return new WaitForEndOfFrame();
         }
     }

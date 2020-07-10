@@ -49,6 +49,9 @@ namespace Demo
         [Header("Fairy Stick----------------------------------------")]
         public Transform FairyStick;
 
+        [Header("Glove----------------------------------------")]
+        public GameObject Glove_L, Glove_R;
+
         GameStateManager _gameStateManager;
 
         void Start()
@@ -213,7 +216,7 @@ namespace Demo
         public void StartFishDemo()
         {
             ShowHitFishInfo();
-            ARRender.Instance.VRCamera.GetComponent<BackGroundSound>().PlaySoundLoop("backGroundSound", 1f);
+            //ARRender.Instance.VRCamera.GetComponent<BackGroundSound>().PlaySoundLoop("backGroundSound", 1f);
             //currentDemoType = DemoType.fish;
             fishAI.gameObject.SetActive(true);
             fishAI.RestartAI();
@@ -263,8 +266,8 @@ namespace Demo
             //currentDemoType = DemoType.robot;
             Robot.gameObject.SetActive(true);
             robotController = Robot.GetComponent<RobotController>();
-            robotController.ShowUp(ARRender.Instance.VRCamera.transform.position, ARRender.Instance.VRCamera.transform.forward);
-            robotController.stallHigh = ARRender.Instance.VRCamera.transform.position.y + 0.5f;
+            robotController.ShowUp(ARRender.Instance.VRCamera().transform.position, ARRender.Instance.VRCamera().transform.forward);
+            robotController.stallHigh = ARRender.Instance.VRCamera().transform.position.y + 0.5f;
 
             ARRender.Instance.SetRobotLightBeam(robotController);
             return robotController;
@@ -382,12 +385,12 @@ namespace Demo
             trackerOfMRWall.position = new Vector3(trackerOfMRWall.position.x, trackerOfMRWall.position.y + offsetH * 0.6f, trackerOfMRWall.position.z);
 
             //set health position
-            Vector3 dir = PaintBallWallGameLocation.position - ARRender.Instance.VRCamera.transform.position;
+            Vector3 dir = PaintBallWallGameLocation.position - ARRender.Instance.VRCamera().transform.position;
             dir.y = 0;
             dir.Normalize();
             // float length = dir.magnitude;
-            trackerOfHealth.position = ARRender.Instance.VRCamera.transform.position + dir * 1f;
-            trackerOfHealth.LookAt(ARRender.Instance.VRCamera.transform, Vector3.up);
+            trackerOfHealth.position = ARRender.Instance.VRCamera().transform.position + dir * 1f;
+            trackerOfHealth.LookAt(ARRender.Instance.VRCamera().transform, Vector3.up);
 
             ARRender.Instance.AddUnityrenderWithDepth(trackerOfHealth);
             if (ARRender.ADVANCE_RENDER)
@@ -410,7 +413,7 @@ namespace Demo
         //In some case, the reconstruct is back face to player, so, we get the negative normal.
         public Vector3 GetFaceToPlayerNormal(Vector3 objPos, Vector3 objNormal)
         {
-            Vector3 dir2Player = ARRender.Instance.VRCamera.transform.position - objPos;
+            Vector3 dir2Player = ARRender.Instance.VRCamera().transform.position - objPos;
             float dotSide = Vector3.Dot(dir2Player, objNormal);
             return objNormal * ((dotSide < 0) ? -1f : 1f);
         }
@@ -448,9 +451,9 @@ namespace Demo
             eyeInfoText.gameObject.SetActive(true);
             eyeInfoText.ShowTextBigToSmaller("<b>Press <color=#FFC000FF>Grip</b>\n<color=white><size=80%>to pick up gun,\n\n<b><size=100%>then <color=#FFC000FF>Trigger</b>\n<color=white><size=80%>to shoot fish"
                 , 999, false, true);
-            ARRender.Instance.VRCamera.GetComponent<BackGroundSound>().PlaySound("gunCanPickUp", 1f);
+            ARRender.Instance.VRCamera().GetComponentInParent<BackGroundSound>().PlaySound("gunCanPickUp", 1f);
 
-            Vector3 position = ARRender.Instance.VRCamera.transform.position + ARRender.Instance.VRCamera.transform.forward * 1f;
+            Vector3 position = ARRender.Instance.VRCamera().transform.position + ARRender.Instance.VRCamera().transform.forward * 1f;
             Quaternion rot = Quaternion.Euler(
                 (float)UnityEngine.Random.Range(0, 360),
                 (float)UnityEngine.Random.Range(0, 360),

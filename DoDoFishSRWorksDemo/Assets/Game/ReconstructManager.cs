@@ -128,7 +128,7 @@ namespace Demo
                 //ignore not face to player
                 Vector3 meshCenter = itr.Current.transform.TransformPoint(_getMeshCenter(itr.Current.sharedMesh));
                 Vector3 faceToNormal = GameManager.Instance.GetFaceToPlayerNormal(meshCenter, AVGNormalWorld);
-                Vector3 dir2Player = ARRender.Instance.VRCamera.transform.position - meshCenter;
+                Vector3 dir2Player = ARRender.Instance.VRCamera().transform.position - meshCenter;
                 angle = Vector3.Angle(dir2Player, faceToNormal);
                 if (angle > 70)
                 {
@@ -172,14 +172,14 @@ namespace Demo
 
             //Get the lowest is the floor and y must -0.5~0.5
             MeshSizeData lowestMesh = null;
-            if (false &&//don't consider via scan data
+            if (reconstructConvexCollidersHorizontal != null &&//don't consider via scan data
                 meshSizeDataList != null)
             {
                 float lowestD = 9999f;
                 for (int a = 0; a < meshSizeDataList.Count; a++)
                 {
-                    if (a >= 3)
-                        break;
+                    //if (a >= 3)
+                    //    break;
                     MeshSizeData current = meshSizeDataList[a];
 
                     if (current.meshCenterWorld.y < lowestD)
@@ -196,6 +196,7 @@ namespace Demo
 
             if (lowestMesh != null)
             {
+                Debug.LogWarning("[reconstructPickFloor] use lowestMesh as floor..." + lowestMesh.colliderMesh.name);
                 GameObject floorConvexObj = SetPivotInMeshCenter(
                     lowestMesh.colliderMesh.transform,
                     lowestMesh.colliderMesh.sharedMesh,
@@ -267,7 +268,8 @@ namespace Demo
                 floorPlaneObjCollider.layer = ARRender.MRCollisionFloorLayer;
                 floorPlaneObjCollider.transform.position = floorPlaneObj.transform.position;
                 floorPlaneObjCollider.transform.rotation = floorPlaneObj.transform.rotation;
-                ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, ARRender.MRCollisionFloorLayer);
+                //ARRender.Instance.VRCamera.cullingMask = MyHelpLayer.RemoveMaskLayer(ARRender.Instance.VRCamera.cullingMask, ARRender.MRCollisionFloorLayer);
+                ARRender.Instance.VRCameraRemoveLayer(ARRender.MRCollisionFloorLayer);
             }
             else
             {
@@ -370,10 +372,13 @@ namespace Demo
 
         static void _getPlanesByMaxArea(List<MeshCollider> getReconColliderList, out List<MeshSizeData> meshSizeDataList, out List<MeshCollider> ignoreList)
         {
-            ignoreList = new List<MeshCollider>();
-            meshSizeDataList = new List<MeshSizeData>();
+            ignoreList = null;
+            meshSizeDataList = null;
             if (getReconColliderList == null)
                 return;
+
+            ignoreList = new List<MeshCollider>();
+            meshSizeDataList = new List<MeshSizeData>();
             List<MeshCollider>.Enumerator itr = getReconColliderList.GetEnumerator();
             while (itr.MoveNext())
             {
@@ -478,6 +483,8 @@ namespace Demo
 
         public List<SelectWall> GetWallCandidate()
         {
+            if (reconstructConvexCollidersVertical == null)
+                return null;
             List<ReconstructManager.MeshSizeData> meshSizeDataList;
             List<MeshCollider> ignoreList;
             _getWallsByMaxArea(reconstructConvexCollidersVertical, out meshSizeDataList, out ignoreList);
